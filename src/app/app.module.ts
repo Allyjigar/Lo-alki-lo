@@ -17,6 +17,10 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { FindProductsComponent } from './pages/find-products/find-products.component';
 import { SubirProductosComponent } from './pages/home/subir-productos/subir-productos.component';
 import { SubirProductoComponent } from './pages/subir-producto/subir-producto.component';
+import { HeaderLayoutComponent } from './layout/header-layout/header-layout.component';
+import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { SubirProductoComponent } from './pages/subir-producto/subir-producto.co
     ChatComponent,
     FindProductsComponent,
     SubirProductosComponent,
-    SubirProductoComponent
+    SubirProductoComponent,
+    HeaderLayoutComponent,
+    ProfileLayoutComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
