@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "Loalkilo"
+  "defaultProject": "Loalkilo",
+  "cli": {
+    "analytics": false
+  }
 }
