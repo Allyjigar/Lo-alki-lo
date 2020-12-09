@@ -1,24 +1,22 @@
 header
 {
     background-color: #fffe91;
-    height: 230px;
+    height: 50%;
 }
 
 #logo
 {
-    width: 480px;
-    height: 160px;
-    margin-top: 30px;
+    width: 25%;
 }
 #buscador_principal
 {
-    width: 500px;
-    height: 40px;
+    width: 30%;
+    height: 42px;
     margin-top: 80px;
-    margin-left: 150px;
+    margin-left: 5%;
     border-radius: 20px;
     border-color: #334257;
-    padding-left: 20px;
+    padding-left: 1%;
     border: none;  
 }
 #buscar
@@ -39,14 +37,14 @@ header
     box-shadow: 0px 1px 3px #334257;
     text-shadow: 1px 1px 3px #334257;
     border: dotted #334257 2px;
-    margin-left: 20px;
+    margin-left: 2.5%;
 }
 #login
 {
     color: #334257;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: right;
-    margin-right: 100px;
+    margin-right: 8%;
 
 }
 #subir_principal
@@ -67,5 +65,5 @@ header
     box-shadow: 0px 1px 3px #334257;
     text-shadow: 1px 1px 3px #334257;
     border: dotted #334257 2px;
-    margin-left: 290px;
+    margin-left: 10%;
 }
