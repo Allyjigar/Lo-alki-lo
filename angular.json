@@ -23,7 +23,11 @@
               "src/favicon.ico",
               "src/assets"
             ],
+<<<<<<< HEAD
             "styles": [
+=======
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css",
+>>>>>>> master
               "src/styles.css"
             ],
             "scripts": [ ]
