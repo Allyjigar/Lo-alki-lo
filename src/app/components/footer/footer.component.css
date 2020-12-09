@@ -1,0 +1,18 @@
+footer{
+    width: 100%;
+    height: 250px;
+    background-color: rgb(112, 112, 112);
+    color: black;
+    margin-top: 0px;
+    text-align: justify;
+}
+footer a {
+    text-decoration: none;
+    color: blue;
+}
+.linkedin{
+    display: grid;
+}
+.agradecimientos{
+    float: right;
+}

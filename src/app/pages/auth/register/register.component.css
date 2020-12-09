@@ -1,0 +1,102 @@
+#cerrar
+{
+    margin-left: 95%;
+    margin-top: 2.5%;
+    color: #334257;
+}
+#logo
+{
+    margin-left: 25%;
+    width: 50%;
+}
+#enviar
+{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center; 
+    height: 3em;
+    width: 20em;
+    font-size: 100%;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;   
+    margin-left: 30%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+
+}
+#usuario
+{
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#usuario_label
+{
+    margin-left: 25%;
+    margin-top: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#email_label
+{
+    margin-left: 25%;
+    margin-top: 2.5%;
+}
+#email
+{
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+#contraseña
+{
+    width: 25em;
+    margin-right: auto;
+    margin-left: auto;
+}
+#contra_label
+{
+    margin-left: 25%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#confir_label
+{
+    margin-left: 25%;
+    margin-top: 2.5%;
+}
+#confir_cont
+{
+    width: 25em;
+    margin-right: auto;
+    margin-left: auto;
+}
+#particular
+{
+    margin-left: 50%;
+}
+#foto_perfil
+{
+    margin-left: 25%;
+}
+#foto
+{
+    width: 25em;
+    margin-left: 25%;
+    margin-top: 1.5%;
+
+}
+#registrado
+{
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+
