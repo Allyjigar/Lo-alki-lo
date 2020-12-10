@@ -1,0 +1,85 @@
+#titulo
+{
+    text-align: center;
+    color: #334257;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+#usuario
+{
+    background-color: #334257;
+    color: #fffe91;
+    width: 30em;
+}
+#mensaje
+{
+    background-color: #334257;
+    color: #fffe91;
+
+}
+#fila2_1
+{
+    height: 500px;
+}
+#fila3_1
+{
+    height: 20px;
+}
+#buscar
+{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    height: 40px;
+    width: 150px;
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+    margin-left: 2.5%;
+    margin-top: 5%;
+}
+#buscador
+{
+    width: 60%;
+    border-color: #334257;
+    border-radius: 60px;
+    padding-left: 3%;
+}
+#texto
+{
+    width: 90%;
+    border-color: #334257;
+    padding-left: 1%;
+    margin-bottom: 2.5%;
+    height: 10%;
+    border-width: 3px;
+    margin-left: 5%;
+}
+#enviar_b
+{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    height: 40px;
+    width: 150px;
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+    margin-left: 38%;
+}
