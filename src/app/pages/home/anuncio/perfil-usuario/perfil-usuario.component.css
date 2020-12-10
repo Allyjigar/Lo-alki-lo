@@ -1,0 +1,79 @@
+#cerrar
+{
+  width: 10%;
+  margin-left: 92%;
+}
+
+#perfil
+{
+  margin-top: 2.5%;
+  margin-left: 7%;
+  width: 150px;
+  height: 150px;
+}
+#nombre
+{
+  margin-left: 4%;
+  color: #334257;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+#estrella1
+{
+  width: 3.5%;
+  margin-left: 7%;
+}
+#estrella2
+{
+  width: 3.5%;
+  
+}
+#estrella3
+{
+  width: 3.5%;
+  
+}
+#estrella4
+{
+  width: 3.5%;
+  
+}
+#estrella5
+{
+  width: 3.5%;
+  
+}
+#part_prof
+{
+  display: inline;
+  margin-left: 10%;
+}
+#contacta
+{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center; 
+    height: 3em;
+    width: 10em;
+    font-size: 100%;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+    margin-left: 7%;
+    margin-top: 1em;
+}
+#otros
+{
+    margin-top: 10%;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    color: #334257;
+}

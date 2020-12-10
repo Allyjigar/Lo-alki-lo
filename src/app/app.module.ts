@@ -18,6 +18,7 @@ import { HeaderLayoutComponent } from './layout/header-layout/header-layout.comp
 import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderLayoutComponent,
     ProfileLayoutComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
