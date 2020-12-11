@@ -19,6 +19,7 @@ import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.c
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
+import { BuscadorComponent } from './pages/home/buscador/buscador.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perf
     ProfileLayoutComponent,
     NavbarComponent,
     SidebarComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
