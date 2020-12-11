@@ -19,7 +19,11 @@ import { ProfileLayoutComponent } from './layout/profile-layout/profile-layout.c
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
+<<<<<<< HEAD
 import { BuscadorComponent } from './pages/home/buscador/buscador.component';
+=======
+import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
+>>>>>>> mauro_perfil
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { BuscadorComponent } from './pages/home/buscador/buscador.component';
     NavbarComponent,
     SidebarComponent,
     PerfilUsuarioComponent,
+<<<<<<< HEAD
     BuscadorComponent
+=======
+    MyProfileComponent
+>>>>>>> mauro_perfil
   ],
   imports: [
     BrowserModule,
