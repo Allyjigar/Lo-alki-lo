@@ -83,3 +83,8 @@
     border: dotted #334257 2px;
     margin-left: 38%;
 }
+.tamaño{
+    width: 70%;
+    float: right;
+    margin-right: 10%;
+}

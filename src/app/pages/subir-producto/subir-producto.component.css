@@ -150,3 +150,30 @@
     
 }
 
+body{
+    margin: 0;
+    padding: 0;
+}
+.menuL{
+    margin-bottom: 10px;
+}
+main{
+    height: 775px;
+    width: 100%;
+    background-color: rgb(232, 231, 231);
+    margin: auto;
+    margin-bottom: 1px;
+    float: right;
+}
+.fotosYboton1{
+    display: block;
+}
+.separador1{
+    height: 20px;
+    clear: both;
+}
+.fotosYboton2{
+    float: right;
+    margin-right: 15%;
+    margin-bottom: 25%;
+}
