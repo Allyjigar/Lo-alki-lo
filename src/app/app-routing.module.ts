@@ -9,6 +9,7 @@ import { AnuncioComponent } from './pages/home/anuncio/anuncio.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyFavoritesComponent } from './pages/profile/my-favorites/my-favorites.component';
 import { MyProductsComponent } from './pages/profile/my-products/my-products.component';
+import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SubirProductoComponent } from './pages/subir-producto/subir-producto.component';
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path:"profileLayout", component: ProfileLayoutComponent},
-  {path: "**", component: HomeComponent}  
+  {path: "myprofile", component: MyProfileComponent},
+  {path: "**", component: HomeComponent}
 ];
 
 @NgModule({
