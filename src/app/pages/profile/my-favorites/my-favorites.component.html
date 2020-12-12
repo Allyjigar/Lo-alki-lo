@@ -10,7 +10,15 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <div class="row" style="margin-top: 20px;">
+  <header>
+    <app-header-layout></app-header-layout>
+</header>
+<main>
+    <aside class="menuL">
+        <app-sidebar></app-sidebar>
+    </aside>
+    <article>
+    <div class="row" style="margin-top: 10px; margin-left: 12%">
       <div class="col 4">
         <div class="card-body">
           <div class="card">
@@ -92,5 +100,14 @@
             </div>
           </div>
         </div>
+      </article>
+    </main>
+    <div class="separador"></div>
+    <hr>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+</body>
+</html>
 
    

@@ -1,13 +1,10 @@
-#cerrar
+body
 {
-    margin-left: 95%;
-    margin-top: 2.5%;
-    color: #334257;
+    background-image: url(/assets/fondo.jpg)
 }
 #logo
 {
-    margin-left: 25%;
-    width: 50%;
+    margin-left: 5%;
 }
 #enviar
 {
@@ -16,8 +13,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center; 
     height: 3em;
-    width: 20em;
-    font-size: 100%;
+    width: 18em;
+    font-size: 15px;
     text-decoration: none;
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
@@ -27,76 +24,86 @@
     box-shadow: 0px 1px 3px #334257;
     text-shadow: 1px 1px 3px #334257;
     border: dotted #334257 2px;   
-    margin-left: 30%;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    margin-left: 26%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 
 }
 #usuario
 {
-    width: 25em;
-    margin-left: auto;
-    margin-right: auto;
-    
-}
-#usuario_label
-{
+    width: 15%;
+    margin-top: 1%;
+    height: 2.5em;
+    font-size: 15px;
+    border: solid;
+    padding-left: 1%;
     margin-left: 25%;
-    margin-top: 5%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-#email_label
-{
-    margin-left: 25%;
-    margin-top: 2.5%;
+    border-radius: 60px;
 }
 #email
 {
-    width: 25em;
-    margin-left: auto;
-    margin-right: auto;
+    width: 15%;
+    margin-top: 1%;
+    height: 2.5em;
+    font-size: 15px;
+    border: solid;
+    padding-left: 1%;
+    margin-left: 25%;
+    border-radius: 60px;
 }
 #contraseña
 {
-    width: 25em;
-    margin-right: auto;
-    margin-left: auto;
-}
-#contra_label
-{
+    width: 15%;
+    margin-top: 1%;
+    height: 2.5em;
+    font-size: 15px;
+    border: solid;
+    padding-left: 1%;
     margin-left: 25%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 60px;
 }
-#confir_label
+#conf_contraseña
 {
+    width: 15%;
+    margin-top: 1%;
+    height: 2.5em;
+    font-size: 15px;
+    border: solid;
+    padding-left: 1%;
     margin-left: 25%;
-    margin-top: 2.5%;
-}
-#confir_cont
-{
-    width: 25em;
-    margin-right: auto;
-    margin-left: auto;
+    border-radius: 60px;
 }
 #particular
 {
-    margin-left: 50%;
+    font-size: 15px;
 }
 #foto_perfil
 {
     margin-left: 25%;
+    font-size: 18px;
+    margin-top: 2%;
+    color: #334257;
+    background-color:#fffe91; 
 }
 #foto
 {
     width: 25em;
     margin-left: 25%;
-    margin-top: 1.5%;
+    margin-top: 1%;
+    font-size: 15px;
+    background-color: #fffe91;
 
 }
-#registrado
+#margen
 {
-    text-align: center;
-    margin-bottom: 10%;
+    margin-top: 50%;
+}
+#registro
+{
+    font-size: 15px;
+    color: #334257;
+    margin-left: 29%;
+    
 }
 
 
