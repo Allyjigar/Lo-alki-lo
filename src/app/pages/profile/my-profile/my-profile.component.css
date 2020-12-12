@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.menuL{
+    margin-bottom: 10px;
+}
+main{
+    height: 775px;
+    width: 100%;
+    background-color: rgb(232, 231, 231);
+    margin: auto;
+    margin-bottom: 1px;
+    float: right;
+}
+article{
+    height: 700px;
+    width: 50%;
+    float: right;
+    margin-right: 20%;
+    background-color: rgb(182, 182, 182);
+    border: solid 0.5px black;
+}
+.contenedor{
+    height: 100%;
+    padding: 10px;
+    background-color: white;
+}
+.contenedor input{
+    margin-bottom: 30px;
+    height: 35px;
+}
+.contenedor select{
+    height: 35px;
+}
+.contenedor label{
+    font-size: 15px;
+    color: #334257;
+}
+#gridCheck{
+    position: relative;
+}
+#checkLabel{
+    position: relative;
+    bottom: 11px;
+    margin-left: 5px;
+}
+.btn{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+    float: right;
+    position: relative;
+    bottom: 40px;
+}

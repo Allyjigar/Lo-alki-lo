@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.menuL{
+    margin-bottom: 10px;
+}
+main{
+    height: 775px;
+    width: 100%;
+    background-color: rgb(232, 231, 231);
+    margin: auto;
+    margin-bottom: 1px;
+    float: right;
+}
+article{
+    height: 700px;
+    width: 50%;
+    float: right;
+    margin-right: 20%;
+    background-color: rgb(255, 255, 255);
+/*    border: solid 0.5px black; */
+}
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }

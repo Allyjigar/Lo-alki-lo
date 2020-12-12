@@ -21,6 +21,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
 import { BuscadorComponent } from './pages/home/buscador/buscador.component';
 import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
+import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MyProfileComponent } from './pages/profile/my-profile/my-profile.compon
     SidebarComponent,
     PerfilUsuarioComponent,
     BuscadorComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    ValoracionesComponent
   ],
   imports: [
     BrowserModule,

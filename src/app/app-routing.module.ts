@@ -11,6 +11,7 @@ import { MyFavoritesComponent } from './pages/profile/my-favorites/my-favorites.
 import { MyProductsComponent } from './pages/profile/my-products/my-products.component';
 import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 import { SubirProductoComponent } from './pages/subir-producto/subir-producto.component';
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path:"profileLayout", component: ProfileLayoutComponent},
   {path: "myprofile", component: MyProfileComponent},
+  {path: "valoraciones", component: ValoracionesComponent},
   {path: "**", component: HomeComponent}
 ];
 
