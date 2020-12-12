@@ -10,39 +10,25 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <div class="modal-dialog modal-lg" style="background-color: #fffe91;">
-        <div>
-            <svg id="cerrar" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-          </div>
-        <div>
-            <img id="logo" src="/assets/logo.jpg">
-        </div>
-        <div class="mb-3">
-            <label id="usuario_label" for="formGroupExampleInput" class="form-label"><b>Usuario</b></label>
-            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-              </svg>
-            <input id="usuario" type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-          </div>
-          <div class="mb-3">
-            <label id="contra_label" for="formGroupExampleInput2" class="form-label"><b>Contraseña </b></label>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-                <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-              </svg>
-            <input id="contraseña" type="password" class="form-control" id="formGroupExampleInput2" placeholder="">
-            </div> 
-          <div>
-              <button id="login" type="submit"><b>Login</b></button>
-              <p id="registro">¿Todavía no tienes una cuenta? Regístrate ahora.</p>
-          </div>
-          <div>
-              <p>&nbsp;</p>
-          </div>
-          
+    <div>
+      <img id="logo" src="/assets/logo.jpg">
     </div>
- 
+    <div>  
+      <label id="usuario_label" for="formGroupExampleInput" class="form-label"></label>
+      <input id="usuario" type="text"placeholder="Usuario">
+    </div>
+    <div>  
+      <label id="contra_label" for="formGroupExampleInput2" class="form-label"></label>
+      <input id="contraseña" type="password"  placeholder="Contraseña">
+        <div>
+          <button id="login" type="submit">Login</button>  
+        </div>
+    </div>
+    <img id="registro" src="/assets/registro.jpg" class="img-fluid" alt="..."> 
+    <div id="margen">
+      &nbsp;
+    </div>
 </body>
 </html>
+         
+ 
