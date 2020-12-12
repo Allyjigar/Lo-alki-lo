@@ -6,6 +6,10 @@
 {	
 	font-family:Arial, Helvetica, sans-serif;
 }
+#laterald
+{
+	width: 400em;
+}
 
 ul, ol {
 	list-style:none;
