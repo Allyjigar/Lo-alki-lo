@@ -47,10 +47,16 @@
     font: bold;
     font-size: 15px;
 }
+.valoracion
+{
+    float:right;
+    font-size: large;
+    border-color: #fffe91;
+}
 .card-text
 {
-    min-height: 155px;
-    max-height:155px;
+    min-height: 150px;
+    max-height:150px;
     font-size: 12px;
     overflow: hidden;}
 #interesa
