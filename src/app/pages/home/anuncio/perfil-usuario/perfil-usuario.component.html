@@ -15,57 +15,73 @@
 <body>
     <header>
         <app-header-layout> </app-header-layout>
-        
+
     </header>
+    <hr>
     <div>
-        <div class="card center-block" style="width: 40rem; border-color: #334257">
+        <div class="card center-block" id="bloque">
             <div class="card-body">
-                <div>
-                    <svg id="cerrar" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x"
-                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                    </svg>
+
+                <div class="row" >
+                    <div class="col-md-2">
+                        <img id="perfil"
+                            src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
+                            alt="..." class="rounded-circle">
+                    </div>
+                    <div class="col-md-6 centro">
+                        <h2 id="nombre"><b>Elena_21</b></h2>
+                        <img id="estrella1" src="/assets/estrella.png">
+                        <img id="estrella2" src="/assets/estrella.png">
+                        <img id="estrella3" src="/assets/estrella.png">
+                        <img id="estrella4" src="/assets/estrella.png">
+                        <img id="estrella5" src="/assets/estrella.png">
+                    </div>
+                    <div class="col-md-4">
+                        <button id="contacta"><b>Contactar</b></button>
+                    </div>
                 </div>
-                <div>
-                    <img id="perfil"
-                        src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
-                        alt="..." class="rounded-circle">
-                    <h2 id="nombre"><b>Elena_21</b></h2>
-                    <h6 id="part_prof">Particular</h6>
-                </div>
-                <button id="contacta"><b>Contacta</b></button>
+
                 <h2 id="otros">Todos los productos de Elena_21</h2>
+                <hr>
                 <div class="card-columns center-block">
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/ps5.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title overflow-hidden">Camara fotos Muestra</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title overflow-hidden">Camara fotos Muestra</h5>
+                                <h5 class="valoracion">★★★★★</h5>
+                                
+
+                            </div>
                             <p class="card-text overflow-hidden">This is a longer casd asd asd as d asd asd asd
                                 sadddddddddddddddd dsa dsa sda ds dsa dsa dsa dsa dsa dsa dsa d sa dsadsa sd asd as da
-                                sd asd a sd as da sd as d as da sd as d asd as d asd a ds asd a sd afs df sf sf a sd ad
-                                a d ad aaasd a sda ds a da d a da f ad a ds as dfs df s fs d ds a d asd a sd asd dsf s
-                                df sfd sd f sd fs df sd f sdf s df sdfs fd ard with supporting text below as a natural
+                                sd
+                                asd a sd as da sd as d as da sd as d asd as d asd a ds asd a sd afs df sf sf a sd ad a d
+                                ad
+                                aaasd a sda ds a da d a da f ad a ds as dfs df s fs d ds a d asd a sd asd dsf s df sfd
+                                sd f
+                                sd fs df sd f sdf s df sdfs fd ard with supporting text below as a natural
                                 lead-in
                                 to
                                 additional content. .</p>
                         </div>
                         <div class="card-footer">
-
                             <small class="text-muted" id="precio">Precio</small>
                             <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px"
                                     viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
                                 </svg><b> Me interesa</b></button>
-
-
-
                         </div>
                     </div>
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/motosierra.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title">Card title that wraps to a new line</h5><h5 class="valoracion">★★★★★</h5>
+                                
+                            </div>
                             <p class="card-text overflow-hidden">This is a longer card with supporting text below as a
                                 natural lead-in to
                                 additional content. This content is a little bit longer.</p>
@@ -83,7 +99,11 @@
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/remachadora.jpg" alt="Card image cap">
                         <div class="card-body ">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title">Card title that wraps to a new line</h5><h5 class="valoracion">★★★★★</h5>
+                                
+                            </div>
                             <p class="card-text overflow-hidden">This is a longer card with supporting text below as a
                                 natural
                                 lead-ins is a longer card with supporting text below as a natural
@@ -104,7 +124,11 @@
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/tractor.jpg" alt="Card image cap">
                         <div class="card-body" style="overflow-y: auto;">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title">Card title that wraps to a new line</h5><h5 class="valoracion">★★★★★</h5>
+                                
+                            </div>
                             <p class="card-text">This is a longer card with supporting text below as a natural
                                 lead-in
                                 to
@@ -122,7 +146,11 @@
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/tractor.jpg" alt="Card image cap">
                         <div class="card-body" style="overflow-y: auto;">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title">Card title that wraps to a new line</h5><h5 class="valoracion">★★★★★</h5>
+                                
+                            </div>
                             <p class="card-text">This is a longer card with supporting text below as a natural
                                 lead-in
                                 to
@@ -140,7 +168,11 @@
                     <div class="card card-custom">
                         <img class="card-img-top" src="/assets/ps5.jpg" alt="Card image cap">
                         <div class="card-body" style="overflow-y: auto">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <div class="tituloanuncio">
+
+                                <h5 class="card-title">Card title that wraps to a new line</h5><h5 class="valoracion">★★★★★</h5>
+                               
+                            </div>
                             <p class="card-text">This is a longer card with supporting text below as a natural
                                 lead-in
                                 to

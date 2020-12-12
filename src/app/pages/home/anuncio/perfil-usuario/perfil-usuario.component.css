@@ -19,29 +19,41 @@
   display: inline;
 
 }
+#bloque
+{
+  width: 120rem;
+  box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom {
+  overflow: hidden;
+  min-height: 460px;
+  max-height: 460px;
+  
+}
 #estrella1
 {
-  width: 3.5%;
-  margin-left: 7%;
+  width: 3%;
+  margin-left: 15%;
 }
 #estrella2
 {
-  width: 3.5%;
+  width: 3%;
   
 }
 #estrella3
 {
-  width: 3.5%;
+  width: 3%;
   
 }
 #estrella4
 {
-  width: 3.5%;
+  width: 3%;
   
 }
 #estrella5
 {
-  width: 3.5%;
+  width: 3%;
   
 }
 #part_prof
@@ -55,9 +67,9 @@
     color: #fffe91;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center; 
-    height: 3em;
-    width: 10em;
-    font-size: 100%;
+    height: 6rem;
+    width: 15rem;
+    font-size: 150%;
     text-decoration: none;
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
@@ -67,7 +79,7 @@
     box-shadow: 0px 1px 3px #334257;
     text-shadow: 1px 1px 3px #334257;
     border: dotted #334257 2px;
-    margin-left: 7%;
+    margin-left: 30%;
     margin-top: 1em;
 }
 #otros
@@ -87,12 +99,7 @@
 {
     max-height: 50rem;
 }
-.card-custom {
-    overflow: hidden;
-    min-height: 450px;
-    max-height: 450px;
-    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
-  }
+
 .card-img-top {
     height: 200px;
     min-height: 200px;
@@ -130,8 +137,8 @@
 }
 .card-text
 {
-    min-height: 155px;
-    max-height:155px;
+    min-height: 150px;
+    max-height:150px;
     font-size: 12px;
     overflow: hidden;}
 #interesa
@@ -140,7 +147,7 @@
     color: #fffe91;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center; 
-    height: 3rem;
+    height: 2.5rem;
     width: 10rem;
     font-size: 10px;
     text-decoration: none;
@@ -173,11 +180,12 @@
     font-size: larger;
     color: #334257;
 }
+.centro
+{margin-top: auto;}
 
-
-.precio
+#precio
 {
-    font-size: large;
+    font-size: 12px;
 }
 header
 {
