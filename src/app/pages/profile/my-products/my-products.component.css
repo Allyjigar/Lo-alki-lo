@@ -59,7 +59,7 @@ article{
     color:  #334257;
 }
 .tarjetas{
-    margin: 10%;
+    margin: 0%;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto auto auto;
@@ -113,3 +113,40 @@ article{
     max-width: 25rem;
     max-height: 25rem;
 }
+/* Valoraciones :*/
+
+#form {
+    width: 250px;
+    margin: 0px;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    float: right;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
