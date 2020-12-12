@@ -10,6 +10,10 @@
     <script src='main.js'></script>
 </head>
 <body>
+  <header>
+    <app-header-layout> </app-header-layout>
+    <router-outlet></router-outlet>
+  </header>
     <div class="modal-dialog modal-lg">
         <div class="card" style="width: 40rem; border-color: #334257">
           <div class="card-body">
@@ -19,12 +23,121 @@
               </svg>
             </div>
             <div>
-              <img id="perfil" src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" alt="..." class="rounded-circle">
+              <img id="perfil"  src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" alt="..." class="rounded-circle">
               <h2 id="nombre"><b>Elena_21</b></h2>
               <h6 id="part_prof">Particular</h6>
             </div>
             <button id="contacta"><b>Contacta</b></button>
             <h2 id="otros">Todos los productos de Elena_21</h2>
+            <div class="card-columns center-block">
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/ps5.jpg" alt="Card image cap">
+                  <div class="card-body" >
+                      <h5 class="card-title overflow-hidden">Camara fotos Muestra</h5>
+                      <p class="card-text overflow-hidden">This is a longer casd asd asd as d asd asd asd sadddddddddddddddd dsa dsa sda ds dsa dsa dsa dsa dsa dsa dsa d sa dsadsa sd asd as da sd asd a sd as da sd as d as da sd as d asd as d asd a ds asd a sd afs df sf sf a sd ad a d ad aaasd a sda ds a da d a da f ad a ds as dfs df s fs d ds a d asd a sd asd dsf s df sfd sd f sd fs df sd f sdf s df sdfs fd ard with supporting text below as a natural
+                          lead-in
+                          to
+                          additional content. .</p>
+                  </div>
+                  <div class="card-footer">
+
+                      <small class="text-muted" id="precio">Precio</small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+                          
+
+
+                  </div>
+              </div>
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/motosierra.jpg" alt="Card image cap">
+                  <div class="card-body" >
+                      <h5 class="card-title">Card title that wraps to a new line</h5>
+                      <p class="card-text overflow-hidden">This is a longer card with supporting text below as a
+                          natural lead-in to
+                          additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-footer ">
+                      <small class="text-muted" id="precio">Precio</small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+
+
+                  </div>
+              </div>
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/remachadora.jpg" alt="Card image cap">
+                  <div class="card-body ">
+                      <h5 class="card-title">Card title that wraps to a new line</h5>
+                      <p class="card-text overflow-hidden">This is a longer card with supporting text below as a natural
+                          lead-ins is a longer card with supporting text below as a natural
+                          lead-in
+                          to
+                          to
+                          additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-muted" id="precio">Precio</small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+
+                  </div>
+              </div>
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/tractor.jpg" alt="Card image cap">
+                  <div class="card-body" style="overflow-y: auto;">
+                      <h5 class="card-title">Card title that wraps to a new line</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural
+                          lead-in
+                          to
+                          additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-muted" id="precio">Precio</small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+
+                  </div>
+              </div>
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/tractor.jpg" alt="Card image cap">
+                  <div class="card-body" style="overflow-y: auto;">
+                      <h5 class="card-title">Card title that wraps to a new line</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural
+                          lead-in
+                          to
+                          additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-muted" id="precio">Precio </small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+
+                  </div>
+              </div>
+              <div class="card card-custom">
+                  <img class="card-img-top" src="/assets/ps5.jpg" alt="Card image cap">
+                  <div class="card-body" style="overflow-y: auto">
+                      <h5 class="card-title">Card title that wraps to a new line</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural
+                          lead-in
+                          to
+                          additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-muted" id="precio">Precio</small>
+                      <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px" viewBox="0 0 16 16" class="bi bi-plus"
+                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
+
+                  </div>
+              </div>
+          </div>
           </div> 
           
         </div>

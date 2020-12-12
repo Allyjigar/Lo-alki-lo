@@ -6,13 +6,25 @@
 {
     max-height: 50rem;
 }
-.card
-{
-    min-height: 25rem;
-    min-width: 25rem;
-    max-width: 25rem;
-    max-height: 25rem;
-}
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    max-height: 450px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+  }
+.card-img-top {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+  .descripcion
+  {
+      font-size: large;
+      text-transform: clip;
+  }
 .page-header
 {
     margin-top: 2rem;
@@ -28,9 +40,19 @@
 .card-body
 {
     color: #334257;
-    margin-left: 1rem;
+    
 }
-
+.card-title
+{
+    font: bold;
+    font-size: 15px;
+}
+.card-text
+{
+    min-height: 155px;
+    max-height:155px;
+    font-size: 12px;
+    overflow: hidden;}
 #interesa
 {
     background-color: #334257;
@@ -39,7 +61,7 @@
     text-align: center; 
     height: 3rem;
     width: 10rem;
-    font-size: 12px;
+    font-size: 10px;
     text-decoration: none;
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
@@ -77,7 +99,10 @@
 }
 
 
-
+.precio
+{
+    font-size: large;
+}
 header
 {
     background-color: #fffe91;
