@@ -11,14 +11,13 @@
     <script src='main.js'></script>
 </head>
 <body>
-  <div class="modal-dialog modal-lg">
-    <div class="card" style="width: 40rem; border-color: #334257">
+  <header>
+    <app-header-layout></app-header-layout>
+  </header>
+  <div >
+    <div class="card center-block" style="width: 40rem; border-color: #334257">
       <div class="card-body">
-        <div>
-          <svg id="cerrar" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-          </svg>
-        </div>
+        
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -59,8 +58,8 @@
         </div>
       </div>
         <div>
-          <img id="perfil" src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" alt="..." class="rounded-circle">
-          <h5 id="nombre">Elena_21</h5>
+          <img routerLink= "/perfilvendedor" id="perfil" src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" alt="..." class="rounded-circle">
+          <h5 routerLink= "/perfilvendedor" id="nombre">Elena_21</h5>
         </div>
 
         </div>
