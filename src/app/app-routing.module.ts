@@ -6,12 +6,14 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { AnuncioComponent } from './pages/home/anuncio/anuncio.component';
+import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyFavoritesComponent } from './pages/profile/my-favorites/my-favorites.component';
 import { MyProductsComponent } from './pages/profile/my-products/my-products.component';
 import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SubirProductoComponent } from './pages/subir-producto/subir-producto.component';
+
 
 const routes: Routes = [
   {path: "myfavorites", component: MyFavoritesComponent},
@@ -20,13 +22,15 @@ const routes: Routes = [
   {path: "anuncio", component: AnuncioComponent},
   {path: "home", component: HomeComponent},
   {path: "profile", component: ProfileComponent},
-  {path: "chat", component: ChatComponent},
+  {path: "chat", component: ChatComponent}, 
+  {path: "perfilvendedor", component: PerfilUsuarioComponent},
   {path: "auth", component: AuthComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path:"profileLayout", component: ProfileLayoutComponent},
   {path: "myprofile", component: MyProfileComponent},
   {path: "**", component: HomeComponent}
+ 
 ];
 
 @NgModule({
