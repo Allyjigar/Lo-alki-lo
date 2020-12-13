@@ -7,6 +7,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { AnuncioComponent } from './pages/home/anuncio/anuncio.component';
 import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perfil-usuario.component';
+import { BuscadorComponent } from './pages/home/buscador/buscador.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyFavoritesComponent } from './pages/profile/my-favorites/my-favorites.component';
 import { MyProductsComponent } from './pages/profile/my-products/my-products.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:"profileLayout", component: ProfileLayoutComponent},
   {path: "myprofile", component: MyProfileComponent},
   {path: "valoraciones", component: ValoracionesComponent},
+  {path: "buscador", component: BuscadorComponent},
   {path: "**", component: HomeComponent}
  
 ];

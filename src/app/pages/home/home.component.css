@@ -89,7 +89,10 @@
     
     margin-bottom: 4rem;
 }
-
+.page-header{
+    text-decoration: none;
+    color: black;
+}
 .next
 {
     float: right;

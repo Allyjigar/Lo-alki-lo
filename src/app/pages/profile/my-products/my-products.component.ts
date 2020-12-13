@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyProductsComponent implements OnInit {
   public isHidden: boolean = true;
-  public isHidden2: boolean = false;
+  public isHidden2: boolean = true;
   constructor() { }
   mostrarMisProductos() {
     if (this.isHidden == true) {

@@ -6,25 +6,27 @@ body{
     margin-bottom: 10px;
 }
 main{
-    height: 775px;
+    min-height: 700px;
     width: 100%;
-    background-color: rgb(232, 231, 231);
+    background-color: rgb(255, 255, 255);
     margin: auto;
     margin-bottom: 1px;
     float: right;
 }
 article{
-    height: 700px;
+
     width: 50%;
     float: right;
     margin-right: 20%;
-    background-color: rgb(182, 182, 182);
-    border: solid 0.5px black;
+    background-color: rgb(255, 255, 255);
+
 }
 .contenedor{
     height: 100%;
     padding: 10px;
     background-color: white;
+    border: solid 0.5px rgb(223, 223, 223);
+    border-radius: 15px;
 }
 .contenedor input{
     margin-bottom: 30px;
@@ -36,6 +38,17 @@ article{
 .contenedor label{
     font-size: 15px;
     color: #334257;
+}
+.subiFoto{
+    height: 50px;
+    width: 100%;
+}
+#foto1{
+    float: left;
+}
+#foto_1{
+    float: right;
+    margin-right: 60%;
 }
 #gridCheck{
     position: relative;
@@ -64,5 +77,5 @@ article{
     border: dotted #334257 2px;
     float: right;
     position: relative;
-    bottom: 40px;
+    bottom: 80px;
 }
