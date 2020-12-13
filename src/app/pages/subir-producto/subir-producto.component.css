@@ -9,15 +9,7 @@
     margin-left: 25%;
     width: 50%;
 }
-/*
-article{
-    height: 100%;
-    width: 50%;
-    float: right;
-    margin-right: 20%;
-    background-color: rgb(182, 182, 182);
-    border: solid 0.5px black;
-} */
+
 .modal-dialog{
     height: 100%;
     margin-top: 0%;
@@ -58,6 +50,7 @@ article{
     color: #334257;
     text-align: left;
 }
+
 #descripcion_input
 {
     width: 25em;
@@ -120,24 +113,16 @@ article{
     grid-template-columns: 0fr 1fr;
     grid-template-rows: 0fr 0fr; 
 }
-body{
-    margin: 0;
-    padding: 0;
-}
-.menuL{
-    margin-bottom: 10px;
+.card{
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 15px;
 }
 main{
     height: 775px;
     width: 100%;
-    background-color: rgb(232, 231, 231);
     margin: auto;
     margin-bottom: 1px;
     float: right;
-}
-.separador1{
-    height: 20px;
-    clear: both;
 }
 
 .btn{

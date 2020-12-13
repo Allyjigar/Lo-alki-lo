@@ -20,11 +20,11 @@
     background-position: center;
     border-color: inherit;
   }
-  .descripcion
-  {
-      font-size: large;
-      text-transform: clip;
-  }
+.descripcion
+{
+    font-size: large;
+    text-transform: clip;
+}
 .page-header
 {
     margin-top: 2rem;
@@ -89,7 +89,10 @@
     
     margin-bottom: 4rem;
 }
-
+.page-header{
+    text-decoration: none;
+    color: black;
+}
 .next
 {
     float: right;
