@@ -61,10 +61,12 @@ app.post("/user/register", function(request, response) {
         };
     });
 });
-/*app.post("/user/login", function(request, response) {
-    let params = new Array (String(request.body.name), String(request.body.password));   EL LOGIN NO TENDRÍA QUE SER GET EN VEZ DE POST??
-    let sql = ""
-})*/
+
+app.post("/user/login", function(request, response) {
+    let params = new Array (String(request.body.nickname), String(request.body.password));  
+    let sql = "SELECT * FROM user WHERE nickname "
+})
+
 app.put("/user", function(request, response) {
     let id = String(request.query.id);
     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
