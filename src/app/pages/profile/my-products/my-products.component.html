@@ -21,9 +21,18 @@
         </aside>
         <article>
             <div class="contenedor">
+              <div class="row">
+                <div class="col-md-4">
                 <button type="button" id="misProductos" (click)="mostrarMisProductos()" class="btn btn-lg btn-block">Mis Productos</button>
+              </div>
+              <div class="col-md-4">
                 <button type="button" class="btn btn-lg btn-block" id="alquilados" (click)="mostrarOtrosProductos()">Productos Alquilados</button>
-                <hr>
+              </div>
+              <div class="col-md-4">
+                <button type="button " class="btn btn-lg btn-block" id="peticiones" (click)="mostrarPeticiones()">Peticiones de alquiler</button>
+              </div>
+            </div>
+              <hr>
             </div>
             <div class="tarjetas" [hidden]="isHidden">
                     <div class="col 4">
