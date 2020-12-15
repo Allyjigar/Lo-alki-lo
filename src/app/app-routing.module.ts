@@ -34,7 +34,6 @@ const routes: Routes = [
   {path: "valoraciones", component: ValoracionesComponent},
   {path: "buscador", component: BuscadorComponent},
   {path: "**", component: HomeComponent}
- 
 ];
 
 @NgModule({

@@ -22,7 +22,7 @@ import { PerfilUsuarioComponent } from './pages/home/anuncio/perfil-usuario/perf
 import { BuscadorComponent } from './pages/home/buscador/buscador.component';
 import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
 import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
