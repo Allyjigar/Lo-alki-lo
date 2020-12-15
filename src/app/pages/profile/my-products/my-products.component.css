@@ -18,7 +18,7 @@ article{
     height: 100%;
     width: 80%;
     float: right;
-    margin-left: 10%;
+    margin-left: 6%;
     margin-right: 2%;
     background-color: rgb(255, 255, 255);
 
@@ -54,6 +54,24 @@ article{
     box-shadow: 0px 1px 3px #334257;
     text-shadow: 1px 1px 3px #334257;
     border: dotted #334257 2px;
+}
+#peticiones
+{
+  background-color:#334257;
+  color: #fffe91;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+
 }
 .active{
     background-color: #fffe91;
