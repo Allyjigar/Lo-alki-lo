@@ -29,7 +29,7 @@ function checkRespuesta(err, result) {
     }
 };
 app.get("/", function(request, response) {
-    let respuesta = {error : false, codigo : 200, mensaje : "Prueba de conexión"};
+    let respuesta = {error : false, codigo : 200, mensaje : "Home"};
     response.send(respuesta);
 });
 /*Usuario: */
@@ -49,8 +49,8 @@ app.get("/users", function(request, response) {
 });
 app.post("/users/register", function(request, response) {
     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
-    String(request.body.dirección),String(request.body.ciudad),String(request.body.cp),String(request.body.foto));
-    let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    String(request.body.dirección),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname));
+    let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -62,8 +62,8 @@ app.post("/users/register", function(request, response) {
     });
 });
 app.post("/users/login", function(request, response) {
-    let params = new Array (String(request.body.name), String(request.body.password));  
-    let sql = "SELECT * FROM user WHERE name = ? AND password = ?";
+    let params = new Array (String(request.body.nickname), String(request.body.password));  
+    let sql = "SELECT * FROM user WHERE nickname = ? AND password = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -77,8 +77,9 @@ app.post("/users/login", function(request, response) {
 app.put("/users", function(request, response) {
     let id = String(request.body.id);
     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
-    String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto), id);
-    let sql = "UPDATE user SET name = ?, password = ?, email = ?, direccion = ?, ciudad = ?, cp = ?, foto = ? WHERE user_id = ?"
+    String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto)
+    ,String(request.body.nickname), id);
+    let sql = "UPDATE user SET name = ?, password = ?, email = ?, direccion = ?, ciudad = ?, cp = ?, foto = ?, nickname = ? WHERE user_id = ?"
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -89,7 +90,7 @@ app.put("/users", function(request, response) {
         };
     });
 });
-/*Endpoints checkeados. Sólo falta probar con nickname y corregir los params */
+/*Checkeado*/
 
 
 /* Buscador */
@@ -202,7 +203,7 @@ app.post("/chat", function(request, response) {
         };
     });
 });
-/*Post bien, get me devuelve vacío */
+/*Checkeados y ya en servicio */
 
 
 /*Mensajes: */
@@ -233,12 +234,13 @@ app.post("/mensajes", function(request, response) {
         };
     });
 });
+/*Checkeado */
 
 /*Favoritos: */
 app.get("/favoritos", function(request, response) {
     let id = String(request.query.id);
     let params = new Array (id);
-    let sql = "SELECT * FROM product-favourites WHERE favourites_id = ?";
+    let sql = "SELECT * FROM favourites WHERE favourites_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -250,8 +252,8 @@ app.get("/favoritos", function(request, response) {
     });
 })
 app.post("/favoritos", function(request, response) {
-    let params = new Array (String(request.body.user_id), String(request.body.product_id));
-    let sql = "INSERT INTO product-favourites (user_id, product_id) VALUES (?, ?)";
+    let params = new Array (String(request.body.user_id), String(request.body.product_id), String(request.body.favorito));
+    let sql = "INSERT INTO favourites (user_id, product_id, favorito) VALUES (?, ?, ?)";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -262,11 +264,20 @@ app.post("/favoritos", function(request, response) {
         };
     });
 });
-/* Falta un valor booleano en la base de datos
 app.put("/favoritos", function(request, response) {
-    let params = new Array (String(request.body.user_id), String(request.body.product_id));
-    let sql = "UPDATE product-favourites SET PROD"
-});*/
+    let params = new Array (String(request.body.favorito), String(request.body.user_id), String(request.body.product_id));
+    let sql = "UPDATE favourites SET favorito = ? WHERE user_id = ? AND product_id = ?";
+    connection.query(sql, params, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Favoritos modificado");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+/*Checkeado */
 
 /*Renting: */
 app.get("/products/ad", function(request, response) {
@@ -284,7 +295,6 @@ app.get("/products/ad", function(request, response) {
         };
     });
 });
-/* GET Me devuelve vacío */
 app.post("/products/ad", function(request, response) {
     let params = new Array (String(request.body.duration), String(request.body.date), String(request.body.product_id), 
     String(request.body.user_id), String(request.body.alquilado), String(request.body.valorado));
@@ -312,6 +322,8 @@ app.put("/products/ad", function(request, response) {
         };
     });
 });
+/*Checkeado*/
+
 
 
 
