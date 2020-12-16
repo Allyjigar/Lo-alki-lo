@@ -23,6 +23,7 @@ import { BuscadorComponent } from './pages/home/buscador/buscador.component';
 import { MyProfileComponent } from './pages/profile/my-profile/my-profile.component';
 import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

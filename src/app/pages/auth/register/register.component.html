@@ -13,31 +13,53 @@
   <div>
     <img id="logo" src="/assets/logo.jpg" routerLink="/home">
   </div>
+  
+  <form #userForm="ngForm">
   <div>  
-    <label id="usuario_label" for="formGroupExampleInput" class="form-label"></label>
-    <input id="usuario" type="text"placeholder="Usuario">
+    <label id="usuario_label"></label>
+    <input id="usuario" type="text" placeholder="Usuario" name="nickname" class="form-control" [(ngModel)]="user.nickname" #nickname="ngModel"
+    [ngClass]="{'is-invalid': userForm.submitted && nickname.invalid }" nickname required>
+    <div *ngIf="userForm.submitted && nickname.invalid" class="invalid-feddback">
+      <div *ngIf="nickname.errors.required" style="margin-left: 26%; font-size: 13px;">El nombre de usuario es obligatorio</div>
+    </div>
   </div>
   <div>  
-    <label id="contra_label" for="formGroupExampleInput2" class="form-label"></label>
-    <input id="email" type="password"  placeholder="Email">
+    <label id="contra_label"></label>
+    <input id="email" type="email"  placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email" #email="ngModel" 
+    [ngClass]="{'is-invalid': userForm.submitted && email.invalid }" email required>
+    <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+      <div *ngIf="email.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La dirección de email es obligatoria</div>
+      <div *ngIf="email.errors.email" style="margin-left: 26%; font-size: 13px; color: black">La dirección de email es incorrecta</div>
+    </div>
   </div> 
   <div>  
-    <label id="usuario_label" for="formGroupExampleInput" class="form-label"></label>
-    <input id="contraseña" type="text"placeholder="Contraseña">
-  </div>
+    <label id="usuario_label"></label>
+    <input id="contraseña" type="password" placeholder="Contraseña" name="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
+    [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" minlength="6" required>
+    <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+      <div *ngIf="password.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La contraseña es obligatoria</div>
+      <div *ngIf="password.errors.minlength" style="margin-left: 26%; font-size: 13px; color: black">La contraseña debe tener al menos 6 caracteres</div>
+    </div>  
+  </div> 
   <div>  
-    <label id="contra_label" for="formGroupExampleInput2" class="form-label"></label>
-    <input id="conf_contraseña" type="password"  placeholder="Confirmar contraseña">
+    <label id="contra_label"></label>
+    <input id="conf_contraseña" type="password" placeholder="Confirmar contraseña" name="repassword" class="form-control" 
+    [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" required>
+    <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+      <div *ngIf="password.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La contraseña es obligatoria</div>
+      <div *ngIf="password.errors.minlength" style="margin-left: 26%; font-size: 13px; color: black">La contraseña debe tener al menos 6 caracteres</div>
+    </div>  
   </div>
   <div>
-    <label id="foto_perfil" for="formGroupExampleInput2" class="form-label"><b>Foto de perfil</b></label>
+    <label id="foto_perfil"><b>Foto de perfil</b></label>
   </div>
   <div>
-    <input id="foto" type="file">
+    <input id="foto" type="file" name="foto" [(ngModel)]="user.foto" #foto="ngModel">
   </div>
     <div>
-      <button id="enviar" type="submit"><b>Enviar</b></button>
+      <button id="enviar" type="submit" on-click="insertarUsuario(nickname, email, password, foto)"><b>Enviar</b></button>
     </div>
+  </form>
     <div>
       <p id="registro" routerLink="/login"><b>¿Ya estás registrado?</b></p>
     </div>
