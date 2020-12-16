@@ -1,15 +1,3 @@
-#cerrar
-{
-    margin-left: 95%;
-    margin-top: 2.5%;
-    color: #334257;
-}
-#logo
-{
-    margin-left: 25%;
-    width: 50%;
-}
-
 .modal-dialog{
     height: 100%;
     margin-top: 0%;
@@ -19,7 +7,6 @@
     width: 25em;
     margin-left: auto;
     margin-right: auto;
-    
 }
 #nombre
 {
@@ -99,11 +86,6 @@
     margin-left: 15%;
     
 }
-#registrado
-{
-    text-align: center;
-    margin-bottom: 10%;
-}
 /*
 */
 .subirFotos{
@@ -165,3 +147,93 @@ main{
     position: relative;
     bottom: -50px;
 }
+
+
+ul, ol {
+	list-style:none;
+}
+
+.nav > li {
+	float:left;
+    width: 100px;
+    
+}
+
+.nav li a {
+	background-color:#334257;
+	color:#fffe91;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+	font-size: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 180%;
+    text-align: center;
+}
+
+.nav li a:hover {
+	background-color:#fffe91;
+	color: #334257;
+}
+
+.nav li ul {
+	display:none;
+	position: absolute;
+	width:100%;
+}
+
+.nav li:hover > ul {
+	display:block;
+}
+
+.nav li ul li {
+	position:relative; z-index:1;
+}
+
+.nav li ul li ul {
+	right:-355px;
+	top:0px;
+}
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    max-height: 450px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+  }
+.card-img-top {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+.descripcion
+{
+    font-size: large;
+    text-transform: clip;
+}
+.page-header
+{
+    margin-top: 2rem;
+    height: 8rem; 
+    text-align: center;
+}
+.herramienta
+{
+    margin-left: 1rem;
+    margin-top : 1rem;
+    color:#334257;
+}
+.card-body
+{
+    color: #334257;
+    
+}
+.card-title
+{
+    font: bold;
+    font-size: 15px;
+}
+
+
