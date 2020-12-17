@@ -50,6 +50,9 @@ app.get("/home",function(request,response)
         };
     });
 });
+
+/*Checkeado*/
+
 /*Usuario: */
 app.get("/users", function(request, response) {
     let id = String(request.query.id);
