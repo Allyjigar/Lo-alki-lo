@@ -3,6 +3,7 @@ const bodyParser = require (`body-parser`);
 const app = express();
 let cors = require(`cors`); 
 let mysql = require ("mysql");
+const { Console } = require("console");
 let connection = mysql.createConnection({
     host : "localhost",
     user : "root",
@@ -31,6 +32,23 @@ function checkRespuesta(err, result) {
 app.get("/", function(request, response) {
     let respuesta = {error : false, codigo : 200, mensaje : "Home"};
     response.send(respuesta);
+});
+
+/*Productos Home*/
+app.get("/home",function(request,response)
+{
+    let sql = "SELECT * FROM product "
+    connection.query(sql,function(err,result)
+    {
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("Get de Objetos");
+            console.log(result)
+            response.send(result)
+        };
+    });
 });
 /*Usuario: */
 app.get("/users", function(request, response) {
