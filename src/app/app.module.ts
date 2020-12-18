@@ -54,13 +54,8 @@ import { ValidateEqualModule } from 'ng-validate-equal';
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-<<<<<<< HEAD
-    ReactiveFormsModule,
-    
-=======
     ReactiveFormsModule, 
     ValidateEqualModule
->>>>>>> ally9
   ],
   providers: [],
   bootstrap: [AppComponent]

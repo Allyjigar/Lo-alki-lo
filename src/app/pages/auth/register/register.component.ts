@@ -11,18 +11,10 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-<<<<<<< HEAD
   public user: Users = new Users("", "", "", "");
   public confirmPassword: any;
 
   constructor(public usersService: UsersService, public router: Router) {
-=======
-  public user: Users = new Users("", "", "");
-  
-  
-  constructor(public usersService: UsersService) 
-  {
->>>>>>> mauro_chat
     this.user
   }
 
