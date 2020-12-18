@@ -228,9 +228,8 @@ app.delete("/products", function(request, response) {
 /*Chat */
 app.get("/chat", function(request, response) {
     let emisor = String(request.query.id1);
-    let receptor = String(request.query.id2);
-    let params = new Array (emisor, receptor);
-    let sql = "SELECT * FROM chat WHERE emisor_id = ? AND receptor_id = ?";
+    let params = new Array (emisor, emisor);
+    let sql = "SELECT * FROM chat WHERE emisor_id = ? OR receptor_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -242,8 +241,10 @@ app.get("/chat", function(request, response) {
     });
 });
 app.post("/chat", function(request, response) {
-    let params = new Array (String(request.body.id1), String(request.body.id2));
-    let sql = "INSERT INTO chat (emisor_id, receptor_id) VALUES (?, ?)";
+    let params = new Array (String(request.body.id1), String(request.body.id2),
+    String(request.body.nickname_emisor), String(request.body.foto_emisor), 
+    String(request.body.nickname_receptor), String(request.body.foto_receptor));
+    let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -261,7 +262,7 @@ app.post("/chat", function(request, response) {
 app.get("/mensajes", function(request, response) {
     let id = String(request.query.id);
     let params = new Array (id);
-    let sql = "SELECT * FROM mensajes WHERE mensaje_id = ?";
+    let sql = "SELECT * FROM mensajes WHERE chat_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);

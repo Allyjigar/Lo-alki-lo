@@ -8,11 +8,11 @@ import { Chat } from '../models/chat';
 })
 export class ChatService {
   private url = "http://localhost:9191/chat";
-  public chat : Chat
+  public chat : Chat;
 
   constructor(private http : HttpClient) { }
-  getChat(id1 : number, id2 : number) {
-    return this.http.get(this.url + "?id1=" + id1 + "&id2=" + id2);
+  getChat(id : number) {
+    return this.http.get(this.url + "?id=" + id);
   }
   postChat(newChat : Chat) {
     return this.http.post(this.url, newChat);
