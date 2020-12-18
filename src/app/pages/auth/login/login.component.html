@@ -13,17 +13,29 @@
     <div>
       <img id="logo" src="/assets/logo.jpg" routerLink="/home">
     </div>
+    <form #userForm="ngForm">
     <div>  
-      <label id="usuario_label" for="formGroupExampleInput" class="form-label"></label>
-      <input id="usuario" type="text"placeholder="Usuario">
-    </div>
+      <label id="usuario_label" class="form-label"></label>
+      <input id="usuario" type="text" placeholder="Usuario" name="nickname" class="form-control" [(ngModel)]="user.nickname" #nickname="ngModel"
+      [ngClass]="{'is-invalid': userForm.submitted && nickname.invalid }" nickname required>
+      <div *ngIf="userForm.submitted && nickname.invalid" class="invalid-feedback">
+        <div *ngIf="nickname.errors.required" style="margin-left: 20%; font-size: 13px; color: black">El nombre de usuario es obligatorio</div> 
+        <!-- <div *ngIf="nickname.errors" style="margin-left: 20%; font-size: 13px; color: black">El usuario no existe</div> -->
+      </div>
+    </div> 
     <div>  
-      <label id="contra_label" for="formGroupExampleInput2" class="form-label"></label>
-      <input id="contraseña" type="password"  placeholder="Contraseña">
-        <div>
-          <button id="login" type="submit">Login</button>  
-        </div>
+      <label id="contra_label" class="form-label"></label>
+      <input id="contraseña" type="password"  placeholder="Contraseña" name="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
+      [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" password required>
+      <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors.required" style="margin-left: 20%; font-size: 13px; color: black">La contraseña es obligatoria</div> 
+        <!-- <div *ngIf="password.errors" style="margin-left: 20%; font-size: 13px; color: black">Contraseña incorrecta</div>   -->
+      </div>  
     </div>
+    <div>
+          <button id="login" type="submit" on-click="login(nickname, password)">Login</button>  
+    </div>
+    </form>
     <img id="registro" src="/assets/registro.jpg" routerLink="/register" class="img-fluid" alt="..."> 
     <div id="margen">
       &nbsp;

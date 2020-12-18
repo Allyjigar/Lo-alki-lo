@@ -47,10 +47,25 @@ app.get("/users", function(request, response) {
         };
     });
 });
+app.get("/user", function(request, response) {
+    let nickname = String(request.query.nickname);
+    let params = new Array (nickname);
+    let sql = "SELECT * FROM user WHERE nickname = ?";
+    connection.query(sql, params, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Get de Nickname de Usuario");
+            console.log(result);
+            response.send(result);
+        };
+    });
+}); 
+//  nuevo post/register para comprobar nickname antes
 app.post("/users/register", function(request, response) {
-    let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
-    String(request.body.dirección),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname));
-    let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    let params = new Array ( String(request.body.name), String(request.body.password),String(request.body.email),
+    String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname), String(request.body.nickname));
+    let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) SELECT * FROM (SELECT ? AS name, ? AS password, ? AS email, ? AS direccion, ? AS ciudad, ? AS cp, ? AS foto, ? AS nickname ) AS tmp WHERE NOT EXISTS (SELECT nickname FROM user WHERE nickname=?) LIMIT 1";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -61,6 +76,20 @@ app.post("/users/register", function(request, response) {
         };
     });
 });
+// app.post("/users/register", function(request, response) {
+//     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
+//     String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname));
+//     let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+//     connection.query(sql, params, function(err, result) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("Nuevo Usuario");
+//             console.log(result);
+//             response.send(result);
+//         };
+//     });
+// });
 app.post("/users/login", function(request, response) {
     let params = new Array (String(request.body.nickname), String(request.body.password));  
     let sql = "SELECT * FROM user WHERE nickname = ? AND password = ?";
@@ -125,6 +154,7 @@ app.get("/products", function (request, response) {
         };
     });
 });
+
 app.post("/products", function(request, response) {
     let params = new Array (String(request.body.name), String(request.body.description), String(request.body.user_id),
     String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),

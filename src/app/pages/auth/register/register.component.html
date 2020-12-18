@@ -43,11 +43,10 @@
   </div> 
   <div>  
     <label id="contra_label"></label>
-    <input id="conf_contraseña" type="password" placeholder="Confirmar contraseña" name="repassword" class="form-control" 
+    <input id="conf_contraseña" type="password" placeholder="Confirmar contraseña" name="confirmPassword" [(ngModel)]="user.confirmPassword" #userConfirmPassword="ngModel" class="form-control" 
     [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" required>
     <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
-      <div *ngIf="password.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La contraseña es obligatoria</div>
-      <div *ngIf="password.errors.minlength" style="margin-left: 26%; font-size: 13px; color: black">La contraseña debe tener al menos 6 caracteres</div>
+      <div *ngIf="confirmPassword.errors.required" style="margin-left: 26%; font-size: 13px; color: black">Confirme su contraseña, por favor</div> 
     </div>  
   </div>
   <div>
@@ -57,7 +56,7 @@
     <input id="foto" type="file" name="foto" [(ngModel)]="user.foto" #foto="ngModel">
   </div>
     <div>
-      <button id="enviar" type="submit" on-click="insertarUsuario(nickname, email, password, foto)"><b>Enviar</b></button>
+      <button id="enviar" type="submit" on-click="insertarUsuario(nickname, email, password, confirmPassword, foto)"><b>Enviar</b></button>
     </div>
   </form>
     <div>
