@@ -20,8 +20,9 @@ export class RegisterComponent implements OnInit {
 
 
   insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement, foto: HTMLInputElement) {
-    if (password == confirmPassword) {
-      this.usersService.postUserR(new Users(nickname.value, password.value, foto.value, email.value)).subscribe((data: any) => {
+    
+    if (password.value == confirmPassword.value) {
+      this.usersService.postUserR(new Users(nickname.value, password.value, foto.value, "", email.value)).subscribe((data: any) => {
         console.log(data);
 
         if (data.insertId != 0) {
