@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/shared/users.service';
 
@@ -10,24 +11,36 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: Users = new Users("Ally", "allyjigar@gmail.com", "24681012", "Alicia", "Estación, 3", "Cubelles", "08880");
-  
-  
-  constructor(public usersService: UsersService) 
-  {
+  public user: Users = new Users("", "", "", "");
+  public confirmPassword: any;
+
+  constructor(public usersService: UsersService, public router: Router) {
     this.user
   }
 
-  insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement)
-  {
-    this.usersService.postUserR(new Users(nickname.value, email.value, password.value, foto.value)).subscribe((data) =>
-    {
-      console.log(data);
-    })
-  }
-  
 
-  
+  insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement, foto: HTMLInputElement) {
+    if (password == confirmPassword) {
+      this.usersService.postUserR(new Users(nickname.value, password.value, foto.value, email.value)).subscribe((data: any) => {
+        console.log(data);
+
+        if (data.insertId != 0) {
+          this.router.navigateByUrl('/myprofile');
+        } else {
+          alert("El usuario ya existe");
+        }
+
+      })
+      
+    } else {
+      alert("Las contraseñas no coinciden");
+    }
+
+
+  }
+
+
+
 
   ngOnInit(): void {
   }

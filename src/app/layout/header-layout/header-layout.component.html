@@ -18,8 +18,10 @@
       <button routerLink="/subirproducto" id="subir_principal" ><svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
       </svg><b>  Subir producto</b></button>
-      <p id="login"><svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-      </svg>  <b> <a routerLink="/login">Inicia sesión</a>  | <a routerLink="/register">Regístrate</a> </b></p>
+      <div *ngIf="usersService.user != null; else iniciarsesion">Cerrar sesión</div>
+      
+        <ng-template #iniciarsesion><p id="login"><svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>  <b> <a routerLink="/login">Inicia sesión</a>  | <a routerLink="/register">Regístrate</a> </b></p></ng-template>
     </header>
 </html>

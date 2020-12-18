@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-header-layout',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderLayoutComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public usersService: UsersService) { }
+ 
   ngOnInit(): void {
   }
 

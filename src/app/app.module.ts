@@ -24,6 +24,7 @@ import { MyProfileComponent } from './pages/profile/my-profile/my-profile.compon
 import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
+<<<<<<< HEAD
     ReactiveFormsModule,
     
+=======
+    ReactiveFormsModule, 
+    ValidateEqualModule
+>>>>>>> ally9
   ],
   providers: [],
   bootstrap: [AppComponent]
