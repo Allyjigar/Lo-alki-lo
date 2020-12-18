@@ -10,7 +10,7 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: Users = new Users("Ally", "allyjigar@gmail.com", "24681012", "Alicia", "Estación, 3", "Cubelles", "08880");
+  public user: Users = new Users("", "", "");
   
   
   constructor(public usersService: UsersService) 
