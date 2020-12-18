@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
   public mensaje : Mensaje = new Mensaje ("", 0, 0, "");
   public mensajes : Mensaje [] = [];
 
-  constructor(private apiChatService : ChatService, private apiMensajeService : MensajesService, private userService : UsersService) {
+  constructor(public apiChatService : ChatService, public apiMensajeService : MensajesService, public userService : UsersService) {
     
     
 
