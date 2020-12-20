@@ -1,7 +1,4 @@
-.modal-dialog{
-    height: 100%;
-    margin-top: 0%;
-}
+
 #usuario
 {
     width: 25em;
@@ -235,5 +232,164 @@ ul, ol {
     font: bold;
     font-size: 15px;
 }
+*{
+	margin: 0px;
+	padding: 0px;
+}
 
+#laterali
+{
+	width: 200em;
+	background-color: #334257 !important;
+}
+
+ul, ol {
+	list-style:none;
+}
+
+.nav > li {
+	float:left;
+	width: 200px;
+}
+
+.nav li a {
+	background-color:#334257;
+	color:#fffe91;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+	font-size: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	width: 180%;
+}
+
+.nav li a:hover {
+	background-color:#fffe91;
+	color: #334257;
+}
+
+.nav li ul {
+	display:none;
+	position: absolute;
+	width:100%;
+}
+
+.nav li:hover > ul {
+	display:block;
+}
+
+.nav li ul li {
+	position:relative; z-index:1;
+}
+
+.nav li ul li ul {
+	right:-355px;
+	top:0px;
+}
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    max-height: 450px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+  }
+.card-img-top {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+.descripcion
+{
+    font-size: large;
+    text-transform: clip;
+}
+.page-header
+{
+    margin-top: 2rem;
+    height: 8rem; 
+    text-align: center;
+}
+.herramienta
+{
+    margin-left: 1rem;
+    margin-top : 1rem;
+    color:#334257;
+}
+.card-body
+{
+    color: #334257;
+    
+}
+.card-title
+{
+    font: bold;
+    font-size: 15px;
+}
+.valoracion
+{
+    float:right;
+    font-size: large;
+    border-color: #fffe91;
+}
+.card-text
+{
+    min-height: 150px;
+    max-height:150px;
+    font-size: 12px;
+    overflow: hidden;}
+#interesa
+{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    height: 3rem;
+    width: 10rem;
+    font-size: 10px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+    float : right;
+ }
+ #precio
+ {
+     font-size: 1.5rem;
+
+ }
+.controles
+{
+    
+    margin-bottom: 4rem;
+}
+.page-header{
+    text-decoration: none;
+    color: black;
+}
+.next
+{
+    float: right;
+    font-size: larger;
+    color: #334257;
+    margin-bottom: 4rem;
+}
+.previous
+{
+    float: left;
+    font-size: larger;
+    color: #334257;
+}
+
+
+.precio
+{
+    font-size: large;
+}
 

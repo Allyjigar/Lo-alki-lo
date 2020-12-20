@@ -97,20 +97,6 @@ app.post("/users/register", function(request, response) {
         };
     });
 });
-// app.post("/users/register", function(request, response) {
-//     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
-//     String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname));
-//     let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-//     connection.query(sql, params, function(err, result) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log("Nuevo Usuario");
-//             console.log(result);
-//             response.send(result);
-//         };
-//     });
-// });
 app.post("/users/login", function(request, response) {
     let params = new Array (String(request.body.nickname), String(request.body.password));  
     let sql = "SELECT * FROM user WHERE nickname = ? AND password = ?";

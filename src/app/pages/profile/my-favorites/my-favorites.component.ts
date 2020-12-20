@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFavoritesComponent implements OnInit {
 
+  public claseFav = "fa fa-heart fa_custom";
+  
+  favorito() {
+
+    if (this.claseFav === "fa fa-heart fa_custom"){
+        this.claseFav = "fa fa-heart-o fa_custom";
+    } else {
+      this.claseFav = "fa fa-heart fa_custom";
+    }
+ 
+  }
 
 
   constructor() { }

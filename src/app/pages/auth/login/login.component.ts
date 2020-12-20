@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/shared/users.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +21,20 @@ export class LoginComponent implements OnInit {
       console.log(data);
     
       if (data.length === 0){
-        alert("Email o contraseña incorrectos")
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario o contraseña incorrectos',
+        })
+        //alert("Email o contraseña incorrectos")
       } else {
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Bienvenido a Lo(alki)lo',
+          showConfirmButton: false,
+          timer: 2000
+        })
         this.router.navigateByUrl('/home');
         this.usersService.user = data [0];
       }

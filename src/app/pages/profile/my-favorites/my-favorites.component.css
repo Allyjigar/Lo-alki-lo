@@ -58,4 +58,10 @@
 {
     font-size: 13px;
 }
+.fa_custom
+{
+  font-size: 25px;
+  color:red;
+  margin-left: 5%;
 
+}

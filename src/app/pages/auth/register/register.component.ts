@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/shared/users.service';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -26,22 +27,36 @@ export class RegisterComponent implements OnInit {
         console.log(data);
 
         if (data.insertId != 0) {
+          swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario registrado con éxito',
+            showConfirmButton: false,
+            timer: 2000
+          })
           this.router.navigateByUrl('/myprofile');
         } else {
-          alert("El usuario ya existe");
+          swal.fire({
+            icon: 'error',
+            title: 'Uuupps...',
+            text: 'El usuario ya existe',
+          })
+          
         }
 
       })
       
     } else {
-      alert("Las contraseñas no coinciden");
+      swal.fire({
+        icon: 'error',
+        title: 'Uuupps...',
+        text: 'Las contraseñas no coinciden',
+      })
+      
     }
 
 
   }
-
-
-
 
   ngOnInit(): void {
   }

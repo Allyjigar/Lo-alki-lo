@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Users } from 'src/app/models/users';
+import { UsersService } from 'src/app/shared/users.service';
 import { PerfilUsuarioComponent } from '../../home/anuncio/perfil-usuario/perfil-usuario.component';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-profile',
@@ -8,7 +12,24 @@ import { PerfilUsuarioComponent } from '../../home/anuncio/perfil-usuario/perfil
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor() { }
+  public user: Users = new Users("", "", "", "");
+
+  constructor(public usersService: UsersService, public router: Router) {
+    this.user
+   }
+
+  // modificarUsuario(){
+  //   this.usersService.putUser(new Users()).subscribe((data:any) => {
+  //     console.log(data);
+  //     swal.fire({
+  //       position: 'top-end',
+  //       icon: 'success',
+  //       title: 'Usuario modificado con éxito',
+  //       showConfirmButton: false,
+  //       timer: 2000
+  //     })
+  //   })
+  // }
 
   ngOnInit(): void {
 
