@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/shared/products.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,11 @@ import { ProductsService } from 'src/app/shared/products.service';
 })
 export class HomeComponent implements OnInit {
 
-  public product: Products
-  public products : Products[]
-  constructor(public productsService: ProductsService) {
-    this.product
-    console.log(this.productsService.product)
+  
+  constructor(public productsService: ProductsService, public router : Router) {
     
+    console.log(this.productsService.product)
+
   }
 
 
@@ -23,9 +23,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log("Anuncio")
     this.productsService.getProducts().subscribe((data: Products[]) => {
-      this.product = data[0];
-      this.products = data;
+      this. productsService.product = data[0];
+      this. productsService.products = data;
     })
+  }
+  detalleAnuncio(index :number) {
+    //this.productsService.product = product;
+    
+    this.productsService.product = this.productsService.products[index];
+    this.router.navigate(["/anuncio",index])
+    
   }
 
 }

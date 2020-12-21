@@ -24,6 +24,7 @@ import { MyProfileComponent } from './pages/profile/my-profile/my-profile.compon
 import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsService } from './shared/products.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

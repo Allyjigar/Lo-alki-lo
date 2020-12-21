@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: "myfavorites", component: MyFavoritesComponent},
   {path: "myproducts", component: MyProductsComponent},
   {path: "subirproducto", component: SubirProductoComponent},
-  {path: "anuncio", component: AnuncioComponent},
+  {path: "anuncio/:id", component: AnuncioComponent},
   {path: "home", component: HomeComponent},
   {path: "profile", component: ProfileComponent},
   {path: "chat", component: ChatComponent}, 
@@ -41,3 +41,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [AnuncioComponent]
