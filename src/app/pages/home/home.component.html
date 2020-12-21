@@ -181,19 +181,19 @@
             </div>
 
             <div class="card-columns center-block">
-                <div *ngFor="let pro of products ">
-                    <div class="card card-custom">
+                <div *ngFor="let pro of  productsService.products ; index as i ">
+                    <div class="card card-custom" >
                         <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
                         <div class="card-body" style="overflow-y: auto">
                             <div class="tituloanuncio">
                                 <a class="valoracion">★★★★★</a>
-                                <h5 class="card-title">{{pro.name}}</h5>
+                                <h5 class="card-title" >{{pro.name}}</h5>
                             </div>
                             <p class="card-text">{{pro.descripcion}}</p>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted" id="precio">Precio : {{pro.precio}}</small>
-                            <button routerLink="/anuncio" id="interesa"><svg width="5px" height="30px"
+                            <button (click)="detalleAnuncio(i)"id="interesa"><svg width="5px" height="30px"
                                     viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
                                 </svg><b> Me interesa</b></button>
