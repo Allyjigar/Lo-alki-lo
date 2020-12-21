@@ -163,7 +163,7 @@ app.get("/products", function (request, response) {
 });
 
 app.post("/products", function(request, response) {
-    let params = new Array (String(request.body.name), String(request.body.description), String(request.body.user_id),
+    let params = new Array (String(request.body.name), String(request.body.descripcion), String(request.body.user_id),
     String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
     String(request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.precio),
     String(request.body.categoria), String(request.body.subcategoria));

@@ -20,15 +20,15 @@
       <path fill-rule="evenodd"
         d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
     </svg><b> Buscar</b></button>
-  <div *ngIf="usersService.user != null" style="margin-left: 30%; display: inline;">
+  <div *ngIf="userService.user != null" style="margin-left: 30%; display: inline;">
     <button routerLink="/subirproducto" id="subir_principal"><svg width="30px" height="30px" viewBox="0 0 16 16"
         class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd"
           d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
       </svg><b> Subir producto</b></button>
   </div>
-  <div *ngIf="usersService.user != null; else iniciarsesion"
-    style="text-align: right; margin-right: 5%; font-size: 15px; color: #334257;"><svg
+  <div *ngIf="userService.user != null; else iniciarsesion"
+    style="text-align: right; margin-right: 2%; font-size: 15px; color: #334257;"><a routerLink="/myprofile" style="color: #334257"><b>Zona {{userService.user.nickname}}</b></a>&nbsp;<svg
       xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill"
       viewBox="0 0 16 16">
       <path fill-rule="evenodd"
@@ -36,10 +36,10 @@
     </svg>&nbsp;<b>Cerrar sesión</b></div>
 
   <ng-template #iniciarsesion>
-    <p id="login"><svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+    <p id="login"><svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
         xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-      </svg> <b> <a routerLink="/login">Inicia sesión</a> | <a routerLink="/register">Regístrate</a> </b></p>
+      </svg> &nbsp;<b> <a routerLink="/login" style="color: #334257; font-size: 15px;" >Inicia sesión</a> &nbsp; <b>|</b> &nbsp;<a routerLink="/register" style="color: #334257; font-size: 15px;">Regístrate</a></b></p>
   </ng-template>
 </header>
 

@@ -79,3 +79,8 @@ article{
     position: relative;
     bottom: 80px;
 }
+
+::placeholder {
+    color: black;
+    font-size: 15px;
+}

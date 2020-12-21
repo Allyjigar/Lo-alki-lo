@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   public user: Users = new Users("", "", "", "");
   public confirmPassword: any;
 
-  constructor(public usersService: UsersService, public router: Router) {
+  constructor(public userService: UsersService, public router: Router) {
     this.user
   }
 
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement, foto: HTMLInputElement) {
     
     if (password.value == confirmPassword.value) {
-      this.usersService.postUserR(new Users(nickname.value, password.value, foto.value, "", email.value)).subscribe((data: any) => {
+      this.userService.postUserR(new Users(nickname.value, password.value, foto.value, "", email.value)).subscribe((data: any) => {
         console.log(data);
 
         if (data.insertId != 0) {

@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
           title: 'Oops...',
           text: 'Usuario o contraseña incorrectos',
         })
-        //alert("Email o contraseña incorrectos")
       } else {
         swal.fire({
           position: 'top-end',

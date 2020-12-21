@@ -20,7 +20,6 @@
       [ngClass]="{'is-invalid': userForm.submitted && nickname.invalid }" nickname required>
       <div *ngIf="userForm.submitted && nickname.invalid" class="invalid-feedback">
         <div *ngIf="nickname.errors.required" style="margin-left: 20%; font-size: 13px; color: black">El nombre de usuario es obligatorio</div> 
-        <!-- <div *ngIf="nickname.errors" style="margin-left: 20%; font-size: 13px; color: black">El usuario no existe</div> -->
       </div>
     </div> 
     <div>  
@@ -29,7 +28,6 @@
       [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" password required>
       <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
         <div *ngIf="password.errors.required" style="margin-left: 20%; font-size: 13px; color: black">La contraseña es obligatoria</div> 
-        <!-- <div *ngIf="password.errors" style="margin-left: 20%; font-size: 13px; color: black">Contraseña incorrecta</div>   -->
       </div>  
     </div>
     <div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Subir producto</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='subir-producto.component.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -22,133 +22,114 @@
         </aside>
         <article>
             <div class="contenedor">
-                <form #productForm="ngForm">
+                <form>
                     <div class="card" style="width: 100rem">
                         <div class="card-body">
                             <div class="mb-3">
                                 <label>Nombre del Producto</label>
-                                <input type="text" class="form-control" id="inputEmail4" name="name"
-                                    [(ngModel)]="product.name" #name="ngModel"
-                                    [ngClass]="{ 'is-invalid': productForm.submitted && name.invalid }" name required>
-                                <div *ngIf="productForm.submitted && name.invalid" class="invalid-feedback">
-                                    <div *ngIf="name.errors.required">El nombre del producto es obligatorio</div>
-                                </div>
+                                <input type="text" class="form-control" id="inputEmail4" #name>
                                 <label>Descripción (estado, accesorios...)</label>
-                                <textarea id="descripcion_input" class="form-control" id="exampleFormControlTextarea1"
-                                    name="descripcion" [(ngModel)]="product.descripcion" #descripcion="ngModel"
-                                    [ngClass]="{ 'is-invalid' : productForm.submitted && descripcion.invalid }"
-                                    descripcion required rows="2"></textarea>
-                                <div *ngIf="productForm.submitted && descripcion.invalid" class="invalid-feedback">
-                                    <div *ngIf="descripcion.errors.required">La descripción del producto es obligatoria
-                                    </div>
-                                </div>
+                                <textarea id="descripcion_input" type="text" class="form-control" id="exampleFormControlTextarea1" #descripcion></textarea>
                                 <label>Precio del alquiler (indica el precio por día)</label>
-                                <input id="usuario" type="text" class="form-control" id="formGroupExampleInput"
-                                    name="precio" [(ngModel)]="product.precio" #precio="ngModel"
-                                    [ngClass]="{'is-invalid': productForm.submitted && precio.invalid }" precio
-                                    required>
-                                <div *ngIf="productForm.submitted && precio.invalid" class="invalid-feedback">
-                                    <div *ngIf="precio.errors.required">El precio del producto es obligatorio
-                                    </div>
-                                </div>
+                                <input id="usuario" type="text" class="form-control" id="formGroupExampleInput" #precio>
                             </div>
                             <label>Elige categoría y subcategoría: </label>
                             <div> &nbsp;</div>
                             <div id="header">
                                 <ul class="nav">
-                                    <li><a href=""><b>CATEGORÍA</b></a>
+                                    <li><a><b>CATEGORÍA</b></a>
                                         <ul>
-                                            <li on-click="categoriaValue('Motor')"><a>Motor</a>
+                                            <li on-click="categoriaValue('Motor')" type="button"><a>Motor</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Coches')"><a>Coches</a>
+                                                    <li on-click="subcategoriaValue('Coches')" type="button"><a>Coches</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Motos')"><a href="">Motos</a></li>
-                                                    <li on-click="subcategoriaValue('Furgonetas')"><a
-                                                            href="">Furgonetas</a></li>
-                                                    <li on-click="subcategoriaValue('Autocaravanas')"><a
-                                                            href="">Autocaravanas</a></li>
-                                                    <li on-click="subcategoriaValue('Vehículos especiales')"><a
-                                                            href="">Vehículos especiales</a></li>
-                                                    <li on-click="subcategoriaValue('Quads')"><a href="">Quads</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Motos')"type="button"><a>Motos</a></li>
+                                                    <li on-click="subcategoriaValue('Furgonetas')" type="button"><a>Furgonetas</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Autocaravanas')"type="button"><a
+                                                            >Autocaravanas</a></li>
+                                                    <li on-click="subcategoriaValue('Vehículos especiales')"type="button"><a
+                                                           >Vehículos especiales</a></li>
+                                                    <li on-click="subcategoriaValue('Quads')" type="button"><a >Quads</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Inmobiliaria')"><a href="">Inmobiliaria</a>
+                                            <li on-click="categoriaValue('Inmobiliaria')" type="button"><a >Inmobiliaria</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Pisos')"><a href="">Pisos</a></li>
-                                                    <li on-click="subcategoriaValue('Casas')"><a href="">Casas</a></li>
-                                                    <li on-click="subcategoriaValue('Locales')"><a href="">Locales</a>
+                                                    <li on-click="subcategoriaValue('Pisos')" type="button"><a >Pisos</a></li>
+                                                    <li on-click="subcategoriaValue('Casas')" type="button"><a >Casas</a></li>
+                                                    <li on-click="subcategoriaValue('Locales')" type="button"><a >Locales</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Oficinas')"><a href="">Oficinas</a>
+                                                    <li on-click="subcategoriaValue('Oficinas')" type="button"><a >Oficinas</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Parkings')"><a href="">Parkings</a>
+                                                    <li on-click="subcategoriaValue('Parkings')" type="button"><a >Parkings</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Espacios exteriores')"><a
-                                                            href="">Espacios exteriores</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Espacios exteriores')"type="button"><a
+                                                            >Espacios exteriores</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Informática/Electrónica')"><a
-                                                    href="">Informática/Electrónica</a>
+                                            <li on-click="categoriaValue('Informática/Electrónica')" type="button"><a
+                                                    >Informática/Electrónica</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Ordenadores')"><a
-                                                            href="">Ordenadores</a></li>
-                                                    <li on-click="subcategoriaValue('Impresoras')"><a
-                                                            href="">Impresoras</a></li>
-                                                    <li on-click="subcategoriaValue('Vídeoconsolas')"><a
-                                                            href="">Vídeoconsolas</a></li>
-                                                    <li on-click="subcategoriaValue('Cámaras')"><a href="">Cámaras</a>
+                                                    <li on-click="subcategoriaValue('Ordenadores')" type="button"><a
+                                                            >Ordenadores</a></li>
+                                                    <li on-click="subcategoriaValue('Impresoras')" type="button"><a
+                                                            >Impresoras</a></li>
+                                                    <li on-click="subcategoriaValue('Videoconsolas')" type="button"><a
+                                                            >Videoconsolas</a></li>
+                                                    <li on-click="subcategoriaValue('Cámaras')" type="button"><a >Cámaras</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Proyectores')"><a
-                                                            href="">Proyectores</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Proyectores')" type="button"><a
+                                                            >Proyectores</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Hogar y jardín')"><a href="">Hogar y
+                                            <li on-click="categoriaValue('Hogar y jardín')" type="button"><a >Hogar y
                                                     jardín</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Electrodomésticos')"><a
-                                                            href="">Electrodomésticos</a></li>
-                                                    <li on-click="subcategoriaValue('Herramientas')"><a
-                                                            href="">Herramientas</a></li>
-                                                    <li on-click="subcategoriaValue('Mobiliario')"><a
-                                                            href="">Mobiliario</a></li>
-                                                    <li on-click="subcategoriaValue('Piscinas y accesorios')"><a
-                                                            href="">Piscinas y accesorios</a></li>
-                                                    <li on-click="subcategoriaValue('Jardinería')"><a
-                                                            href="">Jardinería</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Electrodomésticos')" type="button"><a
+                                                            >Electrodomésticos</a></li>
+                                                    <li on-click="subcategoriaValue('Herramientas')" type="button"><a
+                                                            >Herramientas</a></li>
+                                                    <li on-click="subcategoriaValue('Mobiliario')" type="button"><a
+                                                            >Mobiliario</a></li>
+                                                    <li on-click="subcategoriaValue('Piscinas y accesorios')" type="button"><a
+                                                           >Piscinas y accesorios</a></li>
+                                                    <li on-click="subcategoriaValue('Jardinería')" type="button"><a
+                                                            >Jardinería</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Moda y complementos')"><a
-                                                    href="">Moda/Complementos</a>
+                                            <li on-click="categoriaValue('Moda y complementos')" type="button"><a
+                                                    >Moda/Complementos</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Trajes de fiesta')"><a
-                                                            href="">Trajes de fiesta</a></li>
-                                                    <li on-click="subcategoriaValue('Bolsos y maletas')"><a
-                                                            href="">Bolsos y maletas</a></li>
-                                                    <li on-click="subcategoriaValue('Joyas y relojes')"><a href="">Joyas
+                                                    <li on-click="subcategoriaValue('Trajes de fiesta')" type="button"><a
+                                                            >Trajes de fiesta</a></li>
+                                                    <li on-click="subcategoriaValue('Bolsos y maletas')" type="button"><a
+                                                            >Bolsos y maletas</a></li>
+                                                    <li on-click="subcategoriaValue('Joyas y relojes')" type="button"><a >Joyas
                                                             y relojes</a></li>
-                                                    <li on-click="subcategoriaValue('Sombreros')"><a
-                                                            href="">Sombreros</a></li>
-                                                    <li on-click="subcategoriaValue('Ropa especializada')"><a
-                                                            href="">Ropa especializada</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Sombreros')" type="button"><a
+                                                            >Sombreros</a></li>
+                                                    <li on-click="subcategoriaValue('Ropa especializada')" type="button"><a
+                                                            >Ropa especializada</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Deportes/Ocio')"><a href="">Deportes/Ocio</a>
+                                            <li on-click="categoriaValue('Deportes/Ocio')" type="button"><a >Deportes/Ocio</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Máquinas')"><a href="">Máquinas</a>
+                                                    <li on-click="subcategoriaValue('Máquinas')" type="button"><a >Máquinas</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Deportes acuáticos')"><a
-                                                            href="">Deportes acuáticos</a></li>
-                                                    <li on-click="subcategoriaValue('Deportes de montaña')"><a
-                                                            href="">Deportes de montaña</a></li>
-                                                    <li on-click="subcategoriaValue('Accesorios deportivos')"><a
-                                                            href="">Accesorios deportivos</a></li>
-                                                    <li on-click="subcategoriaValue('Estructuras de exterior')"><a
-                                                            href="">Estructuras de exterior</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')"><a href="">Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Deportes acuáticos')" type="button"><a
+                                                            >Deportes acuáticos</a></li>
+                                                    <li on-click="subcategoriaValue('Deportes de montaña')" type="button"><a
+                                                            >Deportes de montaña</a></li>
+                                                    <li on-click="subcategoriaValue('Accesorios deportivos')" type="button"><a
+                                                            >Accesorios deportivos</a></li>
+                                                    <li on-click="subcategoriaValue('Estructuras de exterior')"type="button"><a
+                                                            >Estructuras de exterior</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -161,32 +142,28 @@
                                             nº1</b></label>
                                 </div>
                                 <div>
-                                    <input id="foto_1" type="file" name="foto1" [(ngModel)]="product.foto1"
-                                        #foto1="ngModel">
+                                    <input id="foto_1" type="file" #foto1>
                                 </div>
                                 <div>
                                     <label id="foto2" for="formGroupExampleInput2" class="form-label"><b>Foto nº
                                             2</b></label>
                                 </div>
                                 <div>
-                                    <input id="foto_2" type="file" name="foto2" [(ngModel)]="product.foto2"
-                                        #foto2="ngModel">
+                                    <input id="foto_2" type="file" #foto2>
                                 </div>
                                 <div>
                                     <label id="foto3" for="formGroupExampleInput2" class="form-label"><b>Foto
                                             nº3</b></label>
                                 </div>
                                 <div>
-                                    <input id="foto_3" type="file" name="foto3" [(ngModel)]="product.foto3"
-                                        #foto3="ngModel">
+                                    <input id="foto_3" type="file" #foto3>
                                 </div>
                                 <div>
                                     <label id="foto4" for="formGroupExampleInput2" class="form-label"><b>Foto
                                             nº4</b></label>
                                 </div>
                                 <div>
-                                    <input id="foto_4" type="file" name="foto4" [(ngModel)]="product.foto4"
-                                        #foto4="ngModel">
+                                    <input id="foto_4" type="file" #foto4>
                                 </div>
 
                                 <div>

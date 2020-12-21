@@ -8,7 +8,7 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class HeaderLayoutComponent implements OnInit {
 
-  constructor(public usersService: UsersService) { }
+  constructor(public userService: UsersService) { }
  
   ngOnInit(): void {
   }

@@ -14,22 +14,23 @@ export class MyProfileComponent implements OnInit {
 
   public user: Users = new Users("", "", "", "");
 
-  constructor(public usersService: UsersService, public router: Router) {
+  constructor(public userService: UsersService, public router: Router) {
     this.user
-   }
+  }
 
-  // modificarUsuario(){
-  //   this.usersService.putUser(new Users()).subscribe((data:any) => {
-  //     console.log(data);
-  //     swal.fire({
-  //       position: 'top-end',
-  //       icon: 'success',
-  //       title: 'Usuario modificado con éxito',
-  //       showConfirmButton: false,
-  //       timer: 2000
-  //     })
-  //   })
-  // }
+  modificarUsuario(nickname: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement, email: HTMLInputElement, name: HTMLInputElement, direccion: HTMLInputElement, ciudad: HTMLInputElement, cp: HTMLInputElement) {
+    let actualUser = new Users(nickname.value, password.value, foto.value, "", email.value, name.value, direccion.value, ciudad.value, Number(cp.value));
+    this.userService.putUser(actualUser).subscribe((data: any) => {
+      console.log(data);
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario modificado con éxito',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    })
+  }
 
   ngOnInit(): void {
 

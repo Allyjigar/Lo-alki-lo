@@ -21,6 +21,10 @@ export class ProductsService {
   postProduct(newProduct: Products) {
   return this.http.post(this.url2, newProduct);
 }
+//Eliminar producto
+  deleteProduct(id: number) {
+    return this.http.delete(this.url2 + id);
+  }
 }
 //Por nombre/Categoria/Subcategoria (Busqueda)
 

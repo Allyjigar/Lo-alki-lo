@@ -49,7 +49,7 @@ export class ChatComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.apiChatService.getChat(this.userService.user.id).subscribe((data: Chat[]) => {
+    this.apiChatService.getChat(this.userService.user.user_id).subscribe((data: Chat[]) => {
       this.chats = data;
     })
   }

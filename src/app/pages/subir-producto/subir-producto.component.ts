@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/models/products';
+import { Users } from 'src/app/models/users';
 import { ProductsService } from 'src/app/shared/products.service';
+import { UsersService } from 'src/app/shared/users.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -11,36 +13,41 @@ import swal from 'sweetalert2';
 })
 export class SubirProductoComponent implements OnInit {
 
-  public product: Products = new Products("", "", "", 0, "", "", "");
+  public product: Products = new Products("", "", 0, "", 0, "", "", "")
   public categoria: string;
   public subcategoria: string;
+  public user: Users = new Users("", "", "", "");
 
 
-  constructor(public productService: ProductsService, public router: Router) {
+  constructor(public productService: ProductsService, public router: Router, public userService: UsersService) {
     this.product
   }
 
-  categoriaValue(cat: string){
+  categoriaValue(cat: string) {
 
-    this.categoria === cat;
+    this.categoria = cat;
+    console.log(this.categoria)
+
 
   }
-  subcategoriaValue(sub: string){
+  subcategoriaValue(sub: string) {
 
-    this.subcategoria === sub; 
+    this.subcategoria = sub;
+    console.log(this.subcategoria)
+
 
   }
 
   subirProducto(name: HTMLInputElement, descripcion: HTMLInputElement, foto1: HTMLInputElement, precio: HTMLInputElement, foto2: HTMLInputElement, foto3: HTMLInputElement, foto4: HTMLInputElement) {
-
-    this.productService.postProduct(new Products(name.value, descripcion.value, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)).subscribe((data: any) => {
+    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)
+    this.productService.postProduct(newProduct).subscribe((data: any) => {
       console.log(data);
 
       if (data.insertId != 0) {
         swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Producto añadido a tu catálogo',
+          title: 'El producto se ha añadido a tu catálogo',
           showConfirmButton: false,
           timer: 1500
         })
@@ -51,7 +58,7 @@ export class SubirProductoComponent implements OnInit {
           title: 'Uuups...',
           text: 'Algo ha fallado',
         })
-        
+
       }
 
     })
@@ -60,6 +67,8 @@ export class SubirProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
   }
 
 }

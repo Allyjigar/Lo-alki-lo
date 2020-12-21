@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Products } from 'src/app/models/products';
+import { Users } from 'src/app/models/users';
+import { ProductsService } from 'src/app/shared/products.service';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-my-products',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-products.component.css']
 })
 export class MyProductsComponent implements OnInit {
+
   public isHidden: boolean = true;
   public isHidden2: boolean = true;
   public isHidden3: boolean = true;
-  constructor() { }
+  public product: Products = new Products("", "", 0, "", 0, "", "", "")
+  public user: Users = new Users("", "", "", "")
+
+  constructor(public productService: ProductsService, public userService: UsersService) {
+    this.product
+  }
   mostrarMisProductos() {
     if (this.isHidden == true) {
       this.isHidden = false;
@@ -18,7 +28,7 @@ export class MyProductsComponent implements OnInit {
     } else {
       this.isHidden = true;
       this.isHidden2 = true;
-      this.isHidden3=true;
+      this.isHidden3 = true;
     }
   }
   mostrarOtrosProductos() {
@@ -29,11 +39,10 @@ export class MyProductsComponent implements OnInit {
     } else {
       this.isHidden = true;
       this.isHidden2 = true;
-      this.isHidden3=true;
+      this.isHidden3 = true;
     }
   }
-  mostrarPeticiones()
-  {
+  mostrarPeticiones() {
     if (this.isHidden3 == true) {
       this.isHidden = true;
       this.isHidden2 = true;
@@ -41,10 +50,18 @@ export class MyProductsComponent implements OnInit {
     } else {
       this.isHidden = true;
       this.isHidden2 = true;
-      this.isHidden3=true;
+      this.isHidden3 = true;
     }
   }
+  // eliminarAnuncio() {
+  //   this.productService.deleteProduct(Number(this.productService.product.id)).subscribe(data) => {
+  //     console.log(data);
+  //   }
+  // }
   ngOnInit(): void {
+    
   }
 
 }
+
+
