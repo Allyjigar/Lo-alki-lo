@@ -29,6 +29,8 @@ export class AnuncioComponent implements OnInit {
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
 
+    let user = this.usersService.userAllPages();
+  
     this.productsService.product = this.productsService.products[index];
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
       this.usersService.user = data[0] ;

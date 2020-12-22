@@ -29,4 +29,16 @@ export class UsersService {
   putUser(newUser : Users) {
     return this.http.put(this.url, newUser);
   }
+  storeUser(loginUser : Users) {
+    localStorage.setItem('UserId', String(loginUser.user_id));
+  }
+  async userAllPages() {
+    if (this.user == null) {
+      let userId =  parseInt(localStorage.getItem('UserId'));
+      let data = await this.getUser(userId).toPromise();
+      this.user = data[0];
+    } 
+
+    return this.user;
+  }
 }

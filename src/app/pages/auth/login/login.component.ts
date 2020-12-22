@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         })
         this.router.navigateByUrl('/home');
         this.usersService.user = data [0];
+        this.usersService.storeUser(data[0]);
       }
     });
   }

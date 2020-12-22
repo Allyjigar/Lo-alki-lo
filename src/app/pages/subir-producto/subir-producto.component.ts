@@ -67,8 +67,7 @@ export class SubirProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
+    let user = this.userService.userAllPages();
   }
 
 }

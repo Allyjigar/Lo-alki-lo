@@ -59,7 +59,7 @@ export class MyProductsComponent implements OnInit {
   //   }
   // }
   ngOnInit(): void {
-    
+    let user = this.userService.userAllPages();
   }
 
 }
