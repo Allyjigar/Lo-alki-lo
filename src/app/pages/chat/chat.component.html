@@ -25,11 +25,14 @@
                 <div class="row no-gutters">
                     <div class="col-md-4 border-right">
                         <div class="settings-tray">
+                            <div class="text">
                             <img class="profile-image"
-                                src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/filip.jpg"
+                                src="{{userService.user.foto}}"
                                 alt="Profile img">
+                                <h6>{{userService.user.nickname}}</h6>
+                            </div>
                             <span class="settings-tray--right">
-                                <button type="button" (click)="allChats()">Desplegar chats</button>
+                               <!-- <button type="button" (click)="allChats()">Desplegar chats</button> -->
                             </span>
                         </div>
                         <div class="search-box">
@@ -38,49 +41,60 @@
                                 <input placeholder="Search here" type="text">
                             </div>
                         </div>
-                        <div *ngFor="let chat of chats">
-                        <a (click)="getMensajes(chat.id)"> <div class="friend-drawer friend-drawer--onhover">
-                            <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/robocop.jpg" alt="">                            
-                            <div class="text" *ngIf="chat.nickname_receptor != userService.user.nickname; else emisor">                                
-                                <h6>{{chat.nickname_receptor}}</h6>
-                                <ng-template #emisor>
-                                    <h6>{{chat.nickname_emisor}}</h6>
-                                </ng-template>
-                                <p class="text-muted">Hey, you're arrested!</p>
+                        <div *ngFor="let chat of chats; let i = index;">
+                        <a (click)="getMensajes(chat)"> 
+                            <div class="friend-drawer friend-drawer--onhover">
+                                                     
+                            <div class="text" *ngIf="chat.nickname_receptor != userService.user.nickname;"> 
+                                <img class="profile-image" src="{{chat.foto_receptor}}" alt="">                                  
+                                <div id="nicknameChats">
+                                    <h6>{{chat.nickname_receptor}}</h6>
+                                </div>
+                            </div>    
+                            <div class="text" *ngIf="chat.nickname_receptor == userService.user.nickname;">
+                                <img class="profile-image" src="{{chat.foto_emisor}}" alt="">   
+                                <div id="nicknameChats">
+                                    <h6>{{chat.nickname_emisor}}</h6>                                    
+                                </div>
+                            </div>                                
                             </div>
                             <span class="time text-muted small">13:21</span>
-                        </div> </a> </div>
+                         </a> </div>
                         <hr>
                     </div>
-                    <div class="col-md-8">
+         <div class="col-md-8">
                         <div class="settings-tray">
-                            <div class="friend-drawer no-gutters friend-drawer--grey">
-                                <img class="profile-image"
-                                    src="userService.user.foto"
-                                    alt="">
-                                <div class="text">
-                                    <h6>{{userService.user.nickname}}</h6>
-                                    <p class="text-muted">Layin' down the law since like before Christ...</p>
+                            <div class="friend-drawer no-gutters friend-drawer--grey" *ngIf="chatSelected != null;">                                
+                                <div class="text" *ngIf="chatSelected.nickname_emisor != userService.user.nickname">                                
+                                    <img class="profile-image"
+                                    src="{{chatSelected.foto_emisor}}"
+                                    alt="">    
+                                    <h6 id="nicknameRecibe">{{chatSelected.nickname_emisor}}</h6>
                                 </div>
-                                <span class="settings-tray--right">
+                                <div class="text" *ngIf="chatSelected.nickname_emisor == userService.user.nickname"> 
+                                    <img class="profile-image"
+                                    src="{{chatSelected.foto_receptor}}"
+                                    alt="">    
+                                    <h6 id="nicknameRecibe">{{chatSelected.nickname_receptor}}</h6>
+                                
+                                </div>
+                        <!--           <span class="settings-tray--right">
                                     <i class="material-icons">cached</i>
                                     <i class="material-icons">message</i>
                                     <i class="material-icons">menu</i>
-                                </span>
+                                </span> -->
                             </div>
                         </div>
                         <div class="chat-panel">
-                            <div class="row no-gutters" *ngFor="let mensajes of mensajesReci">
-                                <div class="col-md-3">
-                                    <div class="chat-bubble chat-bubble--left">
-                                                {{mensajes.mensaje}}
+                            <div class="row no-gutters" *ngFor="let mensaje of mensajes">
+                                <div class="col-md-3 offset-md-9" *ngIf="mensaje.user_id == userService.user.user_id;">
+                                    <div class="chat-bubble chat-bubble--right">
+                                        {{mensaje.mensaje}}
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row no-gutters" *ngFor="let mensajes of mensajesEnvi">
-                                <div class="col-md-3 offset-md-9">
-                                    <div class="chat-bubble chat-bubble--right">
-                                        {{mensajes.mensaje}}
+                                <div class="col-md-3" *ngIf="mensaje.user_id != userService.user.user_id"> 
+                                    <div class="chat-bubble chat-bubble--left">
+                                        {{mensaje.mensaje}}
                                     </div>
                                 </div>
                             </div>
@@ -88,8 +102,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div id="escribe" class="chat-box-tray">
-                                <input type="text" placeholder="Type your message here..." #mensaje>
-                                <button type="button" (click)="nuevoMensaje(mensaje, 2)">Send</button>
+                                <input type="text" placeholder="Type your message here..." #mensaje id="inputMensaje">
+                                <button type="button" (click)="nuevoMensaje(mensaje, chatSelected.chat_id)" class="send">Send</button>
                             </div>
                         </div>
                     </div>

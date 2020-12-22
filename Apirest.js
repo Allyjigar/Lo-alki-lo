@@ -263,7 +263,8 @@ app.post("/chat", function(request, response) {
 /*Mensajes: */
 
 app.get("/mensajes", function (request, response) {
-    let id = String(request.query.id);
+    let id = String(request.query.chat_id);
+    console.log(id);
     let params = new Array (id);
     let sql = "SELECT * FROM mensajes WHERE chat_id = ?";
     connection.query(sql, params, function(err, result) {
@@ -277,38 +278,7 @@ app.get("/mensajes", function (request, response) {
     });
 });
 
-app.get("/mensajes/emisor", function(request, response) {
-    let id = String(request.query.id);
-    let idE = String(request.query.id2);
-    let params = new Array (id, idE);
-    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id = ?";
-    connection.query(sql, params, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de mensajes");
-            console.log(result);
-            response.send(result);
-        };
-    });
-});
 
-
-app.get("/mensajes/receptor", function(request, response){
-    let id1 = String(request.query.idChat);
-    let id2 = String(request.query.idUser);
-    let params = new Array (id1,id2);
-    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id != ?";
-    connection.query(sql, params, function(err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de mensajes");
-            console.log(result);
-            response.send(result);
-        };
-    });
-})
 app.post("/mensajes", function(request, response) {
     let params = new Array (String(request.body.chat_id), String(request.body.user_id), String(request.body.date), String(request.body.mensaje));
     let sql = "INSERT INTO mensajes (chat_id, user_id, fecha, mensaje) VALUES (?, ?, ?, ?)";
