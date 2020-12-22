@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-my-products',
@@ -9,7 +10,7 @@ export class MyProductsComponent implements OnInit {
   public isHidden: boolean = true;
   public isHidden2: boolean = true;
   public isHidden3: boolean = true;
-  constructor() { }
+  constructor(public userService : UsersService) { }
   mostrarMisProductos() {
     if (this.isHidden == true) {
       this.isHidden = false;
@@ -45,6 +46,7 @@ export class MyProductsComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    let user = this.userService.userAllPages();
   }
 
 }

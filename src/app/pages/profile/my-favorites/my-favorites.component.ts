@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-my-favorites',
@@ -9,9 +10,10 @@ export class MyFavoritesComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(public userService : UsersService) { }
 
   ngOnInit(): void {
+    let user = this.userService.userAllPages();
   }
 
 }

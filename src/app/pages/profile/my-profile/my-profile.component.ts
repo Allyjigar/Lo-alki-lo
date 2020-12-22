@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/shared/users.service';
 import { PerfilUsuarioComponent } from '../../home/anuncio/perfil-usuario/perfil-usuario.component';
 
 @Component({
@@ -8,10 +9,10 @@ import { PerfilUsuarioComponent } from '../../home/anuncio/perfil-usuario/perfil
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService : UsersService) { }
 
   ngOnInit(): void {
-
+    let user = this.userService.userAllPages();
     // this.usersService.funcion en el servicio q haga un get de usuario()
   }
 

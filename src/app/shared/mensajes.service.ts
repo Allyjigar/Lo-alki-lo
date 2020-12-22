@@ -7,13 +7,17 @@ import { Mensaje } from '../models/mensaje';
 })
 export class MensajesService {
   
-  private url = "http://localhost:9191/mensajes";
-  public mensaje : Mensaje = new Mensaje ("", 0, 0, "");
+  private url = "http://localhost:9191/mensajes/emisor";
+  private urlR= "http://localhost:9191/mensajes/receptor";
+  
 
   constructor(private http : HttpClient) { }
 
-  getMensaje(id : number) {
-    return this.http.get(this.url + "?id=" + id);
+  getMensajeEmi(idChat : number, idUser : number) {
+    return this.http.get(this.url + "?id=" + idChat + "&id2=" + idUser);
+  }
+  getMensajeRece(idChat : number, idUser : number){
+    return this.http.get(this.urlR + "?idChat=" + idChat + "&idUser=" + idUser);
   }
   postMensaje(newMensaje : Mensaje) {
     return this.http.post(this.url, newMensaje);

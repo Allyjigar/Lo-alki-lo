@@ -84,6 +84,7 @@ app.get("/user", function(request, response) {
 }); 
 //  nuevo post/register para comprobar nickname antes
 app.post("/users/register", function(request, response) {
+    console.log(request);
     let params = new Array ( String(request.body.name), String(request.body.password),String(request.body.email),
     String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto),String(request.body.nickname), String(request.body.nickname));
     let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) SELECT * FROM (SELECT ? AS name, ? AS password, ? AS email, ? AS direccion, ? AS ciudad, ? AS cp, ? AS foto, ? AS nickname ) AS tmp WHERE NOT EXISTS (SELECT nickname FROM user WHERE nickname=?) LIMIT 1";
@@ -227,14 +228,14 @@ app.delete("/products", function(request, response) {
 
 /*Chat */
 app.get("/chat", function(request, response) {
-    let emisor = String(request.query.id1);
+    let emisor = String(request.query.id);
     let params = new Array (emisor, emisor);
     let sql = "SELECT * FROM chat WHERE emisor_id = ? OR receptor_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Solicitud de chat_id");
+            console.log("Solicitud de chats");
             console.log(result);
             response.send(result);
         };
@@ -259,10 +260,11 @@ app.post("/chat", function(request, response) {
 
 
 /*Mensajes: */
-app.get("/mensajes", function(request, response) {
+app.get("/mensajes/emisor", function(request, response) {
     let id = String(request.query.id);
-    let params = new Array (id);
-    let sql = "SELECT * FROM mensajes WHERE chat_id = ?";
+    let idE = String(request.query.id2);
+    let params = new Array (id, idE);
+    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -273,6 +275,21 @@ app.get("/mensajes", function(request, response) {
         };
     });
 });
+app.get("/mensajes/receptor", function(request, response){
+    let id1 = String(request.query.idChat);
+    let id2 = String(request.query.idUser);
+    let params = new Array (id1,id2);
+    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id != ?";
+    connection.query(sql, params, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de mensajes");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
 app.post("/mensajes", function(request, response) {
     let params = new Array (String(request.body.chat_id), String(request.body.user_id), String(request.body.date), String(request.body.mensaje));
     let sql = "INSERT INTO mensajes (chat_id, user_id, fecha, mensaje) VALUES (?, ?, ?, ?)";
