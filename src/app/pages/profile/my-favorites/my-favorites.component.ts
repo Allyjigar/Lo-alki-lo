@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/shared/products.service';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-my-favorites',
@@ -20,7 +22,7 @@ export class MyFavoritesComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(public productsService: ProductsService, public userService: UsersService) { }
 
   ngOnInit(): void {
   }

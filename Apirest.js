@@ -111,10 +111,10 @@ app.post("/users/login", function(request, response) {
     });
 });
 app.put("/users", function(request, response) {
-    let id = String(request.body.id);
+    let user_id = String(request.body.user_id);
     let params = new Array (String(request.body.name), String(request.body.password),String(request.body.email),
     String(request.body.direccion),String(request.body.ciudad),String(request.body.cp),String(request.body.foto)
-    ,String(request.body.nickname), id);
+    ,String(request.body.nickname), user_id);
     let sql = "UPDATE user SET name = ?, password = ?, email = ?, direccion = ?, ciudad = ?, cp = ?, foto = ?, nickname = ? WHERE user_id = ?"
     connection.query(sql, params, function(err, result) {
         if (err) {
@@ -150,7 +150,7 @@ app.post("/search/products", function(request, response) {
 app.get("/products", function (request, response) {
     let id = String(request.query.id);
     let params = new Array (id);
-    let sql = "SELECT * FROM product JOIN user ON (product.user_id = user.user_id) WHERE product.user_id = ?";
+    let sql = "SELECT * FROM product WHERE user_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
@@ -179,7 +179,7 @@ app.post("/products", function(request, response) {
     });
 });
 app.put("/products", function(request, response) {
-    let params = new Array (String(request.body.name), String(request.body.description), String(request.body.user_id),
+    let params = new Array (String(request.body.name), String(request.body.descripcion), String(request.body.user_id),
     String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
     String(request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.precio),
     String(request.body.categoria), String(request.body.subcategoria), String(request.body.id));
@@ -320,7 +320,7 @@ app.put("/favoritos", function(request, response) {
 /*Renting: */
 app.get("/products/ad", function(request, response) {
     let user_id = String(request.query.userid);
-    let product_id = String(request.query.productid);
+    let product_id = String(request.query.product_id);
     let params = new Array (user_id, product_id);
     let sql = "SELECT * FROM renting WHERE user_id = ? AND product_id = ?";
     connection.query(sql, params, function(err, result) {

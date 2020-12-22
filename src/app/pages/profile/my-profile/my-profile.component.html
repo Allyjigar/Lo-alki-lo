@@ -14,35 +14,35 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label >Nickname</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="{{userService.user.nickname}}" name="nickname" #nickname style="font-size: 15px;">
+                            <input type="text" class="form-control" id="inputEmail4" value="{{userService.user.nickname}}" #nickname style="font-size: 15px;">
                         </div>
                         <div class="form-group col-md-6">
                             <label >Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="{{userService.user.password}}" name="password" #password style="font-size: 15px;">
+                            <input type="text" class="form-control" id="inputPassword4" value="{{userService.user.password}}" #password style="font-size: 15px;">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label >Nombre</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name" #name style="font-size: 15px;">
+                            <input type="text" class="form-control" id="inputEmail4" #name style="font-size: 15px;">
                         </div>
                         <div class="form-group col-md-6">
                             <label >Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" placeholder="{{userService.user.email}}" name="email" #email style="font-size: 15px;">
+                            <input type="email" class="form-control" id="inputPassword4" value="{{userService.user.email}}" #email style="font-size: 15px;">
                         </div>
                     </div>
                     <div class="form-group">
                     <label for="inputAddress">Dirección</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="direccion" #direccion style="font-size: 15px;">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" #direccion style="font-size: 15px;">
                     </div>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">Ciudad</label>
-                        <input type="text" class="form-control" id="inputCity" name="ciudad" #ciudad style="font-size: 15px;">
+                        <input type="text" class="form-control" id="inputCity" #ciudad style="font-size: 15px;">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">CP</label>
-                        <input type="text" class="form-control" id="inputZip" name="cp" #cp style="font-size: 15px;">
+                        <input type="text" class="form-control" id="inputZip" #cp style="font-size: 15px;">
                     </div>
                     </div>
                     <div class="subiFoto">                    
@@ -50,7 +50,7 @@
                             <label id="foto1" for="formGroupExampleInput2" class="form-label"><b>Foto Perfil:</b></label>
                         </div>
                         <div>
-                            <input id="foto_1" type="file" name="foto" #foto >
+                            <input id="foto_1" type="file" #foto>
                         </div>
                     </div>
                     <button type="submit" class="btn" on-click="modificarUsuario(nickname, password, name, email, direccion, ciudad, cp, foto)">Modificar</button>
