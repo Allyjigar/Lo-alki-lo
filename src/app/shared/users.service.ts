@@ -6,6 +6,7 @@ import { Users } from '../models/users';
   providedIn: 'root'
 })
 export class UsersService {
+  public user_id: number;
   private url = "http://localhost:9191/users";
   private url2 = "http://localhost:9191/user";
   private urlRegister = "http://localhost:9191/users/register";

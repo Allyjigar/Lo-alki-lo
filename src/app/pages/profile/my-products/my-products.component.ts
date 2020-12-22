@@ -10,16 +10,17 @@ import { UsersService } from 'src/app/shared/users.service';
   styleUrls: ['./my-products.component.css']
 })
 export class MyProductsComponent implements OnInit {
-
+  public id: number;
   public isHidden: boolean = true;
   public isHidden2: boolean = true;
   public isHidden3: boolean = true;
-  public product: Products = new Products("", "", "",0, 0, "", "", "");
-  public user: Users = new Users("", "", "", "");
-
-  constructor(public productService: ProductsService, public userService: UsersService) {
+  public product: Products = new Products("", "", 0, "", 0, "", "", "")
+  public user: Users = new Users("", "", "", "")
+  public products: Products[];
+  constructor(public productsService: ProductsService, public userService: UsersService) {
     this.product
   }
+
   mostrarMisProductos() {
     if (this.isHidden == true) {
       this.isHidden = false;
@@ -53,13 +54,22 @@ export class MyProductsComponent implements OnInit {
       this.isHidden3 = true;
     }
   }
-  // eliminarAnuncio() {
-  //   this.productService.deleteProduct(Number(this.productService.product.id)).subscribe(data) => {
-  //     console.log(data);
-  //   }
-  // }
+  eliminarAnuncio() {
+    this.productsService.deleteProduct(Number(this.productsService.product.product_id)).subscribe((data: any) => {
+      console.log(data);
+      console.log(this.productsService.product.product_id);
+    })
+  }
   ngOnInit(): void {
     let user = this.userService.userAllPages();
+   this.productsService.getUserProducts(this.productsService.product.user_id).subscribe((data: Products[]) => {
+      // this.product = data[0];
+      this.products = data;
+    })
+    
+  
+   
+    
   }
 
 }
