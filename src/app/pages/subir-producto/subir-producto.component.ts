@@ -13,7 +13,7 @@ import swal from 'sweetalert2';
 })
 export class SubirProductoComponent implements OnInit {
 
-  public product: Products = new Products("", "", 0, "", 0, "", "", "")
+  public product: Products = new Products("", "", "",0, 0, "", "", "");
   public categoria: string;
   public subcategoria: string;
   public user: Users = new Users("", "", "", "");
@@ -39,7 +39,7 @@ export class SubirProductoComponent implements OnInit {
   }
 
   subirProducto(name: HTMLInputElement, descripcion: HTMLInputElement, foto1: HTMLInputElement, precio: HTMLInputElement, foto2: HTMLInputElement, foto3: HTMLInputElement, foto4: HTMLInputElement) {
-    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)
+    let newProduct = new Products(name.value, descripcion.value, foto1.value, this.userService.user.user_id,  Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)
     this.productService.postProduct(newProduct).subscribe((data: any) => {
       console.log(data);
 

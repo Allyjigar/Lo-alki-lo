@@ -14,8 +14,8 @@ export class MyProductsComponent implements OnInit {
   public isHidden: boolean = true;
   public isHidden2: boolean = true;
   public isHidden3: boolean = true;
-  public product: Products = new Products("", "", 0, "", 0, "", "", "")
-  public user: Users = new Users("", "", "", "")
+  public product: Products = new Products("", "", "",0, 0, "", "", "");
+  public user: Users = new Users("", "", "", "");
 
   constructor(public productService: ProductsService, public userService: UsersService) {
     this.product

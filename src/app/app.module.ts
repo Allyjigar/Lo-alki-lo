@@ -24,11 +24,8 @@ import { MyProfileComponent } from './pages/profile/my-profile/my-profile.compon
 import { ValoracionesComponent } from './pages/profile/valoraciones/valoraciones.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { ValidateEqualModule } from 'ng-validate-equal';
-=======
 import { ProductsService } from './shared/products.service';
->>>>>>> mikel
 
 @NgModule({
   declarations: [
