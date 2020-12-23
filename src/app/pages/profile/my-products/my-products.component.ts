@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/models/products';
+import { Renting } from 'src/app/models/renting';
 import { Users } from 'src/app/models/users';
 import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
+
 
 @Component({
   selector: 'app-my-products',
@@ -11,64 +13,67 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class MyProductsComponent implements OnInit {
   public id: number;
-  public isHidden: boolean = true;
-  public isHidden2: boolean = true;
-  public isHidden3: boolean = true;
-  public product: Products = new Products("", "", 0, "", 0, "", "", "")
+  public rent: Renting = new Renting(0, "", 0,0, false, false, 0);
   public user: Users = new Users("", "", "", "")
   public products: Products[];
+  public misProductos: Products[];
+  public misProductosAlquilados: Products[];
+  public misPeticiones: [];
+
+
   constructor(public productsService: ProductsService, public userService: UsersService) {
-    this.product
+    
   }
 
   mostrarMisProductos() {
-    if (this.isHidden == true) {
-      this.isHidden = false;
-      this.isHidden2 = true;
-      this.isHidden3 = true;
-    } else {
-      this.isHidden = true;
-      this.isHidden2 = true;
-      this.isHidden3 = true;
-    }
-  }
-  mostrarOtrosProductos() {
-    if (this.isHidden2 == true) {
-      this.isHidden = true;
-      this.isHidden2 = false;
-      this.isHidden3 = true;
-    } else {
-      this.isHidden = true;
-      this.isHidden2 = true;
-      this.isHidden3 = true;
-    }
-  }
-  mostrarPeticiones() {
-    if (this.isHidden3 == true) {
-      this.isHidden = true;
-      this.isHidden2 = true;
-      this.isHidden3 = false;
-    } else {
-      this.isHidden = true;
-      this.isHidden2 = true;
-      this.isHidden3 = true;
-    }
-  }
-  eliminarAnuncio() {
-    this.productsService.deleteProduct(Number(this.productsService.product.product_id)).subscribe((data: any) => {
-      console.log(data);
-      console.log(this.productsService.product.product_id);
+    this.productsService.getUserProducts(this.userService.user.user_id).subscribe((data: any) => {
+      this.misProductos = data;
+      this.misProductosAlquilados = null; 
+      this.misPeticiones = null; 
     })
+  }
+
+  mostrarMisProductosAlquilados() {
+   this.productsService.getProductsAd(this.userService.user.user_id).subscribe((data: any) => {
+     this.misProductosAlquilados = data;
+     this.misProductos = null; 
+     this.misPeticiones = null;
+   })
+  }
+
+  mostrarMisPeticiones() {
+    this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
+      this.misPeticiones = data;
+      this.misProductos = null;
+      this.misProductosAlquilados = null;
+    })
+  }
+
+  aceptarSolicitud() {
+
+  }
+  rechazarSolicitud() {
+
+  }
+  
+  eliminarAnuncio() {
+    let id = this.productsService.product.product_id;
+    this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
+      console.log(data);
+      this.mostrarMisProductos();
+         
+      });
+
+  }
+  modificarAnuncio() {
+    
+
   }
   ngOnInit(): void {
     let user = this.userService.userAllPages();
-   this.productsService.getUserProducts(this.productsService.product.user_id).subscribe((data: Products[]) => {
-      // this.product = data[0];
-      this.products = data;
-    })
-    
-  
-   
+
+    this.mostrarMisProductos();
+
     
   }
 

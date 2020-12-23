@@ -35,7 +35,7 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();
-    // this.usersService.funcion en el servicio q haga un get de usuario()
+    
   }
 
 }

@@ -162,7 +162,7 @@ app.post("/search/products", function (request, response) {
 
 /*Productos del usuario */
 app.get("/products", function (request, response) {
-    let id = String(request.query.id);
+    let id = String(request.query.user_id);
     let params = new Array (id);
     let sql = "SELECT * FROM product WHERE user_id = ?";
     connection.query(sql, params, function(err, result) {
@@ -209,7 +209,7 @@ app.put("/products", function (request, response) {
     });
 });
 app.delete("/products", function (request, response) {
-    let id = String(request.body.id);
+    let id = String(request.body.product_id);
     let params = new Array(id);
     let sql = "DELETE FROM product WHERE product_id = ?";
     connection.query(sql, params, function (err, result) {
@@ -326,9 +326,9 @@ app.post("/mensajes", function(request, response) {
 
 /*Favoritos: */
 app.get("/favoritos", function (request, response) {
-    let id = String(request.query.id);
+    let id = String(request.query.user_id);
     let params = new Array(id);
-    let sql = "SELECT * FROM favourites WHERE favourites_id = ?";
+    let sql = "SELECT * FROM favourites WHERE user_id = ? AND favorito = true ";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -369,10 +369,23 @@ app.put("/favoritos", function (request, response) {
 
 /*Renting: */
 app.get("/products/ad", function (request, response) {
-    let user_id = String(request.query.userid);
-    let product_id = String(request.query.product_id);
-    let params = new Array (user_id, product_id);
-    let sql = "SELECT * FROM renting WHERE user_id = ? AND product_id = ?";
+    let user_id = String(request.query.user_id);
+    let params = new Array (user_id);
+    let sql = "SELECT product.name, product.foto1, product.precio, product.descripcion FROM renting JOIN product ON(renting.product_id = product.product_id) WHERE (renting.user_id = ? AND alquilado = true)"; 
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Producto alquilado");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+app.get("/products/rent", function (request, response) {
+    let user_id = String(request.query.user_id);
+    let params = new Array (user_id);
+    let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE (user.user_id = ? AND alquilado = false)"; 
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
