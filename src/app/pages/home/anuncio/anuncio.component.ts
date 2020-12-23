@@ -33,7 +33,7 @@ export class AnuncioComponent implements OnInit {
   
     this.productsService.product = this.productsService.products[index];
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
-      this.usersService.user = data[0] ;
+      this.usersService.user2 = data[0] ;
     })
   }
 }

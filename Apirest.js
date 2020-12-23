@@ -163,7 +163,7 @@ app.post("/search/products", function (request, response) {
 /*Productos del usuario */
 app.get("/products", function (request, response) {
     let id = String(request.query.user_id);
-    let params = new Array (id);
+        let params = [id];
     let sql = "SELECT * FROM product WHERE user_id = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
