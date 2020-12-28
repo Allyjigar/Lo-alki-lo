@@ -32,6 +32,13 @@ export class UsersService {
   storeUser(loginUser : Users) {
     localStorage.setItem('UserId', String(loginUser.user_id));
   }
+  closeUser() {
+    if (this.user != null) {
+      this.user = null;
+      localStorage.setItem('UserId', "null");
+      console.log(this.user);
+    } //Quedó realizado el Cerrar Sesión, pero el nombre a la derecha arriba no está bien del todo. Cuando tenemos sesión cerrada y entramos a un anuncio nos inicia la sesión de ese anuncio...
+  }
   async userAllPages() {
     if (this.user == null) {
       let userId =  parseInt(localStorage.getItem('UserId'));

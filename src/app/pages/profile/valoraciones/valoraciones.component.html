@@ -1,36 +1,18 @@
-<body>
+    <div>
+        <div class="fa fa-star estrella" (mouseover)="prueba(5)" [ngClass]="numero == 5 ? 'selected' : 'estrella'" (click)="mostrar()">
+        </div>
+        <div class="fa fa-star estrella" (mouseover)="prueba(4)" [ngClass]="numero == 4 || numero == 5 ? 'selected' : 'estrella'" (click)="mostrar()">
+        </div>
+        <div class="fa fa-star estrella" (mouseover)="prueba(3)" [ngClass]="numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'" (click)="mostrar()">
+        </div>
+        <div class="fa fa-star estrella" (mouseover)="prueba(2)" [ngClass]="numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'" (click)="mostrar()">
+        </div>
+        <div class="fa fa-star estrella" (mouseover)="prueba(1)" [ngClass]="numero == 1 || numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'" (click)="mostrar()">
+        </div>
+    </div>  
 
-    <header>
-    <app-header-layout></app-header-layout>
-    </header>
-    
-        <main>
-        <aside class="menuL">
-            <app-sidebar></app-sidebar>
-        </aside>
-        <article>
-
-            <form>
-            <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                --><label for="radio1">★</label><!--
-                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                --><label for="radio2">★</label><!--
-                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-                --><label for="radio3">★</label><!--
-                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                --><label for="radio4">★</label><!--
-                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                --><label for="radio5">★</label>
-            </p>
-            </form>
-        </article>
-        
-    
-        </main>
-        <div class="separador"></div>
-        <hr>
-        <footer>
-            <app-footer></app-footer>
-        </footer>
-    </body>
+<!--
+<div *ngIf="puntuacion">
+    <h1>Has dado una puntuación de {{puntuacion}}</h1>
+</div>
+-->

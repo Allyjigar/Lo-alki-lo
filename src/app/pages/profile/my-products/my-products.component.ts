@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/models/products';
+import { Renting } from 'src/app/models/renting';
 import { Users } from 'src/app/models/users';
 import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
@@ -14,11 +15,16 @@ export class MyProductsComponent implements OnInit {
   public isHidden: boolean = true;
   public isHidden2: boolean = true;
   public isHidden3: boolean = true;
-  public product: Products = new Products("", "", "",0, 0, "", "", "");
+  public isHidden4: boolean = false;
+  public isHidden5: boolean = true;
+  public product: Products;
+  public products: Products [];
+  public productoValorado : Products; 
   public user: Users = new Users("", "", "", "");
+  public numero : number;
 
   constructor(public productService: ProductsService, public userService: UsersService) {
-    this.product
+
   }
   mostrarMisProductos() {
     if (this.isHidden == true) {
@@ -41,6 +47,8 @@ export class MyProductsComponent implements OnInit {
       this.isHidden2 = true;
       this.isHidden3 = true;
     }
+    this.getAlquilados();
+    console.log(this.products);
   }
   mostrarPeticiones() {
     if (this.isHidden3 == true) {
@@ -53,6 +61,16 @@ export class MyProductsComponent implements OnInit {
       this.isHidden3 = true;
     }
   }
+  selectProduct(produSelected : Products) {
+        this.productService.product = produSelected;
+        this.productService.product.media = this.numero;
+        console.log(produSelected);
+  }
+  getAlquilados() {
+    this.productService.getRenting(this.userService.user.user_id).subscribe((data : []) => {
+      this.productService.peticionAlquilados = data;
+      })
+  }
   // eliminarAnuncio() {
   //   this.productService.deleteProduct(Number(this.productService.product.id)).subscribe(data) => {
   //     console.log(data);
@@ -60,6 +78,7 @@ export class MyProductsComponent implements OnInit {
   // }
   ngOnInit(): void {
     let user = this.userService.userAllPages();
+    
   }
 
 }
