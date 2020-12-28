@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Products } from '../models/products';
 import { Renting } from '../models/renting';
+import { Favorito } from '../models/favorito';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  public favoritos: Favorito [];
+  public favorito: Favorito;
   public rent: Renting;
   public product: Products;
   public products: Products[];
@@ -15,9 +18,11 @@ export class ProductsService {
   private url = "http://localhost:9191/home";
   private url2 = "http://localhost:9191/anuncio";
   private url3 = "http://localhost:9191/products";
-  private url4 = "http://locahost:9191/favoritos";
+  private url4 = "http://localhost:9191/favoritos";
   private url5 = "http://localhost:9191/products/ad";
   private url6 = "http://localhost:9191/products/rent";
+  private url7 = "http://localhost:9191/products/search"
+  private url8 = "http://localhost:9191/favorito";
 
   constructor(private http: HttpClient) { }
   //Por ID
@@ -46,7 +51,12 @@ export class ProductsService {
     return this.http.get(this.url2 + id)
   }
 
-  //Por nombre/Categoria/Subcategoria (Busqueda)
+  //Por nombre (búsqueda)
+  getSearchProduct(name: string) {
+    return this.http.get(this.url7 + "?name=" + name);
+  }
+  
+  //Categoria/Subcategoria (Busqueda)
 
   //Por Usuario(subidos)
   getUserProducts(user_id: number) {
@@ -64,12 +74,33 @@ export class ProductsService {
     return this.http.get(this.url6 + "?user_id=" + user_id);
   }
 
-  //Por Usuario(favoritos)
+  //Mostrar por Usuario(favoritos)
 
-  getFavProducts(favourites_id: number) {
-    return this.http.get(this.url4 + "?favourites_id=" + favourites_id);
+  getFavProducts(user_id: number) {
+    return this.http.get(this.url4 + "?user_id=" + user_id);
 
   }
+  getFavProduct(user_id: number, product_id: number) {
+    return this.http.get(this.url8 + "?user_id" + user_id + "&product_id" + product_id)
+  }
 
+  // Anadir favorito
+  postFavProducts(newFavorito: Favorito) {
+    return this.http.post(this.url4, newFavorito);
+  }
+  //Eliminar favorito
+  deleteFav(id: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        favourites_id: id
+      },
+    };
+    return this.http.delete(this.url4, options)
+  }
+
+  
 }
 

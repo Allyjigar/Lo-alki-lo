@@ -144,20 +144,34 @@ app.put("/users", function(request, response) {
 
 
 /* Buscador */
-app.post("/search/products", function (request, response) {
-    let name = String(request.body.name);
-    let params = new Array(name, name, name, name);
-    let sql = "SELECT * FROM product WHERE name = ? OR descripcion = ? OR categoria = ? OR subcategoria = ?";
-    connection.query(sql, params, function (err, result) {
+app.get("/products/search", function(request, response) {
+    let name = String(request.query.name);
+    let params = new Array (name);
+    let sql = "SELECT * FROM product WHERE name = ?";
+    connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Solicitud de producto por el Buscador");
+            console.log("Get de producto en el buscador");
             console.log(result);
             response.send(result);
         };
     });
-});
+}); 
+// app.post("/search/products", function (request, response) {
+//     let name = String(request.body.name);
+//     let params = new Array(name, name, name, name);
+//     let sql = "SELECT * FROM product WHERE name = ? OR descripcion = ? OR categoria = ? OR subcategoria = ?";
+//     connection.query(sql, params, function (err, result) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("Solicitud de producto por el Buscador");
+//             console.log(result);
+//             response.send(result);
+//         };
+//     });
+// });
 /*Checkeado */
 
 /*Productos del usuario */
@@ -328,7 +342,22 @@ app.post("/mensajes", function(request, response) {
 app.get("/favoritos", function (request, response) {
     let id = String(request.query.user_id);
     let params = new Array(id);
-    let sql = "SELECT * FROM favourites WHERE user_id = ? AND favorito = true ";
+    let sql = "SELECT product.name, product.foto1, product.precio, product.product_id FROM favourites JOIN product ON(product.product_id = favourites.product_id) WHERE (favourites.user_id = ? AND favorito = true)";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de Favoritos");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
+app.get("/favorito", function (request, response) {
+    let id = String(request.query.user_id);
+    let id2 = String(request.query.product_id);
+    let params = new Array(id, id2);
+    let sql = "SELECT * FROM favourites WHERE (favourites.user_id = ? AND favourites.product_id = ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -340,7 +369,7 @@ app.get("/favoritos", function (request, response) {
     });
 })
 app.post("/favoritos", function (request, response) {
-    let params = new Array(String(request.body.user_id), String(request.body.product_id), String(request.body.favorito));
+    let params = new Array(String(request.body.user_id), String(request.body.product_id), Boolean(request.body.favorito));
     let sql = "INSERT INTO favourites (user_id, product_id, favorito) VALUES (?, ?, ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -352,19 +381,21 @@ app.post("/favoritos", function (request, response) {
         };
     });
 });
-app.put("/favoritos", function (request, response) {
-    let params = new Array(String(request.body.favorito), String(request.body.user_id), String(request.body.product_id));
-    let sql = "UPDATE favourites SET favorito = ? WHERE user_id = ? AND product_id = ?";
+app.delete("/favoritos", function (request, response) {
+    let id = String(request.body.favourites_id);
+    let params = new Array(id);
+    let sql = "DELETE FROM favourites WHERE favourites_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Favoritos modificado");
+            console.log("Se ha eliminado un favorito");
             console.log(result);
             response.send(result);
         };
     });
 });
+
 /*Checkeado */
 
 /*Renting: */

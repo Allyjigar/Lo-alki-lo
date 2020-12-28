@@ -4,6 +4,7 @@ import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
 import { Users } from 'src/app/models/users';
+import { Favorito } from 'src/app/models/favorito';
 
 @Component({
   selector: 'app-anuncio',
@@ -12,28 +13,51 @@ import { Users } from 'src/app/models/users';
 })
 export class AnuncioComponent implements OnInit {
 
+  public favorito: Favorito;
+  public favoritos: Favorito[];
   public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
   constructor(private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService) {
 
   }
 
-  favorito() {
 
-    if (this.claseFav === "fa fa-heart-o fa_custom") {
+  marcarFavorito() {
+
+    if (this.claseFav === "fa fa-heart-o fa_custom" ) {
       this.claseFav = "fa fa-heart fa_custom";
+      this.productsService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
+        this.favorito = data[0];
+      });
+
     } else {
       this.claseFav = "fa fa-heart-o fa_custom";
+      alert(this.productsService.favorito.favourites_id);
+      this.productsService.deleteFav(this.productsService.favorito.favourites_id).subscribe((data: any) => {
+        
+      });
+      {
+
+      }
+
     }
+
+
   }
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
 
     let user = this.usersService.userAllPages();
-  
+
     this.productsService.product = this.productsService.products[index];
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
-      this.usersService.user = data[0] ;
+      this.usersService.user = data[0];
     })
+
+    this.productsService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
+      this.productsService.favorito = data;
+      console.log(this.productsService.favorito);
+    })
+
   }
 }
