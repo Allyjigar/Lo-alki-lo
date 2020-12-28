@@ -22,6 +22,7 @@ export class MyProductsComponent implements OnInit {
 
 
   constructor(public productsService: ProductsService, public userService: UsersService) {
+    this.rent
     
   }
 
@@ -60,13 +61,10 @@ export class MyProductsComponent implements OnInit {
     let id = this.productsService.product.product_id;
     this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
       console.log(data);
-      this.mostrarMisProductos();
+      
+      
          
       });
-
-  }
-  modificarAnuncio() {
-    
 
   }
   ngOnInit(): void {

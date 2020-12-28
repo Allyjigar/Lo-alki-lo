@@ -26,25 +26,23 @@
     </aside>
     <article>
       <div class="row" style="margin-top: 10px; margin-left: 12%">
-        <!-- <div *ngFor="let pro of favoritos"> -->
+        <div *ngFor="let product of favoritos; index as i;">
           <div class="col 4">
             <div class="card-body">
               <div class="card">
-                <img class="card-img-top" src="https://i.blogs.es/15c1b1/1366_2000-3/450_1000.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 id="nombre">PS5 ¡Novedad!&nbsp; &nbsp;<i [class]="claseFav" (click)="marcarFavorito()"></i></h5>
-                  <p id="descripcion">PlayStation 5, tiene una semana. Se alquila con dos mandos. Varios juegos a
-                    elegir.
-                    ¡Disfrútala YA!</p>
+                  <h5 id="nombre">{{product.name}}&nbsp; &nbsp;<i [class]="claseFav" (click)="desmarcarFavorito()"></i>
+                  </h5>
                 </div>
                 <div class="card-footer">
-                  <small id="precio">20 €</small>
-                  <button id="interesa" ><b>Me interesa</b></button>
+                  <small id="precio">Precio: {{product.precio}} &nbsp;€</small>
+                  <button (click)="detalleAnuncio(product.product_id)" id="interesa"><b>Me interesa</b></button>
                 </div>
               </div>
             </div>
           </div>
-        <!-- </div> -->
+        </div>
       </div>
     </article>
   </main>
@@ -53,6 +51,5 @@
   <footer>
     <app-footer></app-footer>
   </footer>
-</body>
-
-</html>
+  </body>
+  </html>

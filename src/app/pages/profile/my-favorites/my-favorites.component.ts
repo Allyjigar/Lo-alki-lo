@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Favorito } from 'src/app/models/favorito';
 import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
@@ -11,29 +12,49 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class MyFavoritesComponent implements OnInit {
 
+  public product: Products;
   public claseFav = "fa fa-heart fa_custom";
-  public favoritos: Products[];
-  public favorito: Products = new Products("", "", 0, "", 0, "", "", "")
+  public favoritos: Favorito [];
+  public favorito: Favorito;
   
   
   constructor(public productsService: ProductsService, public userService: UsersService, public router: Router) { }
 
-  marcarFavorito() {
+  desmarcarFavorito() {
 
-    if (this.claseFav === "fa fa-heart fa_custom"){
-        this.claseFav = "fa fa-heart-o fa_custom";
-    } else {
+    if (this.claseFav === "fa fa-heart-o fa_custom") {
       this.claseFav = "fa fa-heart fa_custom";
-    }
- 
-  }
+      this.productsService.postFavProducts(new Favorito(this.userService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
+        this.favorito = data[0];
+      });
 
-  // detalleAnuncio(index :number) {
-  //   //this.productsService.product = product;
-    
-  //   this.productsService.product = this.productsService.products[index];
-  //   this.router.navigate(["/anuncio",index])
-  // }
+    } else {
+      this.claseFav = "fa fa-heart-o fa_custom";
+      this.productsService.deleteFav(this.productsService.favorito.favourites_id).subscribe((data: Favorito) => {
+        this.favorito = data[0];
+      });
+      {
+
+      }
+
+    }
+
+
+  }
+ 
+detalleAnuncio(index: number) {
+  //this.productsService.product = product;
+  let pos;
+  for (let i = 0; i < this.productsService.products.length; i++) {
+    if (this.productsService.products[i].product_id == index) {
+      this.productsService.product = this.productsService.products[i];
+      pos = i;
+
+    }
+  }
+  this.router.navigate(["/anuncio", pos])
+
+}
   ngOnInit(): void {
     let user = this.userService.userAllPages();
 

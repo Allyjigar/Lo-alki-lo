@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  
-  constructor(public productsService: ProductsService, public router : Router) {
-    
+
+  constructor(public productsService: ProductsService, public router: Router) {
+
     console.log(this.productsService.product)
 
   }
@@ -23,16 +23,23 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log("Anuncio")
     this.productsService.getProducts().subscribe((data: Products[]) => {
-      this. productsService.product = data[0];
-      this. productsService.products = data;
+      this.productsService.product = data[0];
+      this.productsService.products = data;
     })
   }
-  detalleAnuncio(index :number) {
+  detalleAnuncio(index: number) {
     //this.productsService.product = product;
-    
-    this.productsService.product = this.productsService.products[index];
-    this.router.navigate(["/anuncio",index])
-    
+
+    let pos;
+    for (let i = 0; i < this.productsService.products.length; i++) {
+      if (this.productsService.products[i].product_id == index) {
+        this.productsService.product = this.productsService.products[i];
+        pos = i;
+
+      }
+    }
+    this.router.navigate(["/anuncio", pos])
+
   }
 
 }
