@@ -7,98 +7,7 @@ article {
     margin-bottom: 10%;
     width: 90%;
 }
-/*
-#titulo
-{
-    text-align: center;
-    color: #334257;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-}
-#usuario
-{
-    background-color: #334257;
-    color: #fffe91;
-    width: 30em;
-}
-#mensaje
-{
-    background-color: #334257;
-    color: #fffe91;
 
-}
-#fila2_1
-{
-    height: 500px;
-}
-#fila3_1
-{
-    height: 20px;
-}
-#buscar
-{
-    background-color: #334257;
-    color: #fffe91;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center; 
-    height: 40px;
-    width: 150px;
-    font-size: 15px;
-    text-decoration: none;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    border-radius: 60px;
-   -webkit-box-shadow: 0px 1px 3px #334257;
-   -moz-box-shadow: 0px 1px 3px #334257;
-    box-shadow: 0px 1px 3px #334257;
-    text-shadow: 1px 1px 3px #334257;
-    border: dotted #334257 2px;
-    margin-left: 2.5%;
-    margin-top: 5%;
-}
-#buscador
-{
-    width: 60%;
-    border-color: #334257;
-    border-radius: 60px;
-    padding-left: 3%;
-}
-#texto
-{
-    width: 90%;
-    border-color: #334257;
-    padding-left: 1%;
-    margin-bottom: 2.5%;
-    height: 10%;
-    border-width: 3px;
-    margin-left: 5%;
-}
-#enviar_b
-{
-    background-color: #334257;
-    color: #fffe91;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center; 
-    height: 40px;
-    width: 150px;
-    font-size: 15px;
-    text-decoration: none;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    border-radius: 60px;
-   -webkit-box-shadow: 0px 1px 3px #334257;
-   -moz-box-shadow: 0px 1px 3px #334257;
-    box-shadow: 0px 1px 3px #334257;
-    text-shadow: 1px 1px 3px #334257;
-    border: dotted #334257 2px;
-    margin-left: 38%;
-}
-.tamaño{
-    width: 70%;
-    float: right;
-    margin-right: 10%;
-}
-*/
 /*Tarjetas del chat:*/
 .container {
     margin-left: 60px auto;
@@ -126,6 +35,7 @@ article {
     background: #eee;
     padding: 10px 15px;
     border-radius: 7px;
+    height: 80px;
   }
   .settings-tray .no-gutters {
     padding: 0;
@@ -279,4 +189,41 @@ article {
   }
   .chat-panel{
     height: 510px;
+    max-height: 500px;
+    overflow-y: scroll;
   }
+  #nicknameRecibe{
+    float: right;
+    color: #334257;
+    margin-right: 75%;
+    font-size: 2em;
+  }
+  .text h6{
+    float: right; 
+    margin-right: 70px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+  }
+  .text{
+    display: flex;
+  }
+.send{
+  background-color: #334257;
+  color: #fffe91;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center; 
+  height: 30px;
+  width: 100px;
+  font-size: 15px;
+  text-decoration: none;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+ -webkit-box-shadow: 0px 1px 3px #334257;
+ -moz-box-shadow: 0px 1px 3px #334257;
+  box-shadow: 0px 1px 3px #334257;
+  text-shadow: 1px 1px 3px #334257;
+  border: dotted #334257 2px;
+  margin-left: 5%;
+}

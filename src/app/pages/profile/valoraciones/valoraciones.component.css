@@ -21,38 +21,16 @@ article{
     background-color: rgb(255, 255, 255);
 /*    border: solid 0.5px black; */
 }
-#form {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-  }
-  
-  #form p {
-    text-align: center;
-  }
-  
-  #form label {
-    font-size: 20px;
-  }
-  
-  input[type="radio"] {
-    display: none;
-  }
-  
-  label {
-    color: grey;
-  }
-  
-  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
-  
-  label:hover,
-  label:hover ~ label {
-    color: orange;
-  }
-  
-  input[type="radio"]:checked ~ label {
-    color: orange;
-  }
+/* Valoraciones 
+*/
+.estrella {
+  display: inline-block; 
+  font-size: 16px;
+
+}
+.selected {
+font-size: 16px;
+padding: 0 1px;
+cursor: pointer;
+color: #FFD119;
+text-decoration: none; }

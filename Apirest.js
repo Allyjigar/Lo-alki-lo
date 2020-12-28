@@ -189,7 +189,20 @@ app.get("/products", function (request, response) {
         };
     });
 });
-
+app.get("/product", function (request, response) {
+    let id = String(request.query.product_id);
+    let params = new Array(id);
+    let sql = "SELECT * FROM product WHERE product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de productos de un Usuario");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
 app.post("/products", function(request, response) {
     let params = new Array (String(request.body.name), String(request.body.descripcion), String(request.body.user_id),
     String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
@@ -210,7 +223,7 @@ app.put("/products", function (request, response) {
     let params = new Array(String(request.body.name), String(request.body.description), String(request.body.user_id),
         String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
         String(request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.precio),
-        String(request.body.categoria), String(request.body.subcategoria), String(request.body.id));
+        String(request.body.categoria), String(request.body.subcategoria), String(request.body.product_id));
     let sql = "UPDATE product SET name = ?, descripcion = ?, user_id = ?, foto1 = ?, foto2 = ?, foto3 = ?, foto4 = ?, nvaloraciones = ?, suma = ?, media = ?, precio =?, categoria = ?, subcategoria = ? WHERE product_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -222,6 +235,19 @@ app.put("/products", function (request, response) {
         };
     });
 });
+app.put("/products/valoraciones", function(request,response) {
+    let params = new Array (String (request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.product_id));
+    let sql = "UPDATE product SET nvaloraciones = ?, suma = ?, media = ? WHERE product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Actualización valoración de producto");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
 app.delete("/products", function (request, response) {
     let id = String(request.body.product_id);
     let params = new Array(id);
@@ -277,7 +303,8 @@ app.post("/chat", function(request, response) {
 /*Mensajes: */
 
 app.get("/mensajes", function (request, response) {
-    let id = String(request.query.id);
+    let id = String(request.query.chat_id);
+    console.log(id);
     let params = new Array (id);
     let sql = "SELECT * FROM mensajes WHERE chat_id = ?";
     connection.query(sql, params, function(err, result) {
@@ -291,38 +318,7 @@ app.get("/mensajes", function (request, response) {
     });
 });
 
-app.get("/mensajes/emisor", function(request, response) {
-    let id = String(request.query.id);
-    let idE = String(request.query.id2);
-    let params = new Array (id, idE);
-    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id = ?";
-    connection.query(sql, params, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de mensajes");
-            console.log(result);
-            response.send(result);
-        };
-    });
-});
 
-
-app.get("/mensajes/receptor", function(request, response){
-    let id1 = String(request.query.idChat);
-    let id2 = String(request.query.idUser);
-    let params = new Array (id1,id2);
-    let sql = "SELECT * FROM mensajes WHERE chat_id = ? AND user_id != ?";
-    connection.query(sql, params, function(err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de mensajes");
-            console.log(result);
-            response.send(result);
-        };
-    });
-})
 app.post("/mensajes", function(request, response) {
     let params = new Array (String(request.body.chat_id), String(request.body.user_id), String(request.body.date), String(request.body.mensaje));
     let sql = "INSERT INTO mensajes (chat_id, user_id, fecha, mensaje) VALUES (?, ?, ?, ?)";
@@ -427,10 +423,26 @@ app.get("/products/rent", function (request, response) {
         };
     });
 });
+app.get("/products/renting", function(request, response) {
+    let arrendatario_id = String(request.query.arrendatarioid);
+    let params = new Array(arrendatario_id);
+     let sql = "SELECT * FROM product JOIN renting ON (product.product_id = renting.product_id) WHERE (renting.arrendatario_id = ? AND renting.alquilado = true)";
+  //   let sql = "SELECT * FROM renting WHERE arrendatario_id = ? AND alquilado = 'true'";
+    //let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE (user.user_id = ? AND alquilado = false)";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de productos Alquilados desde Renting");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
 app.post("/products/ad", function (request, response) {
     let params = new Array(String(request.body.duration), String(request.body.date), String(request.body.product_id),
-        String(request.body.user_id), String(request.body.alquilado), String(request.body.valorado));
-    let sql = "INSERT INTO renting (duration, date, product_id, user_id, alquilado, valorado) VALUES (?, ?, ?, ?, ?, ?)";
+        String(request.body.arrendatario_id), String(request.body.alquilado), String(request.body.valorado));
+    let sql = "INSERT INTO renting (duration, date, product_id, arrendatario_id, alquilado, valorado) VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);

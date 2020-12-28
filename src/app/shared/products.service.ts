@@ -14,6 +14,8 @@ export class ProductsService {
   public rent: Renting;
   public product: Products;
   public products: Products[];
+  public peticionAlquilados : any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
+  public anuncioid : number;
   //Obtener anuncios 
   private url = "http://localhost:9191/home";
   private url2 = "http://localhost:9191/anuncio";
@@ -23,6 +25,9 @@ export class ProductsService {
   private url6 = "http://localhost:9191/products/rent";
   private url7 = "http://localhost:9191/products/search"
   private url8 = "http://localhost:9191/favorito";
+  private url9 = "http://localhost:9191/product";
+  private url10 = "http://localhost:9191/products/renting";
+  
 
   constructor(private http: HttpClient) { }
   //Por ID
@@ -31,10 +36,13 @@ export class ProductsService {
   }
   //Subir producto
   postProduct(newProduct: Products) {
-    return this.http.post(this.url3, newProduct);
+  return this.http.post(this.url3, newProduct);
+  } 
+  //Modifica productos
+  putProduct(newProduct : Products) {
+    return this.http.put(this.url3, newProduct);
   }
   //Eliminar producto
-
   deleteProduct(id: number) {
     const options = {
       headers: new HttpHeaders({
@@ -50,6 +58,15 @@ export class ProductsService {
   getProduct(id: number) {
     return this.http.get(this.url2 + id)
   }
+  getProductConId(product_id : number) {
+    return this.http.get(this.url9 + "?product_id=" + product_id)
+  }
+  //Renting:
+  getRenting(arrendatario_id : number) {
+    return this.http.get(this.url10 + "?arrendatarioid=" + arrendatario_id);
+  }
+
+//Por nombre/Categoria/Subcategoria (Busqueda)
 
   //Por nombre (búsqueda)
   getSearchProduct(name: string) {

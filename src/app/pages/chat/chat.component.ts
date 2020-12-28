@@ -13,17 +13,18 @@ import { UsersService } from 'src/app/shared/users.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  
+
+  public chatSelected : Chat;
   public user : Users;
   public chats : Chat [] = [];
   //public mensaje : Mensaje = new Mensaje ("", 0, 0, "");
-  public mensajesEnvi : Mensaje [] = [];
-  public mensajesReci : Mensaje [] = [];
+  public mensajes : Mensaje [] = [];
+
   constructor(public apiChatService : ChatService, public apiMensajeService : MensajesService, public userService : UsersService) {
     
 
    }
-
+/* 
    allChats() {
     console.log(this.userService.user.user_id);
     let num = this.userService.user.user_id;
@@ -31,7 +32,7 @@ export class ChatComponent implements OnInit {
       this.chats = data;
     })
    }
-/* 
+
   selectChat(idChat: number) {
     this.apiMensajeService.getMensaje(idChat).subscribe((data : Mensaje []) => {
       this.mensajes = data;
@@ -44,34 +45,23 @@ export class ChatComponent implements OnInit {
       console.log(data);
     })
   }
-  getMensajes(chat_id : number) {
-      
-      this.selectMensajesEnvi(chat_id);
-      this.selectMensajesRecib(chat_id);
-      
-  }
-  selectMensajesEnvi(chat_id : number) {
-    this.apiMensajeService.getMensajeEmi(chat_id, this.userService.user.user_id).subscribe((data : Mensaje []) => {
-      this.mensajesEnvi = data;
+
+  getMensajes(chat : Chat) {
+    this.apiMensajeService.getMensajes(chat.chat_id).subscribe((data : Mensaje []) => {
+      this.mensajes = data;
+      this.chatSelected = chat;
     })
-  }
-  selectMensajesRecib(chat_id : number) {
-    this.apiMensajeService.getMensajeRece(chat_id, this.userService.user.user_id).subscribe((data : Mensaje []) => {
-      this.mensajesReci = data;
-    })
-  }
- nuevoMensaje(mensaje : HTMLInputElement, chat_id : number) {
-   let d = new Date();
-   let fecha = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-   let newMensaje : Mensaje = new Mensaje(mensaje.value, chat_id, this.userService.user.user_id, fecha);
-   this.guardarMensaje(newMensaje);
-   
   }
 
-  guardarMensaje(newMensaje :  Mensaje) {
-    this.apiMensajeService.postMensaje(newMensaje).subscribe((data) => {
-      console.log(data);
-    })
+ nuevoMensaje(mensaje : HTMLInputElement, chat_id : number) {
+    let d = new Date();
+    let fecha = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    let newMensaje : Mensaje = new Mensaje(mensaje.value, chat_id, this.userService.user.user_id, fecha);
+      this.apiMensajeService.postMensaje(newMensaje).subscribe((data) => {
+        this.getMensajes(this.chatSelected);
+    });
+    mensaje.value = " ";
+   
   }
   
   ngOnInit(): void {
@@ -79,10 +69,6 @@ export class ChatComponent implements OnInit {
       this.chats = data;
     })
     let user = this.userService.userAllPages();
-   // let user = this.userService.userAllPages();
-   // this.apiChatService.getChat(user).subscribe((data: Chat[]) => {
-   //   this.chats = data;
-   // })
   }
 
 }
