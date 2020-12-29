@@ -186,7 +186,20 @@
                         <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
                         <div class="card-body" style="overflow-y: auto">
                             <div class="tituloanuncio">
-                                <a class="valoracion">★★★★★</a>
+                                <div class="rating">
+                                    <div>
+                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                    </div> 
+                                </div>
                                 <h5 class="card-title">{{pro.name}}</h5>
                             </div>
                             <p class="card-text">{{pro.descripcion}}</p>

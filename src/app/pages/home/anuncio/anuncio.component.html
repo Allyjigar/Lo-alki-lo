@@ -50,12 +50,21 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{productsService.product.name}}
-            <img id="estrella1" src="/assets/estrella.png">
-            <img id="estrella2" src="/assets/estrella.png">
-            <img id="estrella3" src="/assets/estrella.png">
-            <img id="estrella4" src="/assets/estrella.png">
-            <img id="estrella5" src="/assets/estrella.png">
-            <i [class]="claseFav" (click)="marcarFavorito()"></i>
+            <div class="rating">
+              <div>
+                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                </div>
+                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                </div>
+                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                </div>
+                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                </div>
+                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
+                </div>
+              </div> 
+          </div>
+   <!--         <i [class]="claseFav" (click)="marcarFavorito()"></i> -->
           </h5>
           <hr>
           <div class="row">

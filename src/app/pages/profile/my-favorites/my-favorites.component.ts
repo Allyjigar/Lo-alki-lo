@@ -19,7 +19,7 @@ export class MyFavoritesComponent implements OnInit {
   
   
   constructor(public productsService: ProductsService, public userService: UsersService, public router: Router) { }
-
+/*
   desmarcarFavorito() {
 
     if (this.claseFav === "fa fa-heart-o fa_custom") {
@@ -41,7 +41,7 @@ export class MyFavoritesComponent implements OnInit {
 
 
   }
- 
+ */
 detalleAnuncio(index: number) {
   //this.productsService.product = product;
   let pos;
@@ -58,12 +58,12 @@ detalleAnuncio(index: number) {
   ngOnInit(): void {
     let user = this.userService.userAllPages();
 
-    this.productsService.getFavProducts(this.userService.user.user_id).subscribe((data: any) => {
+  /*  this.productsService.getFavProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.favorito = data[0];
       this.favoritos = data;
 
     })
-
+    */
   }
 
   }

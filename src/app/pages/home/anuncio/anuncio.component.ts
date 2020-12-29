@@ -21,7 +21,7 @@ export class AnuncioComponent implements OnInit {
 
   }
 
-
+/* 
   marcarFavorito() {
 
     if (this.claseFav === "fa fa-heart-o fa_custom" ) {
@@ -44,8 +44,9 @@ export class AnuncioComponent implements OnInit {
 
 
   }
+  */
   ngOnInit(): void {
-    let index = this._route.snapshot.paramMap.get('id');
+  /*   let index = this._route.snapshot.paramMap.get('id');
 
     let user = this.usersService.userAllPages();
 
@@ -58,6 +59,6 @@ export class AnuncioComponent implements OnInit {
       this.productsService.favorito = data;
       console.log(this.productsService.favorito);
     })
-
+    */
   }
 }

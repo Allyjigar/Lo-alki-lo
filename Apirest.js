@@ -439,6 +439,19 @@ app.get("/products/renting", function(request, response) {
         };
     });
 })
+app.get("/products/rentingid", function(request, response) {
+    let params = new Array(String(request.query.arrendatarioid), String(request.query.product_id));
+     let sql = "SELECT renting_id FROM renting WHERE arrendatario_id = ? AND product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de Renting_id con product_id y User_id");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
 app.post("/products/ad", function (request, response) {
     let params = new Array(String(request.body.duration), String(request.body.date), String(request.body.product_id),
         String(request.body.arrendatario_id), String(request.body.alquilado), String(request.body.valorado));

@@ -14,7 +14,8 @@ export class ProductsService {
   public rent: Renting;
   public product: Products;
   public products: Products[];
-  public peticionAlquilados : any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
+  public misProductosAlquilados: any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
+  //public peticionAlquilados : any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
   public anuncioid : number;
   //Obtener anuncios 
   private url = "http://localhost:9191/home";
@@ -25,6 +26,7 @@ export class ProductsService {
   private url6 = "http://localhost:9191/products/search"
   private url7 = "http://localhost:9191/product";
   private url8 = "http://localhost:9191/products/renting";
+  private url9 = "http://localhost:9191/products/rentingid";
   
 
   constructor(private http: HttpClient) { }
@@ -85,10 +87,15 @@ export class ProductsService {
   }
 
   //Peticiones
-  getProductsRent(user_id) {
+  getProductsRent(user_id: number) {
     return this.http.get(this.url5 + "?user_id=" + user_id);
   }
-
-  
+  putProductAd(renting : Renting) {
+   return this.http.put(this.url4, renting); 
+  }
+  //Get Renting_id
+  getRentingID(arrendatario_id: number, product_id: number) {
+    return this.http.get(this.url9 + "?arrendatarioid=" + arrendatario_id + "&product_id=" + product_id);
+  }
 }
 
