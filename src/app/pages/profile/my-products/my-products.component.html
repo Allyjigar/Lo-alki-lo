@@ -72,46 +72,43 @@
             </div>
             <!--Productos Alquilados-->
             <div class="tarjetas" *ngIf="misProductosAlquilados != null">
-                <div class="row">
-                    <div class="card-columns center-block">
-                        <div class="tarjetas" [hidden]="isHidden2">
-                            <div *ngFor="let produ of productService.peticionAlquilados; let i = index;">
-                                <div class="card card-custom" (click)="selectProduct(produ)">
-                                   <img class="card-img-top" src="{{produ.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
-                                    <div class="card-body">
-                                        <div class="tituloanuncio">
-                                            <div class="rating">
-                                                <div *ngIf="produ.valorado === true; else valorar">
-                                                    <div class="fa fa-star estrella" [ngClass]="numero == 5 ? 'selected' : 'estrella'">
-                                                    </div>
-                                                    <div class="fa fa-star estrella" [ngClass]="numero == 4 || numero == 5 ? 'selected' : 'estrella'">
-                                                    </div>
-                                                    <div class="fa fa-star estrella" [ngClass]="numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
-                                                    </div>
-                                                    <div class="fa fa-star estrella" [ngClass]="numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
-                                                    </div>
-                                                    <div class="fa fa-star estrella" [ngClass]="numero == 1 || numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
-                                                    </div>
-                                                </div> 
-                                                <ng-template #valorar>
-                                                    <app-valoraciones></app-valoraciones>
-                                                </ng-template>
-                                            </div>
-                                            <h5 class="card-title">{{produ.name}}</h5>
+                <div *ngFor="let produ of misProductosAlquilados; let i = index;">
+                    <div class="card card-custom" (click)="selectProduct(produ)">
+                        <img class="card-img-top" src="{{produ.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
+                        <div class="card-body">
+                            <div class="tituloanuncio">
+                                <div class="rating">
+                                    <div *ngIf="produ.valorado === true; else valorar">
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <p class="card-text overflow-hidden">{{produ.descripcion}}</p>
-                                    </div>
-                                    <div class="card-footer ">
-                                        <small class="text-muted" id="precio">{{produ.precio}}</small>
-                                        <button routerLink="/anuncio" id="interesa" click="selectProduct(produ.product_id)"><b>lo(alki)lo</b></button>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 1 || numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                    </div> 
+                                    <ng-template #valorar>
+                                        <app-valoraciones></app-valoraciones>
+                                    </ng-template>
                                 </div>
+                                <h5 class="card-title">{{produ.name}}</h5>
                             </div>
+                            <p class="card-text overflow-hidden">{{produ.descripcion}}</p>
                         </div>
+                        <div class="card-footer ">
+                            <small class="text-muted" id="precio">{{produ.precio}}</small>
+                            <button routerLink="/anuncio" id="interesa" click="selectProduct(produ.product_id)"><b>lo(alki)lo</b></button>
                     </div>
                 </div>
             </div>
+            
+                
+            </div>
             <div class="tarjetas" *ngIf="misPeticiones != null">
-                <div *ngFor="let product of misPeticiones; let user of misPeticiones; let rent of miPeticiones">
+                <div *ngFor="let product of misPeticiones; let user of misPeticiones; let rent of misPeticiones">
                     <div class="card" style="width: 18rem; margin-top: 10%;">
                         <img src="{{product.foto1}}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -132,8 +129,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+            
         </article>
     </main>
     <div class="separador"></div>

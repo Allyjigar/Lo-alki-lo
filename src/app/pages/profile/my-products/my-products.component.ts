@@ -19,12 +19,6 @@ export class MyProductsComponent implements OnInit {
   public misProductos: Products[];
   public misProductosAlquilados: Products[];
   public misPeticiones: [];
-
-  public isHidden: boolean = true;
-  public isHidden2: boolean = true;
-  public isHidden3: boolean = true;
-  public isHidden4: boolean = false;
-  public isHidden5: boolean = true;
   public product: Products;
   public productoValorado : Products; 
   public numero : number;
@@ -42,25 +36,12 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisProductosAlquilados() {
-   this.productsService.getProductsAd(this.userService.user.user_id).subscribe((data: any) => {
+   this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
      this.misProductosAlquilados = data;
      this.misProductos = null; 
      this.misPeticiones = null;
    })
   } 
-  mostrarOtrosProductos() {
-    if (this.isHidden2 == true) {
-      this.isHidden = true;
-      this.isHidden2 = false;
-      this.isHidden3 = true;
-    } else {
-      this.isHidden = true;
-      this.isHidden2 = true;
-      this.isHidden3 = true;
-    }
-    this.getAlquilados();
-    console.log(this.products);
-  }
 
   mostrarMisPeticiones() {
     this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
