@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidateEqualModule } from 'ng-validate-equal';
 import { ProductsService } from './shared/products.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

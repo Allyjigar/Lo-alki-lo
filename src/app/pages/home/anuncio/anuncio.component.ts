@@ -5,6 +5,7 @@ import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
 import { Users } from 'src/app/models/users';
 import { Favorito } from 'src/app/models/favorito';
+import { FavouritesService } from 'src/app/shared/favourites.service';
 
 @Component({
   selector: 'app-anuncio',
@@ -12,12 +13,12 @@ import { Favorito } from 'src/app/models/favorito';
   styleUrls: ['./anuncio.component.css']
 })
 export class AnuncioComponent implements OnInit {
-
+  
   public favorito: Favorito;
   public favoritos: Favorito[];
   public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
-  constructor(private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService) {
+  constructor(private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService) {
 
   }
 
@@ -26,14 +27,14 @@ export class AnuncioComponent implements OnInit {
 
     if (this.claseFav === "fa fa-heart-o fa_custom" ) {
       this.claseFav = "fa fa-heart fa_custom";
-      this.productsService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
+      this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
         this.favorito = data[0];
       });
 
     } else {
       this.claseFav = "fa fa-heart-o fa_custom";
-      alert(this.productsService.favorito.favourites_id);
-      this.productsService.deleteFav(this.productsService.favorito.favourites_id).subscribe((data: any) => {
+      alert(this.favouritesService.favorito.favourites_id);
+      this.favouritesService.deleteFav(this.favouritesService.favorito.favourites_id).subscribe((data: any) => {
         
       });
       {
@@ -54,9 +55,9 @@ export class AnuncioComponent implements OnInit {
       this.usersService.user2 = data[0] ;
     })
 
-    this.productsService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
-      this.productsService.favorito = data;
-      console.log(this.productsService.favorito);
+    this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
+      this.favouritesService.favorito = data;
+      console.log(this.favouritesService.favorito);
     })
 
   }
