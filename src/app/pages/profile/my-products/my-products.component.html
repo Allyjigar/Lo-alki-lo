@@ -72,48 +72,40 @@
             </div>
             <!--Productos Alquilados-->
             <div class="tarjetas" *ngIf="misProductosAlquilados != null">
-                <div class="row">
-                    <div class="card-columns center-block">
-                        <div *ngFor="let product of misProductosAlquilados">
-                            <div class="card card-custom">
-                                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
-                                <div class="card-body" style="overflow-y: auto">
-                                    <div class="tituloanuncio">
-                                        <form>
-                                            <p class="clasificacion">
-                                                <input id="radio1" type="radio" name="estrellas" value="5">
-
-                                                <label for="radio1">★</label>
-
-                                                <input id="radio2" type="radio" name="estrellas" value="4">
-
-                                                <label for="radio2">★</label>
-
-                                                <input id="radio3" type="radio" name="estrellas" value="3">
-
-                                                <label for="radio3">★</label>
-
-                                                <input id="radio4" type="radio" name="estrellas" value="2">
-
-                                                <label for="radio4">★</label>
-
-                                                <input id="radio5" type="radio" name="estrellas" value="1">
-
-                                                <label for="radio5">★</label>
-                                            </p>
-                                        </form>
-                                        <h5 class="card-title">{{product.name}}</h5>
-                                    </div>
-                                    <p class="card-text">{{product.descripcion}}</p>
+                <div *ngFor="let produ of misProductosAlquilados; let i = index;">
+                    <div class="card card-custom" (click)="selectProduct(produ)">
+                        <img class="card-img-top" src="{{produ.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
+                        <div class="card-body">
+                            <div class="tituloanuncio">
+                                <div class="rating">
+                                    <div *ngIf="produ.valorado === true; else valorar">
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                        <div class="fa fa-star estrella" [ngClass]="numero == 1 || numero == 2 || numero == 3 || numero == 4 || numero == 5 ? 'selected' : 'estrella'">
+                                        </div>
+                                    </div> 
+                                    <ng-template #valorar>
+                                        <app-valoraciones></app-valoraciones>
+                                    </ng-template>
                                 </div>
-                                <div class="card-footer">
-                                    <small class="text-muted" id="precio">Precio: {{product.precio}} &nbsp;€</small>
-                                    <button routerLink="/anuncio" id="interesa"><b>Lo(alki)lo</b></button>
-                                </div>
+                                <h5 class="card-title">{{produ.name}}</h5>
                             </div>
+                            <p class="card-text overflow-hidden">{{produ.descripcion}}</p>
                         </div>
+                        <div class="card-footer ">
+                            <small class="text-muted" id="precio">{{produ.precio}}</small>
+                            <button routerLink="/anuncio" id="interesa" click="selectProduct(produ.product_id)"><b>lo(alki)lo</b></button>
                     </div>
                 </div>
+            </div>
+            
+                
             </div>
             <div class="tarjetas" *ngIf="misPeticiones != null">
                 <div *ngFor="let product of misPeticiones; let user of misPeticiones; let rent of misPeticiones">
@@ -138,6 +130,7 @@
                     </div>
                 </div>
             </div>
+            
         </article>
     </main>
     <div class="separador"></div>

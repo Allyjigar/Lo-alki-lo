@@ -13,17 +13,18 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class MyProductsComponent implements OnInit {
   public id: number;
-  public rent: Renting = new Renting(0, "", 0,0, false, false, 0);
+  public rent: Renting = new Renting();
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
   public misProductosAlquilados: Products[];
   public misPeticiones: [];
-
+  public product: Products;
+  public productoValorado : Products; 
+  public numero : number;
 
   constructor(public productsService: ProductsService, public userService: UsersService) {
-    this.rent
-    
+
   }
 
   mostrarMisProductos() {
@@ -35,12 +36,12 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisProductosAlquilados() {
-   this.productsService.getProductsAd(this.userService.user.user_id).subscribe((data: any) => {
+   this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
      this.misProductosAlquilados = data;
      this.misProductos = null; 
      this.misPeticiones = null;
    })
-  }
+  } 
 
   mostrarMisPeticiones() {
     this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
@@ -60,19 +61,27 @@ export class MyProductsComponent implements OnInit {
   eliminarAnuncio() {
     let id = this.productsService.product.product_id;
     this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
-      console.log(data);
-      
-      
-         
+      console.log(data);  
       });
-
   }
+  selectProduct(produSelected : Products) {
+        this.productsService.product = produSelected;
+        this.productsService.product.media = this.numero;
+        console.log(produSelected);
+  }
+  getAlquilados() {
+    this.productsService.getRenting(this.userService.user.user_id).subscribe((data : []) => {
+      this.productsService.peticionAlquilados = data;
+      })
+  }
+  // eliminarAnuncio() {
+  //   this.productService.deleteProduct(Number(this.productService.product.id)).subscribe(data) => {
+  //     console.log(data);
+  //   }
+  // }
   ngOnInit(): void {
     let user = this.userService.userAllPages();
-
     this.mostrarMisProductos();
-
-    
   }
 
 }
