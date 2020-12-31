@@ -23,7 +23,7 @@ export class ProductsService {
   private url6 = "http://localhost:9191/products/search";
   private url7 = "http://localhost:9191/product";
   private url8 = "http://localhost:9191/products/renting";
-  private url9 = "http://localhost:9191/products/search/precio";
+  private url10 = "http://localhost:9191/products/search/precio";
   
   
 
@@ -69,7 +69,7 @@ export class ProductsService {
   }
   //Por precio
   getSearchProductPrice(precio: number, precio2: number) {
-    return this.http.get(this.url9 + "?precio=" + precio + "&precio2=" + precio2);
+    return this.http.get(this.url10 + "?precio=" + precio + "&precio2=" + precio2);
   }
   //Por Usuario(subidos)
   getUserProducts(user_id: number) {
