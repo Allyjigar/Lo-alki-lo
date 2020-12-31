@@ -64,6 +64,7 @@ export class MyProductsComponent implements OnInit {
       console.log(data);  
       });
   }
+
   selectProduct(produSelected : Products) {
         this.productsService.product = produSelected;
         this.productsService.product.media = this.numero;

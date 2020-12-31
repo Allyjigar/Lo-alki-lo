@@ -6,6 +6,7 @@ import { UsersService } from 'src/app/shared/users.service';
 import { Users } from 'src/app/models/users';
 import { Favorito } from 'src/app/models/favorito';
 import { FavouritesService } from 'src/app/shared/favourites.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-anuncio',
@@ -25,15 +26,21 @@ export class AnuncioComponent implements OnInit {
 
   marcarFavorito() {
 
-    if (this.claseFav === "fa fa-heart-o fa_custom" ) {
+    if (this.claseFav === "fa fa-heart-o fa_custom" && this.favouritesService.favorito.user_id != this.usersService.user.user_id) {
       this.claseFav = "fa fa-heart fa_custom";
       this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
         this.favorito = data[0];
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'El producto se ha añadido a tu lista de favoritos',
+          showConfirmButton: false,
+          timer: 1500
+        })
       });
 
     } else {
       this.claseFav = "fa fa-heart-o fa_custom";
-      alert(this.favouritesService.favorito.favourites_id);
       this.favouritesService.deleteFav(this.favouritesService.favorito.favourites_id).subscribe((data: any) => {
         
       });
@@ -57,7 +64,7 @@ export class AnuncioComponent implements OnInit {
 
     this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
       this.favouritesService.favorito = data;
-      console.log(this.favouritesService.favorito);
+      
     })
 
   }

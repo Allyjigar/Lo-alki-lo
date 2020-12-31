@@ -10,12 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public categoria: string;
+  public subcategoria: string;
 
 
   constructor(public productsService: ProductsService, public router: Router) {
 
     console.log(this.productsService.product)
 
+  }
+
+  categoriaValue(cat: string) {
+
+    this.categoria = cat;
+    this.router.navigateByUrl("/buscador");
+    this.productsService.getSearchProduct(this.categoria).subscribe((data: Products[]) => {
+      this.productsService.product = data[0];
+      this.productsService.products = data;
+    })
   }
 
 
