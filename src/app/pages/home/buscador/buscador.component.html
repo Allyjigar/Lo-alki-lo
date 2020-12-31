@@ -19,91 +19,85 @@
           <li><a id="laterali"><b>&nbsp;</b></a></li>
           <li><a><b>CATEGORÍA</b></a>
             <ul>
-              <li><a>Motor&nbsp;</a>
+              <li (click)="categoriaValue('Motor')" type="button"><a>Motor&nbsp;</a>
                 <ul>
-                  <li><a>Coches</a></li>
-                  <li><a>Motos</a></li>
-                  <li><a>Furgonetas</a></li>
-                  <li><a>Autocaravanas</a></li>
-                  <li><a>Vehículos especiales</a></li>
-                  <li><a>Quads</a></li>
+                  <li (click)="subcategoriaValue('Coches')" type="button"><a>Coches</a></li>
+                  <li (click)="subcategoriaValue('Motos')" type="button" ><a>Motos</a></li>
+                  <li (click)="subcategoriaValue('Furgonetas')" type="button"><a>Furgonetas</a></li>
+                  <li (click)="subcategoriaValue('Autocaravanas')" type="button"><a>Autocaravanas</a></li>
+                  <li (click)="subcategoriaValue('Vehiculos especiales')" type="button"><a>Vehículos especiales</a></li>
+                  <li (click)="subcategoriaValue('Quads')" type="button"><a>Quads</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+                </ul>
+              </li>
+              <li (click)="categoriaValue('Inmobiliaria')" type="button"><a>Inmobiliaria</a>
+                <ul>
+                  <li (click)="subcategoriaValue('Pisos')" type="button"><a>Pisos</a></li>
+                  <li (click)="subcategoriaValue('Casas')" type="button"><a>Casas</a></li>
+                  <li (click)="subcategoriaValue('Locales')" type="button"><a>Locales</a></li>
+                  <li (click)="subcategoriaValue('Oficinas')" type="button"><a>Oficinas</a></li>
+                  <li (click)="subcategoriaValue('Parkings')" type="button"><a>Parkings</a></li>
+                  <li (click)="subcategoriaValue('Espacios exteriores')" type="button"><a>Espacios exteriores</a></li>
                   <li><a>Otros</a></li>
                 </ul>
               </li>
-              <li><a>Inmobiliaria</a>
+              <li (click)="categoriaValue('Informatica y Electronica')" type="button"><a>Informática y Electrónica</a>
                 <ul>
-                  <li><a>Pisos</a></li>
-                  <li><a>Casas</a></li>
-                  <li><a>Locales</a></li>
-                  <li><a>Oficinas</a></li>
-                  <li><a>Parkings</a></li>
-                  <li><a>Espacios exteriores</a></li>
-                  <li><a>Otros</a></li>
+                  <li (click)="subcategoriaValue('Ordenadores')" type="button"><a>Ordenadores</a></li>
+                  <li (click)="subcategoriaValue('Impresoras')" type="button"><a>Impresoras</a></li>
+                  <li (click)="subcategoriaValue('Videoconsolas')" type="button"><a >Vídeoconsolas</a></li>
+                  <li (click)="subcategoriaValue('Camaras')" type="button"><a>Cámaras</a></li>
+                  <li (click)="subcategoriaValue('Proyectores')" type="button"><a >Proyectores</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                 </ul>
               </li>
-              <li><a>Informática/Electrónica</a>
+              <li (click)="categoriaValue('Hogar y Jardin')" type="button"><a >Hogar y jardín</a>
                 <ul>
-                  <li><a>Ordenadores</a></li>
-                  <li><a>Impresoras</a></li>
-                  <li><a >Vídeoconsolas</a></li>
-                  <li><a>Cámaras</a></li>
-                  <li><a >Proyectores</a></li>
-                  <li><a >Otros</a></li>
+                  <li (click)="subcategoriaValue('Electrodomesticos')" type="button"><a >Electrodomésticos</a></li>
+                  <li (click)="subcategoriaValue('Herramientas')" type="button"><a >Herramientas</a></li>
+                  <li (click)="subcategoriaValue('Mobiliario')" type="button"><a >Mobiliario</a></li>
+                  <li (click)="subcategoriaValue('Piscinas y accesorios')" type="button"><a >Piscinas y accesorios</a></li>
+                  <li (click)="subcategoriaValue('Jardineria')" type="button"><a >Jardinería</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                 </ul>
               </li>
-              <li><a >Hogar y jardín</a>
+              <li (click)="categoriaValue('Moda y Complementos')" type="button"><a >Moda y Complementos</a>
                 <ul>
-                  <li><a >Electrodomésticos</a></li>
-                  <li><a >Herramientas</a></li>
-                  <li><a >Mobiliario</a></li>
-                  <li><a >Piscinas y accesorios</a></li>
-                  <li><a >Jardinería</a></li>
-                  <li><a >Otros</a></li>
+                  <li (click)="subcategoriaValue('Trajes de fiesta')" type="button"><a >Trajes de fiesta</a></li>
+                  <li (click)="subcategoriaValue('Bolsos y maletas')" type="button"><a >Bolsos y maletas</a></li>
+                  <li (click)="subcategoriaValue('Joyas y relojes')" type="button"><a >Joyas y relojes</a></li>
+                  <li (click)="subcategoriaValue('Sombreros')" type="button"><a >Sombreros</a></li>
+                  <li (click)="subcategoriaValue('Ropa especializada')" type="button"><a >Ropa especializada</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                 </ul>
               </li>
-              <li><a >Moda/Complementos</a>
+              <li (click)="categoriaValue('Deportes y Ocio')" type="button"><a >Deportes y Ocio</a>
                 <ul>
-                  <li><a >Trajes de fiesta</a></li>
-                  <li><a >Bolsos y maletas</a></li>
-                  <li><a >Joyas y relojes</a></li>
-                  <li><a >Sombreros</a></li>
-                  <li><a >Ropa especializada</a></li>
-                  <li><a >Otros</a></li>
-                </ul>
-              </li>
-              <li><a >Deportes/Ocio</a>
-                <ul>
-                  <li><a >Máquinas</a></li>
-                  <li><a >Deportes acuáticos</a></li>
-                  <li><a >Deportes de montaña</a></li>
-                  <li><a >Accesorios deportivos</a></li>
-                  <li><a >Estructuras de exterior</a></li>
-                  <li><a >Otros</a></li>
+                  <li (click)="subcategoriaValue('Maquinas')" type="button"><a >Máquinas</a></li>
+                  <li (click)="subcategoriaValue('Deportes acuaticos')" type="button"><a >Deportes acuáticos</a></li>
+                  <li (click)="subcategoriaValue('Deportes de montaña')" type="button"><a >Deportes de montaña</a></li>
+                  <li (click)="subcategoriaValue('Accesorios deportivos')" type="button"><a >Accesorios deportivos</a></li>
+                  <li (click)="subcategoriaValue('Estructuras de exterior')" type="button"><a >Estructuras de exterior</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                 </ul>
               </li>
             </ul>
           </li>
           <li><a ><b>PRECIO </b></a>
               <ul>
-                <li><a >Menos de 10€ </a></li>
-                <li><a >De 10€-20€</a></li>
-                <li><a >De 20€-30€</a></li>
-                <li><a >De 30€-40€</a></li>
-                <li><a >De 40€-50€</a></li>
-                <li><a >De 50€-60€</a></li>
-                <li><a >De 60€-80€</a></li>
-                <li><a >De 80€-100€</a></li>
-                <li><a >De 100€-125€</a></li>
-                <li><a >De 125€-150€</a></li>
-                <li><a >Más de 150€</a></li>
+                <li (click)="precioValue(0, 10)" type="button"><a >Hasta 10€ </a></li>
+                <li (click)="precioValue(10, 20)" type="button"><a >De 10€-20€</a></li>
+                <li (click)="precioValue(20, 30)" type="button"><a >De 20€-30€</a></li>
+                <li (click)="precioValue(30, 40)" type="button"><a >De 30€-40€</a></li>
+                <li (click)="precioValue(40, 50)" type="button"><a >De 40€-50€</a></li>
+                <li (click)="precioValue(50, 60)" type="button"><a >De 50€-60€</a></li>
+                <li (click)="precioValue(60, 80)" type="button"><a >De 60€-80€</a></li>
+                <li (click)="precioValue(80, 100)" type="button"><a >De 80€-100€</a></li>
+                <li (click)="precioValue(100, 125)" type="button"><a >De 100€-125€</a></li>
+                <li (click)="precioValue(125, 150)" type="button"><a >De 125€-150€</a></li>
+                <li (click)="precioValue(150, 1000000)" type="button"><a >Más de 150€</a></li>
               </ul>
           </li>
-          <li><a ><b>FOTO</b></a>
-            <ul>
-              <li><a >Ver todos los anuncios</a></li>
-              <li><a >Ver sólo anuncios con foto</a></li>
-            </ul>
-        </li>
       </ul>
     </div>
     <div class="container ">

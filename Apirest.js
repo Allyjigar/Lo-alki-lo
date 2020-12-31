@@ -146,13 +146,28 @@ app.put("/users", function(request, response) {
 /* Buscador */
 app.get("/products/search", function(request, response) {
     let name = String(request.query.name);
-    let params = new Array (name);
-    let sql = "SELECT * FROM product WHERE name = ?";
+    let params = new Array (name, name, name);
+    let sql = "SELECT * FROM product WHERE name = ? OR categoria = ? OR subcategoria = ?";
     connection.query(sql, params, function(err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Get de producto en el buscador");
+            console.log("Get de producto en el buscador y en las cat y subcat");
+            console.log(result);
+            response.send(result);
+        };
+    });
+}); 
+app.get("/products/search/precio", function(request, response) {
+    let pvp = String(request.query.precio);
+    let pvp2 = String(request.query.precio2)
+    let params = new Array (pvp, pvp2);
+    let sql = "SELECT * FROM product WHERE precio >= ? AND precio < ?";
+    connection.query(sql, params, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Get de producto por precio");
             console.log(result);
             response.send(result);
         };

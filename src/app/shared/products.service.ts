@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Products } from '../models/products';
 import { Renting } from '../models/renting';
-import { Favorito } from '../models/favorito';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  public favoritos: Favorito [];
-  public favorito: Favorito;
+  
   public rent: Renting;
   public product: Products;
   public products: Products[];
@@ -23,10 +21,12 @@ export class ProductsService {
   private url3 = "http://localhost:9191/products";
   private url4 = "http://localhost:9191/products/ad";
   private url5 = "http://localhost:9191/products/rent";
-  private url6 = "http://localhost:9191/products/search"
+  private url6 = "http://localhost:9191/products/search";
   private url7 = "http://localhost:9191/product";
   private url8 = "http://localhost:9191/products/renting";
   private url9 = "http://localhost:9191/products/rentingid";
+  private url10 = "http://localhost:9191/products/search/precio";
+  
   
 
   constructor(private http: HttpClient) { }
@@ -65,27 +65,22 @@ export class ProductsService {
   getRenting(arrendatario_id : number) {
     return this.http.get(this.url8 + "?arrendatarioid=" + arrendatario_id);
   }
-
-//Por nombre/Categoria/Subcategoria (Busqueda)
-
-  //Por nombre (búsqueda)
+  //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {
     return this.http.get(this.url6 + "?name=" + name);
   }
-  
-  //Categoria/Subcategoria (Busqueda)
-
+  //Por precio
+  getSearchProductPrice(precio: number, precio2: number) {
+    return this.http.get(this.url9 + "?precio=" + precio + "&precio2=" + precio2);
+  }
   //Por Usuario(subidos)
   getUserProducts(user_id: number) {
     return this.http.get(this.url3 + "?user_id=" + user_id);
   }
-
   //Por Usuario(alquilados)
-
   getProductsAd(user_id: number) {
     return this.http.get(this.url4 + "?user_id=" + user_id);
   }
-
   //Peticiones
   getProductsRent(user_id: number) {
     return this.http.get(this.url5 + "?user_id=" + user_id);
@@ -95,7 +90,7 @@ export class ProductsService {
   }
   //Get Renting_id
   getRentingID(arrendatario_id: number, product_id: number) {
-    return this.http.get(this.url9 + "?arrendatarioid=" + arrendatario_id + "&product_id=" + product_id);
+    return this.http.get(this.url10 + "?arrendatarioid=" + arrendatario_id + "&product_id=" + product_id);
   }
 }
 
