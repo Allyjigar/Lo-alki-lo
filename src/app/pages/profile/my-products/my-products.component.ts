@@ -40,6 +40,7 @@ export class MyProductsComponent implements OnInit {
      this.misProductos = null; 
      this.misPeticiones = null;
    })
+   console.log(this.productsService.misProductosAlquilados);
   } 
 
   mostrarMisPeticiones() {

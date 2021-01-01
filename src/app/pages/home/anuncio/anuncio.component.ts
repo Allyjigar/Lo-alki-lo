@@ -19,6 +19,7 @@ export class AnuncioComponent implements OnInit {
   public favoritos: Favorito[];
   public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
+  public fotos : string [] = [];
   constructor(private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService) {
 
   }
@@ -54,10 +55,24 @@ export class AnuncioComponent implements OnInit {
   }
   */
   ngOnInit(): void {
-  /*   let index = this._route.snapshot.paramMap.get('id');
+    let index = this._route.snapshot.paramMap.get('id');
 
     let user = this.usersService.userAllPages();
 
+    if(this.productsService.product) {
+      this.fotos.push(this.productsService.product.foto1);
+      if (this.productsService.product.foto2 != null) {
+        this.fotos.push(this.productsService.product.foto2);
+        if (this.productsService.product.foto3 != null) {
+          this.fotos.push(this.productsService.product.foto3);
+          if (this.productsService.product.foto4 != null) {
+            this.fotos.push(this.productsService.product.foto4);
+          }
+        }
+      }
+    }
+    console.log(this.fotos);
+/* 
     this.productsService.product = this.productsService.products[index];
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
       this.usersService.user2 = data[0] ;
