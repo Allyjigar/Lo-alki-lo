@@ -85,12 +85,46 @@ export class ProductsService {
   getProductsRent(user_id: number) {
     return this.http.get(this.url5 + "?user_id=" + user_id);
   }
+<<<<<<< HEAD
   putProductAd(renting : Renting) {
    return this.http.put(this.url4, renting); 
   }
   //Get Renting_id
   getRentingID(arrendatario_id: number, product_id: number) {
     return this.http.get(this.url10 + "?arrendatarioid=" + arrendatario_id + "&product_id=" + product_id);
+=======
+  //Aceptar Solicitud
+  putProductsRent(rent_id,alquilado, valorado){
+    const options = {
+      headers : new HttpHeaders({
+        'ContentType' : 'application/json',
+      }),
+      body : {
+        alquilado : alquilado,
+        valorado : valorado,
+        renting_id : rent_id
+      },
+    };
+    return this.http.put(this.url6,options)
+  }
+  //Rechazar Solicitud
+  deleteProductsRent(rent_id){
+    const options = {
+      headers : new HttpHeaders({
+        'ContentType' : 'application/json',
+      }),
+      body : {
+        renting_id : rent_id
+      },
+    }
+    return this.http.delete(this.url6,options)
+  }
+  //Por Usuario(favoritos)
+
+  getFavProducts(favourites_id: number) {
+    return this.http.get(this.url4 + "?favourites_id=" + favourites_id);
+
+>>>>>>> mikel
   }
 }
 

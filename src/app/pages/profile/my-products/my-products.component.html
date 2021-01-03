@@ -115,11 +115,17 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             
                 
             </div>
             <div class="tarjetas" *ngIf="misPeticiones != null">
                 <div *ngFor="let product of misPeticiones; let user of misPeticiones; let rent of misPeticiones">
+=======
+            <!--Peticiones-->
+            <div class="tarjetas" *ngIf="misPeticiones != null">
+                <div *ngFor="let product of misPeticiones; index as i">
+>>>>>>> mikel
                     <div class="card" style="width: 18rem; margin-top: 10%;">
                         <img src="{{product.foto1}}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -127,15 +133,22 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Solicitud enviada por: <a
+<<<<<<< HEAD
                                     routerLink="/perfilvendedor">{{user.nickname}}</a></li>
                             <li class="list-group-item">Precio: {{product.precio}} &nbsp; €</li>
                             <li class="list-group-item">Fecha de inicio: {{rent.date}}</li>
                             <li class="list-group-item">Duración: {{rent.duration}}</li>
+=======
+                                    routerLink="/perfilvendedor">{{product.nickname}}</a></li>
+                            <li class="list-group-item">Precio: {{product.precio}}</li>
+                            <li class="list-group-item">Fecha de inicio: {{product.date}}</li>
+                            <li class="list-group-item">Duración: {{product.duration}}</li>
+>>>>>>> mikel
                         </ul>
                         <div class="card-body">
-                            <a (click)="aceptarSolicitud()" style="margin-left: 20%;" href="#" class="card-link"><img
+                            <a (click)="aceptarSolicitud(product.renting_id)" style="margin-left: 20%;" href="#" class="card-link"><img
                                     style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
-                            <a (click)="rechazarSolicitud()" href="#" class="card-link"><img
+                            <a (click)="rechazarSolicitud(product.renting_id)" href="#" class="card-link"><img
                                     style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
                         </div>
                     </div>
