@@ -63,7 +63,32 @@ export class ProductsService {
   getProductsRent(user_id) {
     return this.http.get(this.url6 + "?user_id=" + user_id);
   }
-
+  //Aceptar Solicitud
+  putProductsRent(rent_id,alquilado, valorado){
+    const options = {
+      headers : new HttpHeaders({
+        'ContentType' : 'application/json',
+      }),
+      body : {
+        alquilado : alquilado,
+        valorado : valorado,
+        renting_id : rent_id
+      },
+    };
+    return this.http.put(this.url6,options)
+  }
+  //Rechazar Solicitud
+  deleteProductsRent(rent_id){
+    const options = {
+      headers : new HttpHeaders({
+        'ContentType' : 'application/json',
+      }),
+      body : {
+        renting_id : rent_id
+      },
+    }
+    return this.http.delete(this.url6,options)
+  }
   //Por Usuario(favoritos)
 
   getFavProducts(favourites_id: number) {

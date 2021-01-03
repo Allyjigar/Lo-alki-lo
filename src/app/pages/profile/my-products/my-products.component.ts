@@ -13,60 +13,68 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class MyProductsComponent implements OnInit {
   public id: number;
-  public rent: Renting = new Renting(0, "", 0,0, false, false, 0);
+  public rent: Renting = new Renting(0, "", 0, 0, false, false, 0);
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
   public misProductosAlquilados: Products[];
   public misPeticiones: [];
+  public peticiones: [];
 
 
   constructor(public productsService: ProductsService, public userService: UsersService) {
-    
+
   }
 
   mostrarMisProductos() {
     this.productsService.getUserProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.misProductos = data;
-      this.misProductosAlquilados = null; 
-      this.misPeticiones = null; 
+      this.misProductosAlquilados = null;
+      this.misPeticiones = null;
     })
   }
 
   mostrarMisProductosAlquilados() {
-   this.productsService.getProductsAd(this.userService.user.user_id).subscribe((data: any) => {
-     this.misProductosAlquilados = data;
-     this.misProductos = null; 
-     this.misPeticiones = null;
-   })
+    this.productsService.getProductsAd(this.userService.user.user_id).subscribe((data: any) => {
+      this.misProductosAlquilados = data;
+      this.misProductos = null;
+      this.misPeticiones = null;
+    })
   }
 
   mostrarMisPeticiones() {
     this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
       this.misPeticiones = data;
-      this.misProductos = null;
+            this.misProductos = null;
       this.misProductosAlquilados = null;
     })
   }
 
-  aceptarSolicitud() {
+  aceptarSolicitud(i) {
+    this.productsService.putProductsRent(i,1,0).subscribe((data : any) => {
+      console.log(data);
+      this.mostrarMisPeticiones();
+    })
+  }
+  rechazarSolicitud(i) {
+    this.productsService.deleteProductsRent(i).subscribe((data : any) => {
+      console.log(data);
+      this.mostrarMisPeticiones();
+    })
 
   }
-  rechazarSolicitud() {
 
-  }
-  
   eliminarAnuncio() {
     let id = this.productsService.product.product_id;
     this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
       console.log(data);
       this.mostrarMisProductos();
-         
-      });
+
+    });
 
   }
   modificarAnuncio() {
-    
+
 
   }
   ngOnInit(): void {
@@ -74,7 +82,7 @@ export class MyProductsComponent implements OnInit {
 
     this.mostrarMisProductos();
 
-    
+
   }
 
 }

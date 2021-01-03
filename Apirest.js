@@ -368,10 +368,11 @@ app.put("/favoritos", function (request, response) {
 /*Checkeado */
 
 /*Renting: */
+/*Productos Alquilados*/
 app.get("/products/ad", function (request, response) {
     let user_id = String(request.query.user_id);
     let params = new Array (user_id);
-    let sql = "SELECT product.name, product.foto1, product.precio, product.descripcion FROM renting JOIN product ON(renting.product_id = product.product_id) WHERE (renting.user_id = ? AND alquilado = true)"; 
+    let sql = "SELECT product.name, product.foto1, product.precio, product.descripcion FROM renting JOIN product ON(renting.product_id = product.product_id) WHERE (alquilado = true  AND renting.arrendatario_id = user_id) "; 
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -382,10 +383,11 @@ app.get("/products/ad", function (request, response) {
         };
     });
 });
+/*Peticiones de Alquiler*/
 app.get("/products/rent", function (request, response) {
     let user_id = String(request.query.user_id);
     let params = new Array (user_id);
-    let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE (user.user_id = ? AND alquilado = false)"; 
+    let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration,renting.renting_id FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE ( alquilado = false AND renting.arrendatario_id = user.user_id)"; 
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -424,6 +426,20 @@ app.put("/products/ad", function (request, response) {
     });
 });
 /*Checkeado*/
+app.delete("/products/rent", function (request, response) {
+    let id = String(request.body.renting_id);
+    let params = new Array(id);
+    let sql = "DELETE FROM renting WHERE renting_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Se ha eliminado una peticion");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
 
 
 
