@@ -24,7 +24,7 @@ export class AnuncioComponent implements OnInit {
 
   }
 
-/* 
+
   marcarFavorito() {
 
     if (this.claseFav === "fa fa-heart-o fa_custom" && this.favouritesService.favorito.user_id != this.usersService.user.user_id) {
@@ -53,7 +53,7 @@ export class AnuncioComponent implements OnInit {
 
 
   }
-  */
+  
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
 
@@ -72,7 +72,7 @@ export class AnuncioComponent implements OnInit {
       }
     }
     console.log(this.fotos);
-/* 
+
     this.productsService.product = this.productsService.products[index];
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
       this.usersService.user2 = data[0] ;
@@ -82,6 +82,6 @@ export class AnuncioComponent implements OnInit {
       this.favouritesService.favorito = data;
       
     })
-    */
+    
   }
 }
