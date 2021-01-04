@@ -43,7 +43,7 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisPeticiones() {
-    this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
+    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
       this.misPeticiones = data;
             this.misProductos = null;
       this.misProductosAlquilados = null;
