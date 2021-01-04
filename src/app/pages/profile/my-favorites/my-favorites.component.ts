@@ -60,12 +60,13 @@ export class MyFavoritesComponent implements OnInit {
   ngOnInit(): void {
     let user = this.userService.userAllPages();
 
+  /*  this.productsService.getFavProducts(this.userService.user.user_id).subscribe((data: any) => {
     this.favouritesService.getFavProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.favorito = data[0];
       this.favoritos = data;
 
     })
-
+    */
   }
 
 }

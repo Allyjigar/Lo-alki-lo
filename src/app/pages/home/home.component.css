@@ -40,7 +40,6 @@
 .card-body
 {
     color: #334257;
-    
 }
 .card-title
 {
@@ -56,7 +55,7 @@
 .card-text
 {
     min-height: 150px;
-    max-height:150px;
+    max-height: 150px;
     font-size: 12px;
     overflow: hidden;}
 #interesa
@@ -183,3 +182,17 @@ header
     border: dotted #334257 2px;
     margin-left: 290px;
 }
+.rating{
+    float: right;
+}
+  .estrella {
+    display: inline-block; 
+    font-size: 16px;
+  
+  }
+  .selected {
+  font-size: 16px;
+  padding: 0 1px;
+  cursor: pointer;
+  color: #FFD119;
+  text-decoration: none; }

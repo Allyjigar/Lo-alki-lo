@@ -4,6 +4,8 @@ import { Renting } from 'src/app/models/renting';
 import { Users } from 'src/app/models/users';
 import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
+import { ValoracionService } from 'src/app/shared/valoracion.service';
+//import { Script } from 'vm';
 
 
 @Component({
@@ -13,76 +15,74 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class MyProductsComponent implements OnInit {
   public id: number;
-  public rent: Renting = new Renting();
+  //public rent: Renting = new Renting(0, "", 0, 0, false, false, 0);
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
-  public misProductosAlquilados: Products[];
+  public misProductosAlquilados :  Products [];
   public misPeticiones: [];
   public product: Products;
-  public productoValorado : Products; 
-  public numero : number;
+  public productoValorado: Products;
 
-  constructor(public productsService: ProductsService, public userService: UsersService) {
-
-  }
-
+  constructor(public productsService: ProductsService, public userService: UsersService, public valoracionService: ValoracionService) { }
   mostrarMisProductos() {
     this.productsService.getUserProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.misProductos = data;
-      this.misProductosAlquilados = null; 
-      this.misPeticiones = null; 
+      this.misProductosAlquilados = null;
+      this.misPeticiones = null;
     })
   }
 
   mostrarMisProductosAlquilados() {
-   this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
-     this.misProductosAlquilados = data;
-     this.misProductos = null; 
-     this.misPeticiones = null;
-   })
-  } 
+    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
+      this.misProductosAlquilados = data;
+      this.misProductos = null;
+      this.misPeticiones = null;
+    })
+    console.log(this.productsService.misProductosAlquilados);
+  }
 
   mostrarMisPeticiones() {
-    this.productsService.getProductsRent(this.productsService.product.user_id).subscribe((data: any) => {
+    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
       this.misPeticiones = data;
       this.misProductos = null;
       this.misProductosAlquilados = null;
     })
   }
 
-  aceptarSolicitud() {
+  aceptarSolicitud(i) {
+    this.productsService.putProductsRent(i, 1, 0).subscribe((data: any) => {
+      console.log(data);
+      this.mostrarMisPeticiones();
+    })
+  }
+  rechazarSolicitud(i) {
+    this.productsService.deleteProductsRent(i).subscribe((data: any) => {
+      console.log(data);
+      this.mostrarMisPeticiones();
+    })
 
   }
-  rechazarSolicitud() {
 
-  }
-  
   eliminarAnuncio() {
     let id = this.productsService.product.product_id;
     this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
-      console.log(data);  
-      });
+      console.log(data);
+      this.mostrarMisProductos();
+
+    });
+
+  }
+  modificarAnuncio() {
+
+
   }
 
-  selectProduct(produSelected : Products) {
-        this.productsService.product = produSelected;
-        this.productsService.product.media = this.numero;
-        console.log(produSelected);
-  }
-  getAlquilados() {
-    this.productsService.getRenting(this.userService.user.user_id).subscribe((data : []) => {
-      this.productsService.peticionAlquilados = data;
-      })
-  }
-  // eliminarAnuncio() {
-  //   this.productService.deleteProduct(Number(this.productService.product.id)).subscribe(data) => {
-  //     console.log(data);
-  //   }
-  // }
   ngOnInit(): void {
     let user = this.userService.userAllPages();
     this.mostrarMisProductos();
+
+
   }
 
 }
