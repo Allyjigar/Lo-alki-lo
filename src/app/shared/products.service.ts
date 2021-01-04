@@ -8,13 +8,13 @@ import { Renting } from '../models/renting';
   providedIn: 'root'
 })
 export class ProductsService {
-  
+
   public rent: Renting;
   public product: Products;
   public products: Products[];
-  public misProductosAlquilados: any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
+  public misProductosAlquilados: any[] = [0, "", "", 0, "", "", "", "", 0, 0, 0, 0, 0, "", "", 0, 0, "", 0, 0];
   //public peticionAlquilados : any [] = [0,"","",0,"","","","",0,0,0,0,0,"","",0,0,"",0,0];
-  public anuncioid : number;
+  public anuncioid: number;
   //Obtener anuncios 
   private url = "http://localhost:9191/home";
   private url2 = "http://localhost:9191/anuncio";
@@ -26,8 +26,8 @@ export class ProductsService {
   private url8 = "http://localhost:9191/products/renting";
   private url9 = "http://localhost:9191/products/rentingid";
   private url10 = "http://localhost:9191/products/search/precio";
-  
-  
+
+
 
   constructor(private http: HttpClient) { }
   //Por ID
@@ -36,10 +36,10 @@ export class ProductsService {
   }
   //Subir producto
   postProduct(newProduct: Products) {
-  return this.http.post(this.url3, newProduct);
-  } 
+    return this.http.post(this.url3, newProduct);
+  }
   //Modifica productos
-  putProduct(newProduct : Products) {
+  putProduct(newProduct: Products) {
     return this.http.put(this.url3, newProduct);
   }
   //Eliminar producto
@@ -58,12 +58,12 @@ export class ProductsService {
   getProduct(id: number) {
     return this.http.get(this.url2 + id)
   }
-  getProductConId(product_id : number) {
+  getProductConId(product_id: number) {
     return this.http.get(this.url7 + "?product_id=" + product_id)
   }
   //Renting:
-  getRenting(arrendatario_id : number) {
-    return this.http.get(this.url8 + "?arrendatarioid=" + arrendatario_id);
+  getRenting(arrendatario_id: number) {
+    return this.http.get(this.url4 + "?arrendatarioid=" + arrendatario_id);
   }
   //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {
@@ -85,46 +85,44 @@ export class ProductsService {
   getProductsRent(user_id: number) {
     return this.http.get(this.url5 + "?user_id=" + user_id);
   }
-<<<<<<< HEAD
-  putProductAd(renting : Renting) {
-   return this.http.put(this.url4, renting); 
+  putProductAd(renting: Renting) {
+    return this.http.put(this.url4, renting);
   }
   //Get Renting_id
   getRentingID(arrendatario_id: number, product_id: number) {
     return this.http.get(this.url10 + "?arrendatarioid=" + arrendatario_id + "&product_id=" + product_id);
-=======
+  }
   //Aceptar Solicitud
-  putProductsRent(rent_id,alquilado, valorado){
+  putProductsRent(rent_id, alquilado, valorado) {
     const options = {
-      headers : new HttpHeaders({
-        'ContentType' : 'application/json',
+      headers: new HttpHeaders({
+        'ContentType': 'application/json',
       }),
-      body : {
-        alquilado : alquilado,
-        valorado : valorado,
-        renting_id : rent_id
+      body: {
+        alquilado: alquilado,
+        valorado: valorado,
+        renting_id: rent_id
       },
     };
-    return this.http.put(this.url6,options)
+    return this.http.put(this.url6, options)
   }
   //Rechazar Solicitud
-  deleteProductsRent(rent_id){
+  deleteProductsRent(rent_id) {
     const options = {
-      headers : new HttpHeaders({
-        'ContentType' : 'application/json',
+      headers: new HttpHeaders({
+        'ContentType': 'application/json',
       }),
-      body : {
-        renting_id : rent_id
+      body: {
+        renting_id: rent_id
       },
     }
-    return this.http.delete(this.url6,options)
+    return this.http.delete(this.url6, options)
   }
   //Por Usuario(favoritos)
 
   getFavProducts(favourites_id: number) {
     return this.http.get(this.url4 + "?favourites_id=" + favourites_id);
 
->>>>>>> mikel
   }
 }
 

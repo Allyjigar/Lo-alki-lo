@@ -19,6 +19,7 @@ export class MyProductsComponent implements OnInit {
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
+  public misProductosAlquilados :  Products [];
   public misPeticiones: [];
   public product: Products;
   public productoValorado: Products;
@@ -27,14 +28,14 @@ export class MyProductsComponent implements OnInit {
   mostrarMisProductos() {
     this.productsService.getUserProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.misProductos = data;
-      this.productsService.misProductosAlquilados = null;
+      this.misProductosAlquilados = null;
       this.misPeticiones = null;
     })
   }
 
   mostrarMisProductosAlquilados() {
     this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
-      this.productsService.misProductosAlquilados = data;
+      this.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
     })
@@ -45,7 +46,7 @@ export class MyProductsComponent implements OnInit {
     this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
       this.misPeticiones = data;
       this.misProductos = null;
-      this.productsService.misProductosAlquilados = null;
+      this.misProductosAlquilados = null;
     })
   }
 
