@@ -17,7 +17,7 @@ export class AnuncioComponent implements OnInit {
   
   public favorito: Favorito;
   public favoritos: Favorito[];
-  public claseFav = "fa fa-heart-o fa_custom";
+  public claseFav;
   public product: Products;
   constructor(private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService) {
 

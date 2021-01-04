@@ -364,11 +364,12 @@ app.get("/favoritos", function (request, response) {
         };
     });
 })
+
 app.get("/favorito", function (request, response) {
     let id = String(request.query.user_id);
     let id2 = String(request.query.product_id);
     let params = new Array(id, id2);
-    let sql = "SELECT * FROM favourites WHERE (favourites.user_id = ? AND favourites.product_id = ?)";
+    let sql = "SELECT * FROM favourites WHERE (favourites.user_id = ? AND favourites.product_id = ? AND favorito = true)";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
