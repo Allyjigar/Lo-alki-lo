@@ -71,7 +71,7 @@ export class ProductsService {
   }
   //Por precio
   getSearchProductPrice(precio: number, precio2: number) {
-    return this.http.get(this.url9 + "?precio=" + precio + "&precio2=" + precio2);
+    return this.http.get(this.url10 + "?precio=" + precio + "&precio2=" + precio2);
   }
   //Por Usuario(subidos)
   getUserProducts(user_id: number) {

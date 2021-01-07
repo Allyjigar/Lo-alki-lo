@@ -158,6 +158,7 @@ app.post("/search/products", function (request, response) {
         };
     });
 });
+
 /*Checkeado */
 
 /*Productos del usuario */
@@ -328,7 +329,23 @@ app.post("/mensajes", function (request, response) {
 app.get("/favoritos", function (request, response) {
     let id = String(request.query.user_id);
     let params = new Array(id);
-    let sql = "SELECT * FROM favourites WHERE user_id = ? AND favorito = true ";
+    let sql = "SELECT product.name, product.foto1, product.precio, product.product_id FROM favourites JOIN product ON(product.product_id = favourites.product_id) WHERE favourites.user_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de Favoritos");
+            console.log(result);
+            response.send(result);
+        };
+    });
+})
+
+app.get("/favorito", function (request, response) {
+    let id = String(request.query.user_id);
+    let id2 = String(request.query.product_id);
+    let params = new Array(id, id2);
+    let sql = "SELECT * FROM favourites WHERE favourites.user_id = ? AND favourites.product_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -340,8 +357,8 @@ app.get("/favoritos", function (request, response) {
     });
 })
 app.post("/favoritos", function (request, response) {
-    let params = new Array(String(request.body.user_id), String(request.body.product_id), String(request.body.favorito));
-    let sql = "INSERT INTO favourites (user_id, product_id, favorito) VALUES (?, ?, ?)";
+    let params = new Array(String(request.body.user_id), String(request.body.product_id));
+    let sql = "INSERT INTO favourites (user_id, product_id) VALUES (?, ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -352,14 +369,15 @@ app.post("/favoritos", function (request, response) {
         };
     });
 });
-app.put("/favoritos", function (request, response) {
-    let params = new Array(String(request.body.favorito), String(request.body.user_id), String(request.body.product_id));
-    let sql = "UPDATE favourites SET favorito = ? WHERE user_id = ? AND product_id = ?";
+
+app.delete("/favoritos", function (request, response) {
+    let params = new Array(String(request.body.user_id), String(request.body.product_id));
+    let sql = "DELETE FROM favourites WHERE user_id = ? AND product_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log("Favoritos modificado");
+            console.log("Se ha eliminado un favorito");
             console.log(result);
             response.send(result);
         };

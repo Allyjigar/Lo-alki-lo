@@ -20,21 +20,23 @@ export class FavouritesService {
 
   }
   getFavProduct(user_id: number, product_id: number) {
-    return this.http.get(this.url2 + "?user_id" + user_id + "&product_id" + product_id)
+    return this.http.get(this.url2 + "?user_id=" + user_id + "&product_id=" + product_id)
   }
 
   // Anadir favorito
   postFavProducts(newFavorito: Favorito) {
     return this.http.post(this.url, newFavorito);
   }
+
   //Eliminar favorito
-  deleteFav(id: number) {
+  deleteFav(user_id: number, product_id: number ) {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
       body: {
-        favourites_id: id
+        user_id: user_id, 
+        product_id: product_id
       },
     };
     return this.http.delete(this.url, options)

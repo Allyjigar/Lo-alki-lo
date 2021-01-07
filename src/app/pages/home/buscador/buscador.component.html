@@ -11,9 +11,10 @@
 </head>
 <body>
     <header>
+      <div>
         <app-header-layout></app-header-layout>
+      </div>
     </header>
-    <body>
       <div id="header">
         <ul class="nav">
           <li><a id="laterali"><b>&nbsp;</b></a></li>
@@ -45,18 +46,18 @@
                 <ul>
                   <li (click)="subcategoriaValue('Ordenadores')" type="button"><a>Ordenadores</a></li>
                   <li (click)="subcategoriaValue('Impresoras')" type="button"><a>Impresoras</a></li>
-                  <li (click)="subcategoriaValue('Videoconsolas')" type="button"><a >Vídeoconsolas</a></li>
+                  <li (click)="subcategoriaValue('Videoconsolas')" type="button"><a>Vídeoconsolas</a></li>
                   <li (click)="subcategoriaValue('Camaras')" type="button"><a>Cámaras</a></li>
-                  <li (click)="subcategoriaValue('Proyectores')" type="button"><a >Proyectores</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
+                  <li (click)="subcategoriaValue('Proyectores')" type="button"><a>Proyectores</a></li>
+                  <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
                 </ul>
               </li>
-              <li (click)="categoriaValue('Hogar y Jardin')" type="button"><a >Hogar y jardín</a>
+              <li (click)="categoriaValue('Hogar y Jardin')" type="button"><a>Hogar y jardín</a>
                 <ul>
-                  <li (click)="subcategoriaValue('Electrodomesticos')" type="button"><a >Electrodomésticos</a></li>
-                  <li (click)="subcategoriaValue('Herramientas')" type="button"><a >Herramientas</a></li>
-                  <li (click)="subcategoriaValue('Mobiliario')" type="button"><a >Mobiliario</a></li>
-                  <li (click)="subcategoriaValue('Piscinas y accesorios')" type="button"><a >Piscinas y accesorios</a></li>
+                  <li (click)="subcategoriaValue('Electrodomesticos')" type="button"><a>Electrodomésticos</a></li>
+                  <li (click)="subcategoriaValue('Herramientas')" type="button"><a>Herramientas</a></li>
+                  <li (click)="subcategoriaValue('Mobiliario')" type="button"><a>Mobiliario</a></li>
+                  <li (click)="subcategoriaValue('Piscinas y accesorios')" type="button"><a>Piscinas y accesorios</a></li>
                   <li (click)="subcategoriaValue('Jardineria')" type="button"><a >Jardinería</a></li>
                   <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
                 </ul>
@@ -83,7 +84,7 @@
               </li>
             </ul>
           </li>
-          <li><a ><b>PRECIO </b></a>
+          <li><a><b>PRECIO </b></a>
               <ul>
                 <li (click)="precioValue(0, 10)" type="button"><a >Hasta 10€ </a></li>
                 <li (click)="precioValue(10, 20)" type="button"><a >De 10€-20€</a></li>
@@ -146,9 +147,9 @@
 
     </div>
  <!-- /.row -->
-  
   </div>
-
+  </div>
+</body>
 <app-footer></app-footer>
     
     

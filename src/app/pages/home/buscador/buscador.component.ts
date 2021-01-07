@@ -17,9 +17,7 @@ export class BuscadorComponent implements OnInit {
   public precio2: number;
   
 
-  constructor(public userService: UsersService, public productsService: ProductsService, public router: Router) {
-    console.log(this.productsService.product)
-  }
+  constructor(public userService: UsersService, public productsService: ProductsService, public router: Router) {}
 
   categoriaValue(cat: string) {
 

@@ -9,6 +9,7 @@ import { FavouritesService } from 'src/app/shared/favourites.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
 
+
 @Component({
   selector: 'app-anuncio',
   templateUrl: './anuncio.component.html',
@@ -23,40 +24,11 @@ export class AnuncioComponent implements OnInit {
   public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
   public fotos: string[] = [];
+  public favoritoSelect : boolean;
   constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService) {
 
   }
 
-  /* 
-    marcarFavorito() {
-  
-      if (this.claseFav === "fa fa-heart-o fa_custom" && this.favouritesService.favorito.user_id != this.usersService.user.user_id) {
-        this.claseFav = "fa fa-heart fa_custom";
-        this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id, true)).subscribe((data: Favorito) => {
-          this.favorito = data[0];
-          swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'El producto se ha añadido a tu lista de favoritos',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        });
-  
-      } else {
-        this.claseFav = "fa fa-heart-o fa_custom";
-        this.favouritesService.deleteFav(this.favouritesService.favorito.favourites_id).subscribe((data: any) => {
-          
-        });
-        {
-  
-        }
-  
-      }
-  
-  
-    }
-    */
   //Nueva solicitud
   entradaSolicitud(fechaInicio,fechaFin) {
   
@@ -83,6 +55,22 @@ export class AnuncioComponent implements OnInit {
   
 
   }
+
+
+  marcarFavorito() {
+    if (this.favoritoSelect == false) {
+      this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
+        this.favoritoSelect = true;
+        console.log(data);
+      })
+    } else {
+      this.favouritesService.deleteFav(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
+        this.favoritoSelect = false;
+        console.log(data);
+      })
+    }
+  }
+
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
   
@@ -101,17 +89,24 @@ export class AnuncioComponent implements OnInit {
         }
       }
     }
-    //console.log(this.fotos);
+    console.log(this.fotos);
+
+    this.productsService.product = this.productsService.products[index];
+    this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
+      this.usersService.user2 = data[0];
+    })
     
-        this.productsService.product = this.productsService.products[index];
-        this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
-          this.usersService.user2 = data[0] ;
-        })
-    /*
-        this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
-          this.favouritesService.favorito = data;
-          
-        })
-        */
+    this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
+      console.log(data);
+      if ( data.length != 0) {
+        this.favoritoSelect = true;
+      } else {
+        this.favoritoSelect = false;
+      }
+    } )
+
   }
+
+   
+
 }
