@@ -21,7 +21,7 @@ export class ProductsService {
   private url3 = "http://localhost:9191/products";
   private url4 = "http://localhost:9191/products/ad";
   private url5 = "http://localhost:9191/products/rent";
-  private url6 = "http://localhost:9191/products/search";
+  private url6 = "http://localhost:9191/search/products";
   private url7 = "http://localhost:9191/product";
   private url8 = "http://localhost:9191/products/renting";
   private url9 = "http://localhost:9191/products/rentingid";
@@ -67,7 +67,7 @@ export class ProductsService {
   }
   //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {
-    return this.http.get(this.url6 + "?name=" + name);
+    return this.http.post(this.url6,{name:name});
   }
   //Por precio
   getSearchProductPrice(precio: number, precio2: number) {
@@ -104,7 +104,7 @@ export class ProductsService {
         renting_id: rent_id
       },
     };
-    return this.http.put(this.url6, options)
+    return this.http.put(this.url4, options)
   }
   //Rechazar Solicitud
   deleteProductsRent(rent_id) {
@@ -116,7 +116,7 @@ export class ProductsService {
         renting_id: rent_id
       },
     }
-    return this.http.delete(this.url6, options)
+    return this.http.delete(this.url5, options)
   }
   //Por Usuario(favoritos)
 
@@ -124,5 +124,18 @@ export class ProductsService {
     return this.http.get(this.url4 + "?favourites_id=" + favourites_id);
 
   }
+  entradaSolicitud (date,duration,user_id)
+  {
+    let body = {
+        duration: duration,
+        date: date,
+        product_id: this.product.product_id,
+        alquilado: 0,
+        valorado: 0,
+        arrendatario_id: user_id
+      }
+    console.log(body)
+    return this.http.post(this.url4, body)
+  
 }
-
+}

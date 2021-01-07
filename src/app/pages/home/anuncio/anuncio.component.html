@@ -21,8 +21,9 @@
     <app-header-layout></app-header-layout>
   </header>
   <div>
-    
+    <!--
       <div id="scene">
+         
         <div id="left-zone">
           <ul class="list">
             
@@ -64,12 +65,15 @@
           </ul>
         </div>
         <div id="middle-border"></div>
-      </div>
-      <div class="card card-custom center-block">
-              
-          <div class="carousel-inner">
-            <!--<div class="carousel-item">
-            <img id="foto2" src="{{productsService.product.foto2}}" class="d-block w-100" alt="foto2">
+      </div>-->
+    <div class="card card-custom center-block">
+      <div class="card-body">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img id="foto1" src="{{productsService.product.foto1}}" class="d-block w-80" alt="foto1">
+          </div>
+          <!--<div class="carousel-item">
+            <img id="foto2" src="{{productsService.product.foto1}}" class="d-block w-100" alt="foto2">
           </div>
           <div class="carousel-item">
             <img id="foto3" src="{{product.foto3}}" class="d-block w-100" alt="foto3">
@@ -77,57 +81,61 @@
           <div class="carousel-item">
             <img id="foto4" src="{{product.foto4}}" class="d-block w-100" alt="foto3">
           </div>-->
-          </div>
-        
-        <div class="card-body">
-          <h5 class="card-title">{{productsService.product.name}}
-            <div class="rating">
-              <div>
-                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                </div>
-                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                </div>
-                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                </div>
-                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                </div>
-                <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
-                </div>
-              </div> 
-          </div>
-   <!--         <i [class]="claseFav" (click)="marcarFavorito()"></i> -->
-          </h5>
-          <hr>
-          <div class="row">
-            <div class="col-md-8">
-              <p class="card-text">{{productsService.product.descripcion}}</p>
-              <div>
-                <img routerLink="/perfilvendedor" id="perfil"
-                  src="{{usersService.user2.foto}}"
-                  alt="..." class="rounded-circle">
-                <h5 routerLink="/perfilvendedor" id="nombre">{{usersService.user2.nickname}}</h5>
+        </div>
+
+
+        <h5 class="card-title">{{productsService.product.name}}
+          <div class="rating">
+            <div>
+              <div class="fa fa-star estrella"
+                [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+              </div>
+              <div class="fa fa-star estrella"
+                [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+              </div>
+              <div class="fa fa-star estrella"
+                [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+              </div>
+              <div class="fa fa-star estrella"
+                [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+              </div>
+              <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
               </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="fechas">
-                <h2>Fecha de inicio</h2>
-                <input type="date">
-                <h2>Fecha de fin</h2>
-                <input type="date">
-              </div>
-              <div id="margen_precio">
-                <p id="precio"><b>{{productsService.product.precio }} €/día</b></p>
-              </div>
-              <button id="alkilar" routerLink="/chat">Enviar solicitud</button>
-
+          </div>
+          <!--         <i [class]="claseFav" (click)="marcarFavorito()"></i> -->
+        </h5>
+        <hr>
+        <div class="row">
+          <div class="col-md-8">
+            <p class="card-text">{{productsService.product.descripcion}}</p>
+            <div>
+              <img routerLink="/perfilvendedor" id="perfil" src="{{usersService.user2.foto}}" alt="..."
+                class="rounded-circle">
+              <h5 routerLink="/perfilvendedor" id="nombre">{{usersService.user2.nickname}}</h5>
             </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="fechas">
+              <h2>Fecha de inicio</h2>
+              <input type="date" id="fechaInicio" #fechaInicio>
+              <h2>Fecha de fin</h2>
+              <input type="date" id="fechaFin" #fechaFin>
+            </div>
+            <div id="margen_precio">
+              <p id="precio"><b>{{productsService.product.precio }} €/día</b></p>
+            </div>
+            <button id="alkilar" (click)="entradaSolicitud(fechaInicio.value,fechaFin.value)">Enviar solicitud</button>
           </div>
         </div>
-    
+      </div>
+
+
     </div>
   </div>
 
 
 </body>
+
 </html>

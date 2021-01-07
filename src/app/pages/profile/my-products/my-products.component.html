@@ -79,7 +79,7 @@
                 </div>
             </div>
             <!--Productos Alquilados-->
-            <div class="tarjetas" *ngIf="misProductosAlquilados != null">
+            <div class="tarjetas" *ngIf="this.productsService.misProductosAlquilados != null">
                 <div class="row">
                     <div class="card-columns center-block">
                         <div *ngFor="let product of misProductosAlquilados">
