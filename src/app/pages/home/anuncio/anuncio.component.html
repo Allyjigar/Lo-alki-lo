@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-                <i [class]="claseFav" (click)="marcarFavorito()"></i>
+                <i [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'" (click)="marcarFavorito()"></i>
       </h5>
       <hr>
       <div class="row">
@@ -124,7 +124,7 @@
             <input type="date">
           </div>
           <div id="margen_precio">
-            <p id="precio"><b>{{productsService.product.precio }} €/día</b></p>
+            <p id="precio"><b>{{productsService.product.precio}} €/día</b></p>
           </div>
           <button id="alkilar" routerLink="/chat">Enviar solicitud</button>
 
