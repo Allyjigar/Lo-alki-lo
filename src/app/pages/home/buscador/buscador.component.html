@@ -1,165 +1,193 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Chat</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='buscador.component.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src='main.js'></script>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Chat</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='buscador.component.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src='main.js'></script>
 </head>
+
 <body>
-    <header>
-      <div>
-        <app-header-layout></app-header-layout>
-      </div>
-    </header>
-      <div id="header">
-        <ul class="nav">
-          <li><a id="laterali"><b>&nbsp;</b></a></li>
-          <li><a><b>CATEGORÍA</b></a>
+  <header>
+    <div>
+      <app-header-layout></app-header-layout>
+    </div>
+  </header>
+  <div id="header">
+    <ul class="nav">
+      <li><a id="laterali"><b>&nbsp;</b></a></li>
+      <li><a><b>CATEGORÍA</b></a>
+        <ul>
+          <li (click)="categoriaValue('Motor')" type="button"><a>Motor&nbsp;</a>
             <ul>
-              <li (click)="categoriaValue('Motor')" type="button"><a>Motor&nbsp;</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Coches')" type="button"><a>Coches</a></li>
-                  <li (click)="subcategoriaValue('Motos')" type="button" ><a>Motos</a></li>
-                  <li (click)="subcategoriaValue('Furgonetas')" type="button"><a>Furgonetas</a></li>
-                  <li (click)="subcategoriaValue('Autocaravanas')" type="button"><a>Autocaravanas</a></li>
-                  <li (click)="subcategoriaValue('Vehiculos especiales')" type="button"><a>Vehículos especiales</a></li>
-                  <li (click)="subcategoriaValue('Quads')" type="button"><a>Quads</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
-                </ul>
-              </li>
-              <li (click)="categoriaValue('Inmobiliaria')" type="button"><a>Inmobiliaria</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Pisos')" type="button"><a>Pisos</a></li>
-                  <li (click)="subcategoriaValue('Casas')" type="button"><a>Casas</a></li>
-                  <li (click)="subcategoriaValue('Locales')" type="button"><a>Locales</a></li>
-                  <li (click)="subcategoriaValue('Oficinas')" type="button"><a>Oficinas</a></li>
-                  <li (click)="subcategoriaValue('Parkings')" type="button"><a>Parkings</a></li>
-                  <li (click)="subcategoriaValue('Espacios exteriores')" type="button"><a>Espacios exteriores</a></li>
-                  <li><a>Otros</a></li>
-                </ul>
-              </li>
-              <li (click)="categoriaValue('Informatica y Electronica')" type="button"><a>Informática y Electrónica</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Ordenadores')" type="button"><a>Ordenadores</a></li>
-                  <li (click)="subcategoriaValue('Impresoras')" type="button"><a>Impresoras</a></li>
-                  <li (click)="subcategoriaValue('Videoconsolas')" type="button"><a>Vídeoconsolas</a></li>
-                  <li (click)="subcategoriaValue('Camaras')" type="button"><a>Cámaras</a></li>
-                  <li (click)="subcategoriaValue('Proyectores')" type="button"><a>Proyectores</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
-                </ul>
-              </li>
-              <li (click)="categoriaValue('Hogar y Jardin')" type="button"><a>Hogar y jardín</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Electrodomesticos')" type="button"><a>Electrodomésticos</a></li>
-                  <li (click)="subcategoriaValue('Herramientas')" type="button"><a>Herramientas</a></li>
-                  <li (click)="subcategoriaValue('Mobiliario')" type="button"><a>Mobiliario</a></li>
-                  <li (click)="subcategoriaValue('Piscinas y accesorios')" type="button"><a>Piscinas y accesorios</a></li>
-                  <li (click)="subcategoriaValue('Jardineria')" type="button"><a >Jardinería</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
-                </ul>
-              </li>
-              <li (click)="categoriaValue('Moda y Complementos')" type="button"><a >Moda y Complementos</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Trajes de fiesta')" type="button"><a >Trajes de fiesta</a></li>
-                  <li (click)="subcategoriaValue('Bolsos y maletas')" type="button"><a >Bolsos y maletas</a></li>
-                  <li (click)="subcategoriaValue('Joyas y relojes')" type="button"><a >Joyas y relojes</a></li>
-                  <li (click)="subcategoriaValue('Sombreros')" type="button"><a >Sombreros</a></li>
-                  <li (click)="subcategoriaValue('Ropa especializada')" type="button"><a >Ropa especializada</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
-                </ul>
-              </li>
-              <li (click)="categoriaValue('Deportes y Ocio')" type="button"><a >Deportes y Ocio</a>
-                <ul>
-                  <li (click)="subcategoriaValue('Maquinas')" type="button"><a >Máquinas</a></li>
-                  <li (click)="subcategoriaValue('Deportes acuaticos')" type="button"><a >Deportes acuáticos</a></li>
-                  <li (click)="subcategoriaValue('Deportes de montaña')" type="button"><a >Deportes de montaña</a></li>
-                  <li (click)="subcategoriaValue('Accesorios deportivos')" type="button"><a >Accesorios deportivos</a></li>
-                  <li (click)="subcategoriaValue('Estructuras de exterior')" type="button"><a >Estructuras de exterior</a></li>
-                  <li (click)="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
-                </ul>
-              </li>
+              <li (click)="subcategoriaValue('Coches')" type="button"><a>Coches</a></li>
+              <li (click)="subcategoriaValue('Motos')" type="button"><a>Motos</a></li>
+              <li (click)="subcategoriaValue('Furgonetas')" type="button"><a>Furgonetas</a></li>
+              <li (click)="subcategoriaValue('Autocaravanas')" type="button"><a>Autocaravanas</a></li>
+              <li (click)="subcategoriaValue('Vehiculos especiales')" type="button"><a>Vehículos especiales</a></li>
+              <li (click)="subcategoriaValue('Quads')" type="button"><a>Quads</a></li>
+              <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
             </ul>
           </li>
-          <li><a><b>PRECIO </b></a>
-              <ul>
-                <li (click)="precioValue(0, 10)" type="button"><a >Hasta 10€ </a></li>
-                <li (click)="precioValue(10, 20)" type="button"><a >De 10€-20€</a></li>
-                <li (click)="precioValue(20, 30)" type="button"><a >De 20€-30€</a></li>
-                <li (click)="precioValue(30, 40)" type="button"><a >De 30€-40€</a></li>
-                <li (click)="precioValue(40, 50)" type="button"><a >De 40€-50€</a></li>
-                <li (click)="precioValue(50, 60)" type="button"><a >De 50€-60€</a></li>
-                <li (click)="precioValue(60, 80)" type="button"><a >De 60€-80€</a></li>
-                <li (click)="precioValue(80, 100)" type="button"><a >De 80€-100€</a></li>
-                <li (click)="precioValue(100, 125)" type="button"><a >De 100€-125€</a></li>
-                <li (click)="precioValue(125, 150)" type="button"><a >De 125€-150€</a></li>
-                <li (click)="precioValue(150, 1000000)" type="button"><a >Más de 150€</a></li>
-              </ul>
+          <li (click)="categoriaValue('Inmobiliaria')" type="button"><a>Inmobiliaria</a>
+            <ul>
+              <li (click)="subcategoriaValue('Pisos')" type="button"><a>Pisos</a></li>
+              <li (click)="subcategoriaValue('Casas')" type="button"><a>Casas</a></li>
+              <li (click)="subcategoriaValue('Locales')" type="button"><a>Locales</a></li>
+              <li (click)="subcategoriaValue('Oficinas')" type="button"><a>Oficinas</a></li>
+              <li (click)="subcategoriaValue('Parkings')" type="button"><a>Parkings</a></li>
+              <li (click)="subcategoriaValue('Espacios exteriores')" type="button"><a>Espacios exteriores</a></li>
+              <li><a>Otros</a></li>
+            </ul>
           </li>
-      </ul>
-    </div>
-    <div class="container ">
-      <div class="row ">
-        <div class="col-md-2 col-4 ">
-        </div>
-        <div class="col-md-2 col-4 ">
-        </div>
-        <div class="col-md-2 col-4">
-        </div>     
-        <div class="col-md-2 col-4 ">
-        </div>
-        <div class="col-md-2 col-4">
-        </div>
+          <li (click)="categoriaValue('Informatica y Electronica')" type="button"><a>Informática y Electrónica</a>
+            <ul>
+              <li (click)="subcategoriaValue('Ordenadores')" type="button"><a>Ordenadores</a></li>
+              <li (click)="subcategoriaValue('Impresoras')" type="button"><a>Impresoras</a></li>
+              <li (click)="subcategoriaValue('Videoconsolas')" type="button"><a>Vídeoconsolas</a></li>
+              <li (click)="subcategoriaValue('Camaras')" type="button"><a>Cámaras</a></li>
+              <li (click)="subcategoriaValue('Proyectores')" type="button"><a>Proyectores</a></li>
+              <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+            </ul>
+          </li>
+          <li (click)="categoriaValue('Hogar y Jardin')" type="button"><a>Hogar y jardín</a>
+            <ul>
+              <li (click)="subcategoriaValue('Electrodomesticos')" type="button"><a>Electrodomésticos</a></li>
+              <li (click)="subcategoriaValue('Herramientas')" type="button"><a>Herramientas</a></li>
+              <li (click)="subcategoriaValue('Mobiliario')" type="button"><a>Mobiliario</a></li>
+              <li (click)="subcategoriaValue('Piscinas y accesorios')" type="button"><a>Piscinas y accesorios</a></li>
+              <li (click)="subcategoriaValue('Jardineria')" type="button"><a>Jardinería</a></li>
+              <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+            </ul>
+          </li>
+          <li (click)="categoriaValue('Moda y Complementos')" type="button"><a>Moda y Complementos</a>
+            <ul>
+              <li (click)="subcategoriaValue('Trajes de fiesta')" type="button"><a>Trajes de fiesta</a></li>
+              <li (click)="subcategoriaValue('Bolsos y maletas')" type="button"><a>Bolsos y maletas</a></li>
+              <li (click)="subcategoriaValue('Joyas y relojes')" type="button"><a>Joyas y relojes</a></li>
+              <li (click)="subcategoriaValue('Sombreros')" type="button"><a>Sombreros</a></li>
+              <li (click)="subcategoriaValue('Ropa especializada')" type="button"><a>Ropa especializada</a></li>
+              <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+            </ul>
+          </li>
+          <li (click)="categoriaValue('Deportes y Ocio')" type="button"><a>Deportes y Ocio</a>
+            <ul>
+              <li (click)="subcategoriaValue('Maquinas')" type="button"><a>Máquinas</a></li>
+              <li (click)="subcategoriaValue('Deportes acuaticos')" type="button"><a>Deportes acuáticos</a></li>
+              <li (click)="subcategoriaValue('Deportes de montaña')" type="button"><a>Deportes de montaña</a></li>
+              <li (click)="subcategoriaValue('Accesorios deportivos')" type="button"><a>Accesorios deportivos</a></li>
+              <li (click)="subcategoriaValue('Estructuras de exterior')" type="button"><a>Estructuras de exterior</a>
+              </li>
+              <li (click)="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a><b>PRECIO </b></a>
+        <ul>
+          <li (click)="precioValue(0, 10)" type="button"><a>Hasta 10€</a></li>
+          <li (click)="precioValue(10, 20)" type="button"><a>De 10€-20€</a></li>
+          <li (click)="precioValue(20, 30)" type="button"><a>De 20€-30€</a></li>
+          <li (click)="precioValue(30, 40)" type="button"><a>De 30€-40€</a></li>
+          <li (click)="precioValue(40, 50)" type="button"><a>De 40€-50€</a></li>
+          <li (click)="precioValue(50, 60)" type="button"><a>De 50€-60€</a></li>
+          <li (click)="precioValue(60, 80)" type="button"><a>De 60€-80€</a></li>
+          <li (click)="precioValue(80, 100)" type="button"><a>De 80€-100€</a></li>
+          <li (click)="precioValue(100, 125)" type="button"><a>De 100€-125€</a></li>
+          <li (click)="precioValue(125, 150)" type="button"><a>De 125€-150€</a></li>
+          <li (click)="precioValue(150, 1000000)" type="button"><a>Más de 150€</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="container ">
+    <div class="row ">
+      <div class="col-md-2 col-4 ">
       </div>
+      <div class="col-md-2 col-4 ">
+      </div>
+      <div class="col-md-2 col-4">
+      </div>
+      <div class="col-md-2 col-4 ">
+      </div>
+      <div class="col-md-2 col-4">
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <h2 class="marco_sup"></h2>
       </div>
 
       <div class="row">
-        
+        <div class="col-12">
+          <h2 class="page-header"></h2>
+      </div>
 
         <div class="card-columns center-block">
-            <div *ngFor="let pro of productsService.products ; index as i ">
-                <div class="card card-custom">
-                    <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
-                    <div class="card-body" style="overflow-y: auto">
-                        <div class="tituloanuncio">
-                            <a class="valoracion">★★★★★</a>
-                            <h5 class="card-title">{{pro.name}}</h5>
-                        </div>
-                        <p class="card-text">{{pro.descripcion}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted" id="precio">Precio : {{pro.precio}} &nbsp;€</small>
-                        <button (click)="detalleAnuncio(pro.product_id)" id="interesa"><svg width="5px"
-                                height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                            </svg><b> Me interesa</b></button>
+          <div *ngFor="let pro of productsService.products ; index as i ">
+              <div class="card card-custom">
+                  <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
+                  <div class="card-body" style="overflow-y: auto">
+                      <div class="tituloanuncio">
+                          <div class="rating">
+                              <div>
+                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                  </div>
+                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                  </div>
+                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                  </div>
+                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                  </div>
+                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                  </div>
+                              </div> 
+                          </div>
+                          <h5 class="card-title">{{pro.name}}</h5>
+                      </div>
+                      <p class="card-text">{{pro.descripcion}}</p>
+                  </div>
+                  <div class="card-footer">
+                      <small class="text-muted" id="precio">Precio : {{pro.precio}} &nbsp;€</small>
+                      <button (click)="detalleAnuncio(pro.product_id)" id="interesa"><svg width="5px"
+                              height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                              xmlns="http://www.w3.org/2000/svg">
+                          </svg><b> Me interesa</b></button>
 
-                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!-- <div class="card-columns center-block">
+          <div *ngFor="let pro of productsService.products ; index as i ">
+            <div class="card card-custom">
+              <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
+              <div class="card-body" style="overflow-y: auto">
+                <div class="tituloanuncio">
+                  <a class="valoracion">★★★★★</a>
+                  <h5 class="card-title">{{pro.name}}</h5>
                 </div>
-            </div>
-        </div>
+                <p class="card-text">{{pro.descripcion}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted" id="precio">Precio : {{pro.precio}} &nbsp;€</small>
+                <button (click)="detalleAnuncio(pro.product_id)" id="interesa"><svg width="5px" height="30px"
+                    viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  </svg><b> Me interesa</b></button>
 
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+      <!-- /.row -->
     </div>
- <!-- /.row -->
-  </div>
   </div>
 </body>
 <app-footer></app-footer>
-    
-    
-    
-
-
-
-
-
-    
-
-
-    

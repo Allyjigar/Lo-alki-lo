@@ -25,19 +25,14 @@
                 <div class="row" >
                     <div class="col-md-2">
                         <img id="perfil"
-                            src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
+                            src="{{userService.user2.foto}}"
                             alt="..." class="rounded-circle">
                     </div>
                     <div class="col-md-6 centro">
                         <h2 id="nombre"><b>{{userService.user2.nickname}}</b></h2>
-                        <img id="estrella1" src="/assets/estrella.png">
-                        <img id="estrella2" src="/assets/estrella.png">
-                        <img id="estrella3" src="/assets/estrella.png">
-                        <img id="estrella4" src="/assets/estrella.png">
-                        <img id="estrella5" src="/assets/estrella.png">
                     </div>
                     <div class="col-md-4">
-                        <button id="contacta"><b>Contactar</b></button>
+                        <button routerLink="/chat" id="contacta" (click)="nuevoChat()"><b>Contactar</b></button>
                     </div>
                 </div>
 
@@ -49,7 +44,20 @@
                             <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
                             <div class="card-body" style="overflow-y: auto">
                                 <div class="tituloanuncio">
-                                    <a class="valoracion">★★★★★</a>
+                                    <div class="rating">
+                                        <div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                        </div> 
+                                    </div>
                                     <h5 class="card-title">{{pro.name}}</h5>
                                 </div>
                                 <p class="card-text">{{pro.descripcion}}</p>

@@ -8,6 +8,7 @@
 }
 .side-bar
 {
+    margin-top: -20px;
     background:#334257;
     position:absolute;
     height: 600px;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Users } from '../models/users';
-
+import swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -49,4 +49,5 @@ export class UsersService {
 
     return this.user;
   }
+  
 }

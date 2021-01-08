@@ -8,6 +8,8 @@ import { Favorito } from 'src/app/models/favorito';
 import { FavouritesService } from 'src/app/shared/favourites.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +27,7 @@ export class AnuncioComponent implements OnInit {
   public product: Products;
   public fotos: string[] = [];
   public favoritoSelect : boolean;
-  constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService) {
+  constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService, public router: Router) {
 
   }
 
@@ -51,26 +53,60 @@ export class AnuncioComponent implements OnInit {
     //Llamada a la api
     this.productsService.entradaSolicitud(fecha1,duracion,this.usersService.user.user_id).subscribe((data: any) =>{
       console.log(data)
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '¡Petición enviada!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   
 
   }
 
 
+  
   marcarFavorito() {
     if (this.favoritoSelect == false) {
       this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
         this.favoritoSelect = true;
         console.log(data);
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: '¡El producto se ha añadido a tus favoritos!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
+  
     } else {
       this.favouritesService.deleteFav(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
         this.favoritoSelect = false;
         console.log(data);
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: '¡El producto se ha eliminado de tus favoritos!',
+          showConfirmButton: false,
+          timer: 2000
+        })
       })
+      
     }
   }
 
+  loguearte() {
+    swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Debes loguearte para agregar un producto a tus favoritos',
+      showConfirmButton: false,
+      timer: 2000
+    })
+    this.router.navigateByUrl('/login');
+  }
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
   

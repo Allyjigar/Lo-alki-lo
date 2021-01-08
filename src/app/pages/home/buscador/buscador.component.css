@@ -20,6 +20,7 @@ ul, ol {
 }
 
 .nav li a {
+    margin-top: -10px;
 	background-color:#334257;
 	color:#fffe91;
 	text-decoration:none;
@@ -87,7 +88,6 @@ ul, ol {
 .card-body
 {
     color: #334257;
-    
 }
 .card-title
 {
@@ -102,10 +102,11 @@ ul, ol {
 }
 .card-text
 {
-    min-height: 150px;
-    max-height:150px;
+    min-height: 130px;
+    max-height:130px;
     font-size: 12px;
     overflow: hidden;}
+
 #interesa
 {
     background-color: #334257;
@@ -159,3 +160,16 @@ ul, ol {
 {
     font-size: large;
 }
+.estrella {
+
+    display: inline-block; 
+    font-size: 16px;
+  
+}
+.selected {
+  font-size: 16px;
+  padding: 0 1px;
+  cursor: pointer;
+  color: #FFD119;
+  text-decoration: none;
+ }

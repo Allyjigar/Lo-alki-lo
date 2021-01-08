@@ -1,7 +1,141 @@
-main
-{
-    min-height: 700px;
+body{
+    margin: 0;
+    padding: 0;
 }
+.menuL{
+    margin-bottom: 10px;
+}
+main{
+    height: 100%;
+    min-height: 800px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-bottom: 1px;
+    float: right;
+}
+article{
+    height: 100%;
+    width: 80%;
+    float: right;
+    margin-left: 6%;
+    margin-right: 2%;
+    background-color: rgb(255, 255, 255);
+
+}
+#misProductos{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+}
+#alquilados{
+    background-color: #334257;
+    color: #fffe91;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+}
+#peticiones
+{
+  background-color:#334257;
+  color: #fffe91;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    font-size: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+   -webkit-box-shadow: 0px 1px 3px #334257;
+   -moz-box-shadow: 0px 1px 3px #334257;
+    box-shadow: 0px 1px 3px #334257;
+    text-shadow: 1px 1px 3px #334257;
+    border: dotted #334257 2px;
+
+}
+.active{
+    background-color: #fffe91;
+    color:  #334257;
+}
+.tarjetas{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 8%;
+    margin-top: 4%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto;
+    grid-gap: 50px;
+}
+.valoracion
+{
+    margin-left: 80%;
+}
+.card
+{
+    min-height: 30rem;
+    min-width: 30rem;
+    max-width: 25rem;
+    max-height: 50rem;
+}
+.card-footer{
+  height: 50px;
+}
+.card-body
+{
+    color: #334257;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    max-height: 450px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+  }
+.card-img-top {
+    max-height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+.descripcion
+{
+    font-size: large;
+    text-transform: clip;
+}
+.card-text
+{
+    min-height: 150px;
+    max-height: 150px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
 #interesa
 {
     background-color: #334257;
@@ -20,47 +154,71 @@ main
     border: dotted #334257 2px;
     float: right;
  }
-#precio
-{
-    font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #334257;
-    margin-top: 20%;
+.btn-group{
+  float: right;
 }
-#nombre
-{
-    font-size: 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #334257;
-    
+/* Valoraciones :*/
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float: right;
 }
-.card
-{
-    min-height: 30rem;
-    min-width: 30rem;
-    max-width: 25rem;
-    max-height: 50rem;
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
 }
-.card-footer{
-    height: 50px;
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+  /* Tarjetas: */
+  #precio
+  {
+      font-size: 20px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #334257;
+      margin-top: 20%;
+      margin-left: 5%;
   }
-.card-body
-{
-    color: #334257;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
+  #nombre
+  {
+      font-size: 25px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #334257;
+      
+  }
+  .card
+  {
+      min-height: 30rem;
+      min-width: 30rem;
+      max-width: 25rem;
+      max-height: 50rem;
+  }
+  
+  .card-body
+  {
+      color: #334257;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  }
 
-#descripcion
-{
-    font-size: 13px;
-}
-#corazon
-{
-  font-size: 25px;
-  color:red;
-  margin-left: 5%;
-
-}
+  #descripcion
+  {
+      font-size: 13px;
+  }
+  .estrella {
+    display: inline-block; 
+    font-size: 16px;
+  
+  }
+  .selected {
+  font-size: 16px;
+  padding: 0 1px;
+  cursor: pointer;
+  color: #FFD119;
+  text-decoration: none; }

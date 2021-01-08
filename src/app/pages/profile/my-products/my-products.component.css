@@ -109,6 +109,33 @@ article{
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    max-height: 450px;
+    box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
+  }
+.card-img-top {
+    max-height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+.descripcion
+{
+    font-size: large;
+    text-transform: clip;
+}
+.card-text
+{
+    min-height: 150px;
+    max-height: 150px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
 #interesa
 {
     background-color: #334257;

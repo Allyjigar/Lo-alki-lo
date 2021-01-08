@@ -50,15 +50,18 @@ export class ChatComponent implements OnInit {
     this.apiMensajeService.getMensajes(chat.chat_id).subscribe((data : Mensaje []) => {
       this.mensajes = data;
       this.chatSelected = chat;
+      console.log(this.mensajes);
     })
   }
 
  nuevoMensaje(mensaje : HTMLInputElement, chat_id : number) {
     let d = new Date();
-    let fecha = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    let fecha = d.getFullYear() + "-" + d.getMonth() + 1 + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     let newMensaje : Mensaje = new Mensaje(mensaje.value, chat_id, this.userService.user.user_id, fecha);
       this.apiMensajeService.postMensaje(newMensaje).subscribe((data) => {
         this.getMensajes(this.chatSelected);
+        console.log(newMensaje);
+        console.log(this.chatSelected);
     });
     mensaje.value = " ";
    

@@ -63,7 +63,7 @@ export class ProductsService {
   }
   //Renting:
   getRenting(arrendatario_id: number) {
-    return this.http.get(this.url4 + "?arrendatarioid=" + arrendatario_id);
+    return this.http.get(this.url8 + "?arrendatarioid=" + arrendatario_id);
   }
   //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {
@@ -94,17 +94,12 @@ export class ProductsService {
   }
   //Aceptar Solicitud
   putProductsRent(rent_id, alquilado, valorado) {
-    const options = {
-      headers: new HttpHeaders({
-        'ContentType': 'application/json',
-      }),
-      body: {
+    let body = {
         alquilado: alquilado,
         valorado: valorado,
         renting_id: rent_id
-      },
-    };
-    return this.http.put(this.url4, options)
+      };
+    return this.http.put(this.url4, body)
   }
   //Rechazar Solicitud
   deleteProductsRent(rent_id) {
@@ -138,4 +133,5 @@ export class ProductsService {
     return this.http.post(this.url4, body)
   
 }
+
 }

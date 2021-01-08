@@ -6,6 +6,8 @@ import { ProductsService } from 'src/app/shared/products.service';
 import { UsersService } from 'src/app/shared/users.service';
 import { ValoracionService } from 'src/app/shared/valoracion.service';
 //import { Script } from 'vm';
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,18 +26,18 @@ export class MyProductsComponent implements OnInit {
   public product: Products;
   public productoValorado: Products;
 
-  constructor(public productsService: ProductsService, public userService: UsersService, public valoracionService: ValoracionService) { }
+  constructor(public productsService: ProductsService, public userService: UsersService, public valoracionService: ValoracionService, public router: Router) { }
   mostrarMisProductos() {
     this.productsService.getUserProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.misProductos = data;
-      this.misProductosAlquilados = null;
+      this.productsService.misProductosAlquilados = null;
       this.misPeticiones = null;
     })
   }
 
   mostrarMisProductosAlquilados() {
     this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
-      this.misProductosAlquilados = data;
+      this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
     })
@@ -46,7 +48,7 @@ export class MyProductsComponent implements OnInit {
     this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
       this.misPeticiones = data;
       this.misProductos = null;
-      this.misProductosAlquilados = null;
+      this.productsService.misProductosAlquilados = null;
     })
   }
 
@@ -55,11 +57,25 @@ export class MyProductsComponent implements OnInit {
       console.log(data);
       this.mostrarMisPeticiones();
     })
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La petición ha sido aceptada',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
   rechazarSolicitud(i) {
     this.productsService.deleteProductsRent(i).subscribe((data: any) => {
       console.log(data);
       this.mostrarMisPeticiones();
+    })
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La petición ha sido rechazada',
+      showConfirmButton: false,
+      timer: 2000
     })
 
   }
@@ -68,15 +84,33 @@ export class MyProductsComponent implements OnInit {
     let id = this.productsService.product.product_id;
     this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
       console.log(data);
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'El producto se ha eliminado',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.mostrarMisProductos();
 
     });
 
   }
-  modificarAnuncio() {
+  detalleAnuncio(index: number) {
+    //this.productsService.product = product;
+    let pos;
+    for (let i = 0; i < this.productsService.misProductosAlquilados.length; i++) {
+      if (this.productsService.misProductosAlquilados[i].product_id == index) {
+        this.productsService.product = this.productsService.misProductosAlquilados[i];
+        pos = i;
 
+      }
+    }
+    this.router.navigate(["/anuncio", pos])
 
   }
+
+ 
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();
