@@ -242,7 +242,19 @@ app.get("/chat", function(request, response) {
         };
     });
 });
-
+app.put("/products/valoraciones", function(request,response) {
+    let params = new Array (String (request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.product_id));
+    let sql = "UPDATE product SET nvaloraciones = ?, suma = ?, media = ? WHERE product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Actualización valoración de producto");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
 app.post("/chat", function(request, response) {
     let params = new Array (String(request.body.id1), String(request.body.id2),
     String(request.body.nickname_emisor), String(request.body.foto_emisor), 
@@ -264,7 +276,7 @@ app.post("/chat", function(request, response) {
 /*Mensajes: */
 
 app.get("/mensajes", function (request, response) {
-    let id = String(request.query.id);
+    let id = String(request.query.chat_id);
     let params = new Array (id);
     let sql = "SELECT * FROM mensajes WHERE chat_id = ?";
     connection.query(sql, params, function(err, result) {
@@ -311,7 +323,7 @@ app.get("/mensajes/receptor", function(request, response){
     });
 })
 app.post("/mensajes", function(request, response) {
-    let params = new Array (String(request.body.chat_id), String(request.body.user_id), String(request.body.date), String(request.body.mensaje));
+    let params = new Array (String(request.body.chat_id), String(request.body.user_id), String(request.body.fecha), String(request.body.mensaje));
     let sql = "INSERT INTO mensajes (chat_id, user_id, fecha, mensaje) VALUES (?, ?, ?, ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -411,6 +423,35 @@ app.get("/products/rent", function (request, response) {
             console.log(err);
         } else {
             console.log("Solicitud de Renting");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+app.get("/products/renting", function(request, response) {
+    let arrendatario_id = String(request.query.arrendatarioid);
+    let params = new Array(arrendatario_id);
+     let sql = "SELECT * FROM product JOIN renting ON (product.product_id = renting.product_id) WHERE (renting.arrendatario_id = ? AND renting.alquilado = true)";
+  //   let sql = "SELECT * FROM renting WHERE arrendatario_id = ? AND alquilado = 'true'";
+    //let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE (user.user_id = ? AND alquilado = false)";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de productos Alquilados desde Renting");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+app.get("/products/rentingid", function(request, response) {
+    let params = new Array(String(request.query.arrendatarioid), String(request.query.product_id));
+     let sql = "SELECT renting_id FROM renting WHERE arrendatario_id = ? AND product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de Renting_id con product_id y User_id");
             console.log(result);
             response.send(result);
         };

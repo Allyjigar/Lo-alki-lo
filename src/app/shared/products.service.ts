@@ -63,7 +63,7 @@ export class ProductsService {
   }
   //Renting:
   getRenting(arrendatario_id: number) {
-    return this.http.get(this.url4 + "?arrendatarioid=" + arrendatario_id);
+    return this.http.get(this.url8 + "?arrendatarioid=" + arrendatario_id);
   }
   //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {

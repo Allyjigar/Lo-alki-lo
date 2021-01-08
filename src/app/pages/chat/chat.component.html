@@ -35,12 +35,12 @@
                                <!-- <button type="button" (click)="allChats()">Desplegar chats</button> -->
                             </span>
                         </div>
-                        <div class="search-box">
+         <!--               <div class="search-box">
                             <div class="input-wrapper">
                                 <i class="material-icons">search</i>
                                 <input placeholder="Search here" type="text">
                             </div>
-                        </div>
+                        </div>-->
                         <div *ngFor="let chat of chats; let i = index;">
                         <a (click)="getMensajes(chat)"> 
                             <div class="friend-drawer friend-drawer--onhover">
@@ -58,7 +58,6 @@
                                 </div>
                             </div>                                
                             </div>
-                            <span class="time text-muted small">13:21</span>
                          </a> </div>
                         <hr>
                     </div>

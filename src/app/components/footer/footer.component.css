@@ -6,8 +6,8 @@ main{
 footer{
     width: 100%;
     height: 120px;
-    background-color: rgb(192, 192, 192);
-    color: black;
+    background-color: #334257;
+    color: #fffe91;
     position: static;
     bottom: 0px;
     text-align: justify;
@@ -16,7 +16,7 @@ footer{
 }
 footer a {
     text-decoration: none;
-    color: blue;
+    color: #fffe91;
 }
 .linkedin{
     display: grid;

@@ -184,12 +184,11 @@ article{
   {
       font-size: 13px;
   }
-  .estrella {
+.estrella {
     display: inline-block; 
-    font-size: 16px;
-  
-  }
-  .selected {
+    font-size: 16px; 
+}
+.selected {
   font-size: 16px;
   padding: 0 1px;
   cursor: pointer;

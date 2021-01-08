@@ -1,4 +1,4 @@
 export class Mensaje {
-    public id : number;
-    constructor(public mensaje : string , public chat_id : number, public user_id : number, public date : any) {}
+    public mensaje_id : number;
+    constructor(public mensaje : string , public chat_id : number, public user_id : number, public fecha : any) {}
 }
