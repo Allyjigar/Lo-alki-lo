@@ -27,7 +27,7 @@ export class AnuncioComponent implements OnInit {
   public product: Products;
   public fotos: string[] = [];
   public favoritoSelect: boolean;
-  constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService, public router: Router) {
+  constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public userService: UsersService, public favouritesService: FavouritesService, public router: Router) {
 
   }
 
@@ -49,10 +49,10 @@ export class AnuncioComponent implements OnInit {
 
     //duracion/fecha/idproduct/iduser/alquilado/valorado
 
-    if (this.usersService.user != null) {
-      if (this.usersService.user.user_id != this.usersService.user2.user_id) {
+    if (this.userService.user != null) {
+      if (this.userService.user.user_id != this.userService.user2.user_id) {
         //Llamada a la api
-        this.productsService.entradaSolicitud(fecha1, duracion, this.usersService.user.user_id).subscribe((data: any) => {
+        this.productsService.entradaSolicitud(fecha1, duracion, this.userService.user.user_id).subscribe((data: any) => {
           console.log(data)
           swal.fire({
             position: 'top-end',
@@ -92,7 +92,7 @@ export class AnuncioComponent implements OnInit {
 
   marcarFavorito() {
     if (this.favoritoSelect == false) {
-      this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
+      this.favouritesService.postFavProducts(new Favorito(this.userService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
         this.favoritoSelect = true;
         console.log(data);
         swal.fire({
@@ -105,7 +105,7 @@ export class AnuncioComponent implements OnInit {
       })
 
     } else {
-      this.favouritesService.deleteFav(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
+      this.favouritesService.deleteFav(this.userService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
         this.favoritoSelect = false;
         console.log(data);
         swal.fire({
@@ -134,8 +134,8 @@ export class AnuncioComponent implements OnInit {
     let index = this._route.snapshot.paramMap.get('id');
 
 
-    let user = this.usersService.userAllPages();
-
+    let user = this.userService.userAllPages();
+/* 
     if (this.productsService.product) {
       this.fotos.push(this.productsService.product.foto1);
       if (this.productsService.product.foto2 != null) {
@@ -148,14 +148,16 @@ export class AnuncioComponent implements OnInit {
         }
       }
     }
-    console.log(this.fotos);
+    console.log(this.fotos); */
 
-    this.productsService.product = this.productsService.products[index];
-    this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
-      this.usersService.user2 = data[0];
+    //this.productsService.product = this.productsService.products[index];
+    this.userService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
+      this.userService.user2 = data[0];
+      console.log(this.productsService.product);
+      console.log(this.userService.user2);
     })
-
-    this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
+    
+    this.favouritesService.getFavProduct(this.userService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
       console.log(data);
       if (data.length != 0) {
         this.favoritoSelect = true;

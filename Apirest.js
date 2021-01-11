@@ -51,6 +51,7 @@ app.get("/home", function (request, response) {
 /*Detalle Producto*/
 app.get("/anuncio", function (request, response) {
     let id = String(request.query.id);
+    let params = new Array(id);
     let sql = "SELECT * FROM product WHERE product_id =  ?";
     connection.query(sql, params, function (err, result) {
         if (err) {

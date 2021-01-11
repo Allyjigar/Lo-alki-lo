@@ -56,7 +56,7 @@ export class ProductsService {
   }
 
   getProduct(id: number) {
-    return this.http.get(this.url2 + id)
+    return this.http.get(this.url2 + "?id=" + id)
   }
   getProductConId(product_id: number) {
     return this.http.get(this.url7 + "?product_id=" + product_id)
