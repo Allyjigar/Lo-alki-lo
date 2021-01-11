@@ -21,7 +21,7 @@ export class MyProductsComponent implements OnInit {
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
-  public misProductosAlquilados :  Products [];
+  public misProductosAlquilados: Products[];
   public misPeticiones: [];
   public product: Products;
   public productoValorado: Products;
@@ -90,10 +90,10 @@ export class MyProductsComponent implements OnInit {
         title: 'El producto se ha eliminado',
         showConfirmButton: false,
         timer: 2000
-      })
-      this.mostrarMisProductos();
-
-    });
+      }
+      )
+    }
+    );
 
   }
   detalleAnuncio(index: number) {
@@ -110,7 +110,7 @@ export class MyProductsComponent implements OnInit {
 
   }
 
- 
+
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();
