@@ -39,7 +39,7 @@ export class SubirProductoComponent implements OnInit {
   }
 
   subirProducto(name: HTMLInputElement, descripcion: HTMLInputElement, foto1: HTMLInputElement, precio: HTMLInputElement, foto2: HTMLInputElement, foto3: HTMLInputElement, foto4: HTMLInputElement) {
-    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)
+    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value, 0 , 0 , 0)
     this.productService.postProduct(newProduct).subscribe((data: any) => {
       console.log(data);
 

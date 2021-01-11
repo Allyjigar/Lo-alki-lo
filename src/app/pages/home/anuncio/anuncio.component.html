@@ -67,7 +67,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="usersService.user != null; else loguin">
+          <div *ngIf="userService.user != null; else loguin">
             <i class="col-md-2" style="margin-top: 10px;"
               [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'"
               (click)="marcarFavorito()"></i>
@@ -85,9 +85,9 @@
           <div class="col-md-8">
             <p class="card-text">{{productsService.product.descripcion}}</p>
             <div>
-              <img routerLink="/perfilvendedor" id="perfil" src="{{usersService.user2.foto}}" alt="..."
+              <img routerLink="/perfilvendedor" id="perfil" src="{{userService.user2.foto}}" alt="..."
                 class="rounded-circle">
-              <h5 routerLink="/perfilvendedor" id="nombre">{{usersService.user2.nickname}}</h5>
+              <h5 routerLink="/perfilvendedor" id="nombre">{{userService.user2.nickname}}</h5>
             </div>
           </div>
 
@@ -101,7 +101,7 @@
             <div id="margen_precio">
               <p id="precio"><b>{{productsService.product.precio}} €/día</b></p>
             </div>
-            <div *ngIf="usersService.user != null; else loguinDos">
+            <div *ngIf="userService.user != null; else loguinDos">
               <button id="alkilar" routerLink="/chat">Enviar solicitud</button>
             </div>
             <ng-template #loguinDos>
@@ -202,9 +202,9 @@
           <div class="col-md-8">
             <p class="card-text">{{productsService.product.descripcion}}</p>
             <div>
-              <img routerLink="/perfilvendedor" id="perfil" src="{{usersService.user2.foto}}" alt="..."
+              <img routerLink="/perfilvendedor" id="perfil" src="{{userService.user2.foto}}" alt="..."
                 class="rounded-circle">
-              <h5 routerLink="/perfilvendedor" id="nombre">{{usersService.user2.nickname}}</h5>
+              <h5 routerLink="/perfilvendedor" id="nombre">{{userService.user2.nickname}}</h5>
             </div>
           </div>
 
