@@ -81,7 +81,6 @@ article{
     margin-left: 8%;
     margin-right: 8%;
     margin-bottom: 8%;
-    margin-top: 4%;
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto auto auto;
@@ -221,3 +220,24 @@ article{
   cursor: pointer;
   color: #FFD119;
   text-decoration: none; }
+  
+  .letter1{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 50px;
+}
+.letter3{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    margin-top: -11%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 50px;
+}

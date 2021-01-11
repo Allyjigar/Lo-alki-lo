@@ -1,5 +1,6 @@
 import { viewClassName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   public miNumero: number;
-  constructor() { }
+  constructor(public userService : UsersService) { }
   
   seleccionar(n: number) {
-    this.miNumero = n;
+    this.userService.sidebarNumber = n;
   }
   cambiarClass(id : string) {
     if (id === "perfil") {

@@ -25,6 +25,9 @@ export class MyProductsComponent implements OnInit {
   public misPeticiones: [];
   public product: Products;
   public productoValorado: Products;
+  public misPeticionesNO : boolean = false;
+  public misProductosNO : boolean = false;
+  public misAlquileresNO : boolean = false;
 
   constructor(public productsService: ProductsService, public userService: UsersService, public valoracionService: ValoracionService, public router: Router) { }
   mostrarMisProductos() {
@@ -32,6 +35,12 @@ export class MyProductsComponent implements OnInit {
       this.misProductos = data;
       this.productsService.misProductosAlquilados = null;
       this.misPeticiones = null;
+
+      this.misAlquileresNO = false;
+      this.misPeticionesNO = false;
+      if (this.misProductos.length < 1) {
+        this.misProductosNO = true;
+      }
     })
   }
 
@@ -40,16 +49,29 @@ export class MyProductsComponent implements OnInit {
       this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
+
+      this.misPeticionesNO = false;
+      this.misProductosNO = false;
+      if (this.productsService.misProductosAlquilados.length < 1) {
+        this.misAlquileresNO = true;
+      }
     })
     console.log(this.productsService.misProductosAlquilados);
   }
 
   mostrarMisPeticiones() {
-    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
-      this.misPeticiones = data;
+    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any []) => {
+      this.misPeticiones = data[0];
       this.misProductos = null;
       this.productsService.misProductosAlquilados = null;
+
+      this.misAlquileresNO = false;
+      this.misProductosNO = false;
+      if (this.misPeticiones == null) {
+        this.misPeticionesNO = true;
+      }
     })
+    console.log(this.misPeticiones);
   }
 
   aceptarSolicitud(i) {

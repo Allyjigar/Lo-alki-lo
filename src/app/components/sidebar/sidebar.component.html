@@ -8,39 +8,39 @@
                     </li>
                     <div class="menu">
                         <li>
-                            <a routerLink="/myprofile" [ngClass]="miNumero != 0 ? '' : 'active'" (click)="seleccionar(0)">PERFIL <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/myprofile" [ngClass]="userService.sidebarNumber != 0 ? '' : 'active'" (click)="seleccionar(0)">PERFIL <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                               </svg></a>
                         </li>
                         <li>
-                            <a routerLink="/myproducts" [ngClass]="miNumero != 1 ? '' : 'active'" (click)="seleccionar(1)">MIS PRODUCTOS<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-signpost-split pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/myproducts" [ngClass]="userService.sidebarNumber != 1 ? '' : 'active'" (click)="seleccionar(1)">MIS PRODUCTOS<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-signpost-split pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7 16h2V6H8V2h1v-.586a1 1 0 0 0-2 0V7h1v4H7v5z"/>
                                 <path fill-rule="evenodd" d="M14 3H8v2h6l.75-1L14 3zM8 2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.8 2.4A1 1 0 0 0 14 2H8zM2 8h6v2H2l-.75-1L2 8zm6-1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7h6z"/>
                               </svg></a>
                         </li>
                         <li>
-                            <a routerLink="/chat" [ngClass]="miNumero != 2 ? '' : 'active'" (click)="seleccionar(2)">CHAT <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-chat-left pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/chat" [ngClass]="userService.sidebarNumber != 2 ? '' : 'active'" (click)="seleccionar(2)">CHAT <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-chat-left pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v11.586l2-2A2 2 0 0 1 4.414 11H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                               </svg></a>
                         </li>
                       <!--  <li>
-                            <a routerLink="/valoraciones" [ngClass]="miNumero != 3 ? '' : 'active'" (click)="seleccionar(3)" >VALORACIONES <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-star pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/valoraciones" [ngClass]="userService.sidebarNumber != 3 ? '' : 'active'" (click)="seleccionar(3)" >VALORACIONES <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-star pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
                               </svg></a>
                         </li>  -->
                         <li>
-                            <a routerLink="/subirproducto" [ngClass]="miNumero != 4 ? '' : 'active'" (click)="seleccionar(4)">SUBIR PRODUCTO <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-cloud-upload pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/subirproducto" [ngClass]="userService.sidebarNumber != 4 ? '' : 'active'" (click)="seleccionar(4)">SUBIR PRODUCTO <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-cloud-upload pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
                                 <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>
                               </svg></a>
                         </li>
                         <li>
-                            <a routerLink="/myfavorites" [ngClass]="miNumero != 5 ? '' : 'active'" (click)="seleccionar(5)">FAVORITOS <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/myfavorites" [ngClass]="userService.sidebarNumber != 5 ? '' : 'active'" (click)="seleccionar(5)">FAVORITOS <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                               </svg></a>
                         </li>
                         <li>
-                            <a routerLink="/home" [ngClass]="miNumero != 6 ? '' : 'active'" (click)="seleccionar(6)">HOME <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-house pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <a routerLink="/home" [ngClass]="userService.sidebarNumber != 6 ? '' : 'active'" (click)="seleccionar(6)">HOME <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-house pull-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                               </svg></a>
