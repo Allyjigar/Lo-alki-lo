@@ -43,13 +43,13 @@ export class ProductsService {
     return this.http.put(this.url3, newProduct);
   }
   //Eliminar producto
-  deleteProduct(id: number) {
+  deleteProduct(product_id: number) {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
       body: {
-        product_id: id
+        product_id: product_id
       },
     };
     return this.http.delete(this.url3, options)

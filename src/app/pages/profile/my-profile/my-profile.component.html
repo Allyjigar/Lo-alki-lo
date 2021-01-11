@@ -1,10 +1,10 @@
 <body>
 
     <header>
-    <app-header-layout></app-header-layout>
+        <app-header-layout></app-header-layout>
     </header>
-    
-        <main>
+
+    <main>
         <aside class="menuL">
             <app-sidebar></app-sidebar>
         </aside>
@@ -12,57 +12,66 @@
             <div class="contenedor">
                 <form>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label >Nickname</label>
-                            <input type="text" class="form-control" id="inputEmail4" value="{{userService.user.nickname}}" #nickname style="font-size: 15px;">
+                        <div class="form-group col-md-12">
+                            <img id="perfil" src="{{userService.user.foto}}" style="margin-left: 40%;" alt="..."
+                                class="rounded-circle">
                         </div>
                         <div class="form-group col-md-6">
-                            <label >Password</label>
-                            <input type="text" class="form-control" id="inputPassword4" value="{{userService.user.password}}" #password style="font-size: 15px;">
+                            <label>Nickname</label>
+                            <input type="text" class="form-control" id="inputEmail4"
+                                value="{{userService.user.nickname}}" #nickname style="font-size: 15px;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="inputPassword4"
+                                value="{{userService.user.password}}" #password style="font-size: 15px;">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label >Nombre</label>
-                            <input type="text" class="form-control" id="inputEmail4" #name style="font-size: 15px;">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="inputEmail4" value="{{userService.user.name}}"
+                                #name style="font-size: 15px;">
                         </div>
                         <div class="form-group col-md-6">
-                            <label >Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" value="{{userService.user.email}}" #email style="font-size: 15px;">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="inputPassword4"
+                                value="{{userService.user.email}}" #email style="font-size: 15px;">
                         </div>
                     </div>
                     <div class="form-group">
-                    <label for="inputAddress">Dirección</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" #direccion style="font-size: 15px;">
+                        <label for="inputAddress">Dirección</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                            value="{{userService.user.direccion}}" #direccion style="font-size: 15px;">
                     </div>
                     <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">Ciudad</label>
-                        <input type="text" class="form-control" id="inputCity" #ciudad style="font-size: 15px;">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">CP</label>
-                        <input type="text" class="form-control" id="inputZip" #cp style="font-size: 15px;">
-                    </div>
-                    </div>
-                    <div class="subiFoto">                    
-                        <div>
-                            <label id="foto1" for="formGroupExampleInput2" class="form-label"><b>Foto Perfil:</b></label>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Ciudad</label>
+                            <input type="text" class="form-control" id="inputCity" value="{{userService.user.ciudad}}"
+                                #ciudad style="font-size: 15px;">
                         </div>
-                        <div>
-                            <input id="foto_1" type="file" #foto>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">CP</label>
+                            <input type="text" class="form-control" id="inputZip" value="{{userService.user.cp}}" #cp
+                                style="font-size: 15px;">
                         </div>
                     </div>
-                    <button type="submit" class="btn" on-click="modificarUsuario(nickname, password, name, email, direccion, ciudad, cp, foto)">Modificar</button>
+                    <div>
+                        <label for="formGroupExampleInput2" class="form-label">Foto
+                            Perfil:</label>
+                        <input type="file" class="form-control" value="{{userService.user.foto}}" #foto style="width:35em; font-size: 15px;">
+                        <button type="submit" class="btn" style="margin-right: 10%;"
+                        on-click="modificarUsuario(nickname, password, foto, email, name, direccion, ciudad, cp)">Modificar</button>
+                    </div>
                 </form>
             </div>
         </article>
-        
-    
-        </main>
-        <div class="separador"></div>
-        <hr>
-        <footer>
-            <app-footer></app-footer>
-        </footer>
-    </body>
+
+
+    </main>
+    <div class="separador"></div>
+    <hr>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+</body>

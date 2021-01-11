@@ -84,3 +84,10 @@ article{
     color: black;
     font-size: 15px;
 }
+
+#perfil
+{
+  text-align: center;
+  width: 150px;
+  height: 150px;
+}

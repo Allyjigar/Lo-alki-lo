@@ -81,8 +81,8 @@ export class MyProductsComponent implements OnInit {
   }
 
   eliminarAnuncio() {
-    let id = this.productsService.product.product_id;
-    this.productsService.deleteProduct(Number(id)).subscribe((data: any) => {
+    this.productsService.deleteProduct(Number(this.productsService.product.product_id)).subscribe((data) => {
+      //console.log(this.productsService.product.product_id);
       console.log(data);
       swal.fire({
         position: 'top-end',
@@ -91,11 +91,9 @@ export class MyProductsComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
-      this.mostrarMisProductos();
-
     });
-
   }
+
   detalleAnuncio(index: number) {
     //this.productsService.product = product;
     let pos;
