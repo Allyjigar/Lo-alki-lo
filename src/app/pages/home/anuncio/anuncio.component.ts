@@ -26,47 +26,70 @@ export class AnuncioComponent implements OnInit {
   public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
   public fotos: string[] = [];
-  public favoritoSelect : boolean;
+  public favoritoSelect: boolean;
   constructor(private http: HttpClient, private _route: ActivatedRoute, public productsService: ProductsService, public usersService: UsersService, public favouritesService: FavouritesService, public router: Router) {
 
   }
 
   //Nueva solicitud
-  entradaSolicitud(fechaInicio,fechaFin) {
-  
+  entradaSolicitud(fechaInicio, fechaFin) {
+
     //Tratamiento de fechas  
-   
-    
+
+
     let fecha1 = moment(fechaInicio).format("YYYY-MM-DD")
     let fecha11 = moment(fechaInicio);
-    
+
     let fecha22 = moment(fechaFin);
- 
+
     let duracion = fecha22.diff(fecha11, 'days')
-    console.log("FechaInicio : " +fechaInicio)
-   
+    console.log("FechaInicio : " + fechaInicio)
+
     console.log(duracion)
 
     //duracion/fecha/idproduct/iduser/alquilado/valorado
 
-    
-    //Llamada a la api
-    this.productsService.entradaSolicitud(fecha1,duracion,this.usersService.user.user_id).subscribe((data: any) =>{
-      console.log(data)
+    if (this.usersService.user != null) {
+      if (this.usersService.user.user_id != this.usersService.user2.user_id) {
+        //Llamada a la api
+        this.productsService.entradaSolicitud(fecha1, duracion, this.usersService.user.user_id).subscribe((data: any) => {
+          console.log(data)
+          swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡Petición enviada!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+        )
+      }
+      else {
+        swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '¡No se pueden alquilar productos propios!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+    else {
       swal.fire({
         position: 'top-end',
-        icon: 'success',
-        title: '¡Petición enviada!',
+        icon: 'error',
+        title: 'Debes loguearte para mandar una solicitud',
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       })
-    })
-  
+      this.router.navigateByUrl('/login');
+    }
+
 
   }
 
 
-  
+
   marcarFavorito() {
     if (this.favoritoSelect == false) {
       this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
@@ -80,7 +103,7 @@ export class AnuncioComponent implements OnInit {
           timer: 1500
         })
       })
-  
+
     } else {
       this.favouritesService.deleteFav(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
         this.favoritoSelect = false;
@@ -93,7 +116,7 @@ export class AnuncioComponent implements OnInit {
           timer: 2000
         })
       })
-      
+
     }
   }
 
@@ -109,7 +132,7 @@ export class AnuncioComponent implements OnInit {
   }
   ngOnInit(): void {
     let index = this._route.snapshot.paramMap.get('id');
-  
+
 
     let user = this.usersService.userAllPages();
 
@@ -131,18 +154,18 @@ export class AnuncioComponent implements OnInit {
     this.usersService.getUser(this.productsService.product.user_id).subscribe((data: Users) => {
       this.usersService.user2 = data[0];
     })
-    
+
     this.favouritesService.getFavProduct(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data: any) => {
       console.log(data);
-      if ( data.length != 0) {
+      if (data.length != 0) {
         this.favoritoSelect = true;
       } else {
         this.favoritoSelect = false;
       }
-    } )
+    })
 
   }
 
-   
+
 
 }
