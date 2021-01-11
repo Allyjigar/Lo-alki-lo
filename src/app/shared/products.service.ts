@@ -112,6 +112,7 @@ export class ProductsService {
       },
     }
     return this.http.delete(this.url5, options)
+    
   }
   //Por Usuario(favoritos)
 
