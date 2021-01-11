@@ -23,7 +23,6 @@ export class AnuncioComponent implements OnInit {
   public favoritos: Favorito[];
   public fechaInicio: Date;
   public fechaFin: Date;
-  public claseFav = "fa fa-heart-o fa_custom";
   public product: Products;
   public fotos: string[] = [];
   public favoritoSelect : boolean;
