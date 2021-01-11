@@ -101,9 +101,6 @@
             <div id="margen_precio">
               <p id="precio"><b>{{productsService.product.precio}} €/día</b></p>
             </div>
-            <div *ngIf="userService.user != null; else loguinDos">
-              <button id="alkilar" routerLink="/chat">Enviar solicitud</button>
-            </div>
             <ng-template #loguinDos></ng-template>-->
             <div>
               <button id="alkilar" (click)="entradaSolicitud(fechaInicio.value,fechaFin.value)">Enviar solicitud</button>

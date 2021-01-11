@@ -13,6 +13,7 @@ export class UsersService {
   private urlLogin = "http://localhost:9191/users/login";
   public user : Users; //Este es el user que usamos para toda la web una vez logeado
   public user2 : Users;
+  public sidebarNumber : number = 0;
   constructor(private http : HttpClient) { }
 
   getUser(id : number) {
