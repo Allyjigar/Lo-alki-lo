@@ -80,9 +80,9 @@ export class MyProductsComponent implements OnInit {
 
   }
 
-  eliminarAnuncio() {
-    this.productsService.deleteProduct(Number(this.productsService.product.product_id)).subscribe((data) => {
-      //console.log(this.productsService.product.product_id);
+  eliminarAnuncio(product_id: number) {
+    this.productsService.deleteProduct(product_id).subscribe((data: any) => {
+      console.log(product_id);
       console.log(data);
       swal.fire({
         position: 'top-end',
