@@ -175,8 +175,13 @@
                                     <small class="text-muted" id="precio">{{product.precio}}</small>
                                     <button routerLink="/anuncio" id="interesa"><b>Lo(alki)lo</b></button>
                                 </div>
+                                <h5 class="card-title">{{pro.name}}</h5>
                             </div>
+                            <p class="card-text overflow-hidden">{{pro.descripcion}}</p>
                         </div>
+                        <div class="card-footer ">
+                            <small class="text-muted" id="precio">{{pro.precio}} €</small>
+                            <button routerLink="/anuncio" id="interesa" click="selectProduct(pro.product_id)"><b>lo(alki)lo</b></button>
                     </div>
                 </div>
             </div> -->

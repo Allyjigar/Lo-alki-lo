@@ -21,7 +21,7 @@ export class MyProductsComponent implements OnInit {
   public user: Users = new Users("", "", "", "")
   public products: Products[];
   public misProductos: Products[];
-  public misProductosAlquilados :  Products [];
+  public misProductosAlquilados: Products[];
   public misPeticiones: [];
   public product: Products;
   public productoValorado: Products;
@@ -36,7 +36,7 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisProductosAlquilados() {
-    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
+    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any []) => {
       this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
@@ -108,7 +108,7 @@ export class MyProductsComponent implements OnInit {
 
   }
 
- 
+
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();

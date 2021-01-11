@@ -94,21 +94,21 @@
           <div class="col-md-4">
             <div class="fechas">
               <h2>Fecha de inicio</h2>
-              <input type="date">
+              <input type="date" id="fechaInicio" #fechaInicio>
               <h2>Fecha de fin</h2>
-              <input type="date">
+              <input type="date" id="fechaFin" #fechaFin>
             </div>
             <div id="margen_precio">
               <p id="precio"><b>{{productsService.product.precio}} €/día</b></p>
             </div>
-            <div *ngIf="usersService.user != null; else loguinDos">
+            <!-- <div *ngIf="usersService.user != null; else loguinDos">
               <button id="alkilar" routerLink="/chat">Enviar solicitud</button>
             </div>
-            <ng-template #loguinDos>
+            <ng-template #loguinDos></ng-template>-->
             <div>
-              <button id="alkilar" (click)="loguearte()">Enviar solicitud</button>
+              <button id="alkilar" (click)="entradaSolicitud(fechaInicio.value,fechaFin.value)">Enviar solicitud</button>
             </div>
-            </ng-template>
+
           </div>
         </div>
       </div>
