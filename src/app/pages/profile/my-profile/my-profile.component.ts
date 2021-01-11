@@ -19,10 +19,18 @@ export class MyProfileComponent implements OnInit {
   }
 
   modificarUsuario(nickname: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement, email: HTMLInputElement, name: HTMLInputElement, direccion: HTMLInputElement, ciudad: HTMLInputElement, cp: HTMLInputElement) {
-    let actualUser = new Users(nickname.value, password.value, foto.value, "", email.value, name.value, direccion.value, ciudad.value, Number(cp.value));
-    actualUser.user_id = this.userService.user.user_id;
-    this.userService.putUser(actualUser).subscribe((data: any) => {
+    let fotoDefect;
+    if ( foto.value != null) {
+      fotoDefect = foto.value;
+    } else {
+      fotoDefect = this.userService.user.foto;
+    }
+    console.log(fotoDefect);
+    let actualUser = new Users(nickname.value, password.value, fotoDefect, "", email.value, name.value, direccion.value, ciudad.value, Number(cp.value));
+     actualUser.user_id = this.userService.user.user_id;
+     this.userService.putUser(actualUser).subscribe((data: any) => {
       console.log(data);
+
       swal.fire({
         position: 'top-end',
         icon: 'success',
