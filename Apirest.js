@@ -273,11 +273,23 @@ app.get("/chat", function (request, response) {
         };
     });
 });
-
-app.post("/chat", function (request, response) {
-    let params = new Array(String(request.body.emisor_id), String(request.body.receptor_id),
-        String(request.body.nickname_emisor), String(request.body.foto_emisor),
-        String(request.body.nickname_receptor), String(request.body.foto_receptor));
+app.put("/products/valoraciones", function(request,response) {
+    let params = new Array (String (request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.product_id));
+    let sql = "UPDATE product SET nvaloraciones = ?, suma = ?, media = ? WHERE product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Actualización valoración de producto");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+app.post("/chat", function(request, response) {
+    let params = new Array (String(request.body.id1), String(request.body.id2),
+    String(request.body.nickname_emisor), String(request.body.foto_emisor), 
+    String(request.body.nickname_receptor), String(request.body.foto_receptor));
     let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -451,6 +463,8 @@ app.get("/products/renting", function(request, response) {
     let arrendatario_id = String(request.query.arrendatarioid);
     let params = new Array(arrendatario_id);
      let sql = "SELECT * FROM product JOIN renting ON (product.product_id = renting.product_id) WHERE (renting.arrendatario_id = ? AND renting.alquilado = true)";
+  //   let sql = "SELECT * FROM renting WHERE arrendatario_id = ? AND alquilado = 'true'";
+    //let sql = "SELECT product.name, product.foto1, product.precio, user.nickname, renting.date, renting.duration FROM renting JOIN product ON(renting.product_id = product.product_id) JOIN user ON(user.user_id = renting.arrendatario_id) WHERE (user.user_id = ? AND alquilado = false)";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
