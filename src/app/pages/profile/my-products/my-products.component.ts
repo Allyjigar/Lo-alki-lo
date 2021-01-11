@@ -36,7 +36,7 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisProductosAlquilados() {
-    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any) => {
+    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any []) => {
       this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
