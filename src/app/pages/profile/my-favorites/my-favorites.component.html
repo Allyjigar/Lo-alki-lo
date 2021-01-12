@@ -53,6 +53,11 @@
           </div>
         </div>
       </div>
+      <div class="letter" *ngIf="misFavoritosNO">
+        <div class="card-body">
+          <h1 class="card-title">Aún no has guardado productos como favoritos.</h1>
+        </div>
+      </div>   
       <!-- <div class="row" style="margin-top: 10px; margin-left: 12%">
         <div class="card-columns center-block">
         <div *ngFor="let product of favoritos; index as i;">

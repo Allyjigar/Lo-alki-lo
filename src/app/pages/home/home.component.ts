@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Products } from 'src/app/models/products';
 import { ProductsService } from 'src/app/shared/products.service';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/shared/users.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   public subcategoria: string;
 
 
-  constructor(public productsService: ProductsService, public router: Router) {
+  constructor(public productsService: ProductsService, public router: Router, public userService : UsersService) {
 
     console.log(this.productsService.product)
 
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit {
       this.productsService.product = data[0];
       this.productsService.products = data;
     })
+    this.userService.sidebarNumber = 10;
   }
   detalleAnuncio(index: number) {
     //this.productsService.product = product;

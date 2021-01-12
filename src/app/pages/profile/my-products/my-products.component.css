@@ -231,12 +231,22 @@ article{
     margin-right: 10%;
     min-height: 50px;
 }
+.letter{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 50px;
+}
 .letter3{
     border: 1px solid lightgrey;
     border-radius: 5px;
     text-align: center;
     position: relative;
-    margin-top: -11%;
+    margin-top: -90px;
     margin-left: 10%;
     margin-right: 10%;
     min-height: 50px;

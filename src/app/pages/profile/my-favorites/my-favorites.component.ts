@@ -21,7 +21,7 @@ export class MyFavoritesComponent implements OnInit {
   public favoritos: Favorito[];
   public favorito: Favorito;
   public favoritoSelect : boolean;
-
+  public misFavoritosNO : boolean = false;
 
   constructor(public productsService: ProductsService, public userService: UsersService, public favouritesService: FavouritesService, public router: Router) { }
 
@@ -58,6 +58,11 @@ export class MyFavoritesComponent implements OnInit {
     this.favouritesService.getFavProducts(this.userService.user.user_id).subscribe((data: any) => {
       this.favorito = data[0];
       this.favoritos = data;
+      if (this.favorito == null) {
+        this.misFavoritosNO = true;
+      } else {
+        this.misFavoritosNO = false;
+      }
 
     })
 
