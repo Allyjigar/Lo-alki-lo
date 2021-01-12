@@ -22,7 +22,7 @@ export class MyProductsComponent implements OnInit {
   public products: Products[];
   public misProductos: Products[];
   public misProductosAlquilados: Products[];
-  public misPeticiones: [];
+  public misPeticiones: any;
   public product: Products;
   public productoValorado: Products;
   public misPeticionesNO : boolean = false;
@@ -61,17 +61,18 @@ export class MyProductsComponent implements OnInit {
 
   mostrarMisPeticiones() {
     this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any []) => {
-      this.misPeticiones = data[0];
+      this.misPeticiones = data;
+      
       this.misProductos = null;
       this.productsService.misProductosAlquilados = null;
 
       this.misAlquileresNO = false;
       this.misProductosNO = false;
-      if (this.misPeticiones == null) {
+      if (this.misPeticiones.length <1  ) {
         this.misPeticionesNO = true;
-      }
+      }  console.log(this.misPeticiones);
     })
-    console.log(this.misPeticiones);
+  
   }
 
   aceptarSolicitud(i) {
