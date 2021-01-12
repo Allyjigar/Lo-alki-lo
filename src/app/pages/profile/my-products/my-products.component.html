@@ -9,6 +9,17 @@
     <link rel='stylesheet' type='text/css' media='screen' href='my-products.component.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
     <script src='main.js'></script>
 </head>
 
@@ -51,32 +62,125 @@
                                     <div class="tituloanuncio">
                                         <div class="rating">
                                             <div>
-                                              <div class="fa fa-star estrella"
-                                                [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                              </div>
-                                              <div class="fa fa-star estrella"
-                                                [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                              </div>
-                                              <div class="fa fa-star estrella"
-                                                [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                              </div>
-                                              <div class="fa fa-star estrella"
-                                                [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                              </div>
-                                              <div class="fa fa-star estrella" [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                              </div>
+                                                <div class="fa fa-star estrella"
+                                                    [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                                                </div>
+                                                <div class="fa fa-star estrella"
+                                                    [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                                                </div>
+                                                <div class="fa fa-star estrella"
+                                                    [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                                                </div>
+                                                <div class="fa fa-star estrella"
+                                                    [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
+                                                </div>
+                                                <div class="fa fa-star estrella"
+                                                    [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
+                                                </div>
                                             </div>
-                                          </div>
+                                        </div>
                                         <h5 class="card-title">{{product.name}}</h5>
                                     </div>
                                     <p class="card-text">{{product.descripcion}}</p>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" style="color: #334257; margin-left: 20%; cursor: pointer;" viewBox="0 0 16 16">
-                                        <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
-                                      </svg>
-                                    <svg (click)="eliminarAnuncio(product.product_id)" style="color: #334257; margin-left: 10%; cursor: pointer;"
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" data-toggle="modal"
+                                        data-target="#exampleModal" height="16" fill="currentColor" class="bi bi-tools"
+                                        style="color: #334257; margin-left: 20%; cursor: pointer;" viewBox="0 0 16 16">
+                                        <path
+                                            d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z" />
+                                    </svg>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 style="font-size: 15px;">EDITAR ANUNCIO</h1>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <img width="185px;" height="150px;" src="{{product.foto1}}">
+                                                        <img width="185px;" height="150px;" src="{{product.foto2}}">
+                                                        <img width="185px;" height="150px;" src="{{product.foto3}}">
+                                                        <img width="185px;" height="150px;" src="{{product.foto4}}">
+
+                                                    </div>
+                                                    <form style="text-align: left;">
+                                                        <label style="font-size: 15px;">Nombre del Producto</label>
+                                                        <input type="text" class="form-control" id="inputEmail4"
+                                                            style="font-size: 15px;" value="{{product.name}}" #name>
+                                                        <label style="font-size: 15px;">Descripción (estado,
+                                                            accesorios...)</label>
+                                                        <textarea id="descripcion_input" type="text"
+                                                            class="form-control" id="exampleFormControlTextarea1"
+                                                            style="font-size: 15px;" value="{{product.descripcion}}"
+                                                            #descripcion></textarea>
+                                                        <label style="font-size: 15px;">Precio del alquiler (indica el
+                                                            precio por
+                                                            día)</label>
+                                                        <input id="usuario" type="text" class="form-control"
+                                                            id="formGroupExampleInput" style="font-size: 15px;"
+                                                            value="{{product.precio}}" #precio>
+
+                                                        <div class="subirFotos">
+                                                            <div>
+                                                                <label id="foto1"
+                                                                    style="font-size: 15px; text-align: left;"
+                                                                    for="formGroupExampleInput2" class="form-label">Foto
+                                                                    nº1</label>
+                                                            </div>
+                                                            <div>
+                                                                <input id="foto_1" type="file" #foto1>
+                                                            </div>
+                                                            <div>
+                                                                <label id="foto2"
+                                                                    style="font-size: 15px; text-align: left;"
+                                                                    for="formGroupExampleInput2"
+                                                                    class="form-label"><b>Foto nº
+                                                                        2</b></label>
+                                                            </div>
+                                                            <div>
+                                                                <input id="foto_2" type="file" #foto2>
+                                                            </div>
+                                                            <div>
+                                                                <label id="foto3"
+                                                                    style="font-size: 15px; text-align: left;"
+                                                                    for="formGroupExampleInput2"
+                                                                    class="form-label"><b>Foto
+                                                                        nº3</b></label>
+                                                            </div>
+                                                            <div>
+                                                                <input id="foto_3" type="file" #foto3>
+                                                            </div>
+                                                            <div>
+                                                                <label id="foto4"
+                                                                    style="font-size: 15px; text-align: left;"
+                                                                    for="formGroupExampleInput2"
+                                                                    class="form-label"><b>Foto
+                                                                        nº4</b></label>
+                                                            </div>
+                                                            <div>
+                                                                <input id="foto_4" type="file" #foto4>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="guardar" type="button"
+                                                        (click)="modificarAnuncio(product.product_id, name.value, descripcion.value, foto1.value, precio.value, foto2.value, foto3.value, foto4.value)">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <svg (click)="eliminarAnuncio(product.product_id)"
+                                        style="color: #334257; margin-left: 10%; cursor: pointer;"
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-trash" viewBox="0 0 16 16">
                                         <path
@@ -90,39 +194,57 @@
                     </div>
                 </div>
             </div>
+
             <!--Productos Alquilados-->
             <div class="tarjetas" *ngIf="productsService.misProductosAlquilados != null">
                 <div *ngFor="let pro of productsService.misProductosAlquilados; let i = index;">
-                    <div class="card card-custom" > <!--(click)="selectProduct(pro)"-->
-                        <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
+                    <div class="card card-custom">
+                        <!--(click)="selectProduct(pro)"-->
+                        <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto"
+                            style="max-height: 200px; width:auto">
                         <div class="card-body">
                             <div class="tituloanuncio">
                                 <div class="rating">
                                     <div *ngIf="pro.valorado != 0; else valorar">
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                    </div> 
+                                    </div>
                                     <ng-template #valorar>
                                         <div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(5)" [ngClass]="valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(5)"
+                                                [ngClass]="valoracionService.numero == 5 ? 'selected' : 'estrella'"
+                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
                                             </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(4)" [ngClass]="valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(4)"
+                                                [ngClass]="valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
+                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
                                             </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(3)" [ngClass]="valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(3)"
+                                                [ngClass]="valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
+                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
                                             </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(2)" [ngClass]="valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(2)"
+                                                [ngClass]="valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
+                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
                                             </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(1)" [ngClass]="valoracionService.numero == 1 || valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(1)"
+                                                [ngClass]="valoracionService.numero == 1 || valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
+                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
                                             </div>
-                                        </div>  
+                                        </div>
                                     </ng-template>
                                 </div>
                                 <h5 class="card-title">{{pro.name}}</h5>
@@ -131,10 +253,10 @@
                         </div>
                         <div class="card-footer ">
                             <small class="text-muted" id="precio">{{pro.precio}} €</small>
-                            <button  id="interesa" (click)="detalleAnuncio(pro.product_id)"><b>Me interesa</b></button>
+                            <button id="interesa" (click)="detalleAnuncio(pro.product_id)"><b>Me interesa</b></button>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <!-- <div class="tarjetas" *ngIf="this.productsService.misProductosAlquilados != null">
                 <div class="row">
@@ -201,8 +323,8 @@
                             <li class="list-group-item">Duración: {{product.duration}}</li>
                         </ul>
                         <div class="card-body">
-                            <a (click)="aceptarSolicitud(product.renting_id)" style="margin-left: 20%;" href="#" class="card-link"><img
-                                    style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
+                            <a (click)="aceptarSolicitud(product.renting_id)" style="margin-left: 20%;" href="#"
+                                class="card-link"><img style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
                             <a (click)="rechazarSolicitud(product.renting_id)" href="#" class="card-link"><img
                                     style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
                         </div>

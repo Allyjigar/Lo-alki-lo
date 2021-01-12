@@ -39,8 +39,22 @@ export class ProductsService {
     return this.http.post(this.url3, newProduct);
   }
   //Modifica productos
-  putProduct(newProduct: Products) {
+  putProduct(newProduct: any) {
     return this.http.put(this.url3, newProduct);
+  }
+  //Modifica un producto
+  putEditProduct(product_id, name, descripcion, precio, foto1, foto2, foto3, foto4) {
+    let body = {
+      product_id: product_id,
+      name: name, 
+      descripcion: descripcion, 
+      precio: precio, 
+      foto1: foto1, 
+      foto2: foto2, 
+      foto3: foto3, 
+      foto4: foto4
+    }
+    return this.http.put(this.url7, body)
   }
   //Eliminar producto
   deleteProduct(product_id: number) {

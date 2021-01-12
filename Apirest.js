@@ -212,10 +212,10 @@ app.post("/products", function (request, response) {
     });
 });
 app.put("/products", function (request, response) {
-    let params = new Array(String(request.body.name), String(request.body.description), String(request.body.user_id),
+    let params = new Array(String(request.body.name), String(request.body.descripcion), String(request.body.user_id),
         String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
         String(request.body.nvaloraciones), String(request.body.suma), String(request.body.media), String(request.body.precio),
-        String(request.body.categoria), String(request.body.subcategoria), String(request.body.id));
+        String(request.body.categoria), String(request.body.subcategoria), String(request.body.product_id));
     let sql = "UPDATE product SET name = ?, descripcion = ?, user_id = ?, foto1 = ?, foto2 = ?, foto3 = ?, foto4 = ?, nvaloraciones = ?, suma = ?, media = ?, precio =?, categoria = ?, subcategoria = ? WHERE product_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -227,6 +227,22 @@ app.put("/products", function (request, response) {
         };
     });
 });
+app.put("/product", function (request, response) {
+    let params = new Array(String(request.body.name), String(request.body.descripcion),
+        String(request.body.foto1), String(request.body.foto2), String(request.body.foto3), String(request.body.foto4),
+        String(request.body.precio),String(request.body.product_id));
+    let sql = "UPDATE product SET name = ?, descripcion = ?, foto1 = ?, foto2 = ?, foto3 = ?, foto4 = ?, precio =? WHERE product_id = ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Actualización de producto");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+
 app.delete("/products", function (request, response) {
     let id = String(request.body.product_id);
     let params = new Array(id);

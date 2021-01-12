@@ -13,24 +13,27 @@ import swal from 'sweetalert2';
 export class MyProfileComponent implements OnInit {
 
   public user: Users = new Users("", "", "", "");
+  public picture: string;
 
   constructor(public userService: UsersService, public router: Router) {
-    this.user
+    this.user = this.userService.user;
+    this.picture = this.user.foto;
+    console.log(this.userService.user);
   }
 
-  modificarUsuario(nickname: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement, email: HTMLInputElement, name: HTMLInputElement, direccion: HTMLInputElement, ciudad: HTMLInputElement, cp: HTMLInputElement) {
-    let fotoDefect;
-    if ( foto.value != null) {
-      fotoDefect = foto.value;
+
+  modificarUsuario(nickname, password, foto, email, name, direccion, ciudad, cp) {
+    let actualUser;
+    
+    if ( foto == "") {
+      foto = this.userService.user.foto;
+      actualUser = new Users(nickname, password, foto, "", email, name, direccion, ciudad, Number(cp));
     } else {
-      fotoDefect = this.userService.user.foto;
+      actualUser = new Users(nickname, password, foto, "", email, name, direccion, ciudad, Number(cp));
     }
-    console.log(fotoDefect);
-    let actualUser = new Users(nickname.value, password.value, fotoDefect, "", email.value, name.value, direccion.value, ciudad.value, Number(cp.value));
-     actualUser.user_id = this.userService.user.user_id;
+     actualUser.user_id = this.user.user_id;
      this.userService.putUser(actualUser).subscribe((data: any) => {
       console.log(data);
-
       swal.fire({
         position: 'top-end',
         icon: 'success',

@@ -87,21 +87,30 @@ export class AnuncioComponent implements OnInit {
 
   }
 
-
-
   marcarFavorito() {
     if (this.favoritoSelect == false) {
-      this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
-        this.favoritoSelect = true;
-        console.log(data);
+      if (this.usersService.user.user_id != this.usersService.user2.user_id) {
+        this.favouritesService.postFavProducts(new Favorito(this.usersService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
+          this.favoritoSelect = true;
+          console.log(data);
+          swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡El producto se ha añadido a tus favoritos!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      } else {
         swal.fire({
           position: 'top-end',
-          icon: 'success',
-          title: '¡El producto se ha añadido a tus favoritos!',
+          icon: 'error',
+          title: '¡No se puede guardar como favorito un producto propio!',
           showConfirmButton: false,
           timer: 1500
         })
-      })
+
+      }
 
     } else {
       this.favouritesService.deleteFav(this.usersService.user.user_id, this.productsService.product.product_id).subscribe((data) => {

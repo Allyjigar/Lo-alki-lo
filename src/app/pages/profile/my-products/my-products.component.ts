@@ -10,6 +10,7 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-my-products',
   templateUrl: './my-products.component.html',
@@ -36,7 +37,7 @@ export class MyProductsComponent implements OnInit {
   }
 
   mostrarMisProductosAlquilados() {
-    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any []) => {
+    this.productsService.getRenting(this.userService.user.user_id).subscribe((data: any[]) => {
       this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
@@ -80,6 +81,29 @@ export class MyProductsComponent implements OnInit {
 
   }
 
+  modificarAnuncio(product_id, name, descripcion, foto1, precio, foto2, foto3, foto4) {
+    
+    if (foto1 == "" || foto2 == "" || foto3 == "" || foto4 == "") {
+      foto1 = this.productsService.product.foto1;
+      foto2 = this.productsService.product.foto2;
+      foto3 = this.productsService.product.foto3;
+      foto4 = this.productsService.product.foto4;
+  
+    } 
+      
+    console.log(product_id, name, descripcion, foto1, precio, foto2, foto3, foto4);
+    this.productsService.putEditProduct(product_id, name, descripcion, precio, foto1, foto2, foto3, foto4).subscribe((data: any) => {
+      console.log(data);
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'El producto se ha modificado con éxito',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    })
+  }
+
   eliminarAnuncio(product_id: number) {
     this.productsService.deleteProduct(product_id).subscribe((data: any) => {
       console.log(product_id);
@@ -113,9 +137,9 @@ export class MyProductsComponent implements OnInit {
   ngOnInit(): void {
     let user = this.userService.userAllPages();
     this.mostrarMisProductos();
-
-
   }
+
+
 
 }
 
