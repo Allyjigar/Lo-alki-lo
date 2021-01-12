@@ -41,9 +41,8 @@
                 <hr>
             </div>
             <!--Mis Productos-->
-            <div *ngIf="misProductosNO != true">                
-                    <div class="row">
-                        <div class="card-columns center-block">
+            <div *ngIf="misProductosNO != true"> 
+                <div class="tarjetas">              
                             <div *ngFor="let product of misProductos">
                                 <div class="card card-custom">
                                     <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
@@ -74,9 +73,8 @@
                                         </svg>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>                
+                            </div> 
+                    </div>               
             </div>
             <div class="letter1" *ngIf="misProductosNO">
                 <div class="card-body">
@@ -85,7 +83,7 @@
           </div> 
             <!--Productos Alquilados-->
             <div *ngIf="misAlquileresNO != true">
-                <div class="tarjetas" >
+                <div class="tarjetas alqui" >
                     <div *ngFor="let pro of productsService.misProductosAlquilados; let i = index;">
                         <div class="card card-custom" > <!--(click)="selectProduct(pro)"-->
                             <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
@@ -139,6 +137,7 @@
            
             <!--Peticiones-->
             <div *ngIf="misPeticionesNO != true">
+                <div class="tarjetas petit" >
                     <div *ngFor="let product of misPeticiones; index as i">
                         <div class="card" style="width: 18rem; margin-top: 10%;">
                             <img src="{{product.foto1}}" class="card-img-top" alt="...">
@@ -146,9 +145,9 @@
                                 <h5 class="card-title">Producto solicitado: {{product.name}}</h5>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Solicitud enviada por: <a
+                                <li class="list-group-item">Solicitud enviada por: <a (click)="setearUser2(product.nickname)"
                                         routerLink="/perfilvendedor">{{product.nickname}}</a></li>
-                                <li class="list-group-item">Precio: {{product.precio}}</li>
+                                <li class="list-group-item">Precio: {{product.precio}} €</li>
                                 <li class="list-group-item">Fecha de inicio: {{product.date}}</li>
                                 <li class="list-group-item">Duración: {{product.duration}}</li>
                             </ul>
@@ -159,7 +158,8 @@
                                         style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
                             </div>
                         </div>                   
-                </div>  
+                    </div>  
+                </div>
             </div>          
                 <div class="letter3" *ngIf="misPeticionesNO">
                         <div class="card-body">
@@ -168,7 +168,7 @@
                   </div>            
         </article>
     </main>
-    <div class="separador"></div>
+  
     <hr>
     <footer>
         <app-footer></app-footer>
