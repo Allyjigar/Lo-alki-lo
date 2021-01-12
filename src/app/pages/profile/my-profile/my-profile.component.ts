@@ -21,19 +21,21 @@ export class MyProfileComponent implements OnInit {
     console.log(this.userService.user);
   }
 
-
-  modificarUsuario(nickname, password, foto, email, name, direccion, ciudad, cp) {
-    let actualUser;
-    
-    if ( foto == "") {
-      foto = this.userService.user.foto;
-      actualUser = new Users(nickname, password, foto, "", email, name, direccion, ciudad, Number(cp));
+  modificarUsuario(nickname: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement, email: HTMLInputElement, name: HTMLInputElement, direccion: HTMLInputElement, ciudad: HTMLInputElement, cp: HTMLInputElement) {
+    let fotoDefect;
+    if ( foto.value != "") {
+      fotoDefect = foto.value.replace("C:\\fakepath\\", "/assets/" );
     } else {
-      actualUser = new Users(nickname, password, foto, "", email, name, direccion, ciudad, Number(cp));
+      console.log(this.userService.user);
+      console.log(this.userService.user.foto);
+      fotoDefect = this.userService.user.foto;
     }
-     actualUser.user_id = this.user.user_id;
-     this.userService.putUser(actualUser).subscribe((data: any) => {
-      console.log(data);
+    let actualUser = new Users(nickname.value, password.value, fotoDefect, "", email.value, name.value, direccion.value, ciudad.value, Number(cp.value));
+    actualUser.user_id = this.userService.user.user_id;
+    this.userService.putUser(actualUser).subscribe((data: any) => {
+     console.log(data);
+
+     
       swal.fire({
         position: 'top-end',
         icon: 'success',

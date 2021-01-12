@@ -33,36 +33,18 @@
                 <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
                 <div class="card-body" style="overflow-y: auto">
                   <div class="tituloanuncio">
-                    <div class="rating">
-                      <div>
-                        <div class="fa fa-star estrella"
-                          [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                        </div>
-                        <div class="fa fa-star estrella"
-                          [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                        </div>
-                        <div class="fa fa-star estrella"
-                          [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                        </div>
-                        <div class="fa fa-star estrella"
-                          [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                        </div>
-                        <div class="fa fa-star estrella"
-                          [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
-                        </div>
-                      </div>
-                    </div>
+
                     <h5 class="card-title">{{product.name}}</h5>
+                    <div *ngIf="userService.user != null" class="heart">
+                      <i class="col-md-2" style="margin-top: 10px;"
+                        [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'"
+                        (click)="eliminarFav(product.product_id)"></i>
+                    </div>
                     <div class="card-footer">
                       <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
-                      <svg (click)="eliminarAnuncio()" style="color: #334257; margin-left: 50%;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-trash" viewBox="0 0 16 16">
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                        <path fill-rule="evenodd"
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                      </svg>
+                    <div>                            
+                        <button (click)="detalleAnuncio(product.product_id)" id="interesa"><b> Ver Anuncio</b></button>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -71,6 +53,11 @@
           </div>
         </div>
       </div>
+      <div class="letter" *ngIf="misFavoritosNO">
+        <div class="card-body">
+          <h1 class="card-title">Aún no has guardado productos como favoritos.</h1>
+        </div>
+      </div>   
       <!-- <div class="row" style="margin-top: 10px; margin-left: 12%">
         <div class="card-columns center-block">
         <div *ngFor="let product of favoritos; index as i;">

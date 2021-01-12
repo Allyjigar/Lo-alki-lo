@@ -51,6 +51,7 @@ app.get("/home", function (request, response) {
 /*Detalle Producto*/
 app.get("/anuncio", function (request, response) {
     let id = String(request.query.id);
+    let params = new Array(id);
     let sql = "SELECT * FROM product WHERE product_id =  ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
@@ -303,7 +304,7 @@ app.put("/products/valoraciones", function(request,response) {
     });
 });
 app.post("/chat", function(request, response) {
-    let params = new Array (String(request.body.id1), String(request.body.id2),
+    let params = new Array (String(request.body.emisor_id), String(request.body.receptor_id),
     String(request.body.nickname_emisor), String(request.body.foto_emisor), 
     String(request.body.nickname_receptor), String(request.body.foto_receptor));
     let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) VALUES (?, ?, ?, ?, ?, ?)";

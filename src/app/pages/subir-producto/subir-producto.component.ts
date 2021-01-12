@@ -39,12 +39,29 @@ export class SubirProductoComponent implements OnInit {
   }
 
   subirProducto(name: HTMLInputElement, descripcion: HTMLInputElement, foto1: HTMLInputElement, precio: HTMLInputElement, foto2: HTMLInputElement, foto3: HTMLInputElement, foto4: HTMLInputElement) {
-    // if ( foto1.value == null) {
-    //   foto1.value = "/assets/sin_foto.jpg";
-    // } else {}
-    // let ruta = foto1.toString();
-    // ruta = ruta.replace(/^.*\\, "/assets/");
-    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto1.value, Number(precio.value), this.categoria, this.subcategoria, foto2.value, foto3.value, foto4.value)
+    let ruta = foto1.value;
+    let ruta2 = foto2.value;
+    let ruta3 = foto3.value;
+    let ruta4 = foto4.value;
+    let foto: string;  
+    let foto2da: string;  
+    let foto3era: string;  
+    let foto4ta: string;  
+      if ( ruta == null) {
+        foto = "/assets/sin_foto.jpg";
+      } else {
+        foto = ruta.replace("C:\\fakepath\\", "/assets/" );
+      }
+      if (ruta2 != null){
+        foto2da = ruta2.replace("C:\\fakepath\\", "/assets/" );
+      }
+      if (ruta3 != null) {
+        foto3era = ruta3.replace("C:\\fakepath\\", "/assets/" );
+      }
+      if (ruta4 != null) {
+        foto4ta = ruta4.replace("C:\\fakepath\\", "/assets/" );
+      }
+    let newProduct = new Products(name.value, descripcion.value, this.userService.user.user_id, foto, Number(precio.value), this.categoria, this.subcategoria, foto2da, foto3era, foto4ta, 0 , 0 , 0)
     this.productService.postProduct(newProduct).subscribe((data: any) => {
       console.log(data);
 

@@ -55,7 +55,7 @@
             <div class="tarjetas" *ngIf="misProductos != null">
                 <div class="row">
                     <div class="card-columns center-block">
-                        <div *ngFor="let product of misProductos">
+                        <div *ngFor="let product of misProductos;">
                             <div class="card card-custom">
                                 <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
                                 <div class="card-body" style="overflow-y: auto">
@@ -85,12 +85,13 @@
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" data-toggle="modal"
+                                    <svg (click)="productoEdit(product.product_id)" xmlns="http://www.w3.org/2000/svg" width="16" data-toggle="modal"
                                         data-target="#exampleModal" height="16" fill="currentColor" class="bi bi-tools"
                                         style="color: #334257; margin-left: 20%; cursor: pointer;" viewBox="0 0 16 16">
                                         <path
                                             d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z" />
                                     </svg>
+                                    <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
@@ -104,28 +105,28 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div>
-                                                        <img width="185px;" height="150px;" src="{{product.foto1}}">
-                                                        <img width="185px;" height="150px;" src="{{product.foto2}}">
-                                                        <img width="185px;" height="150px;" src="{{product.foto3}}">
-                                                        <img width="185px;" height="150px;" src="{{product.foto4}}">
+                                                        <img width="185px;" height="150px;" src="{{productoEditado.foto1}}">
+                                                        <img width="185px;" height="150px;" src="{{productoEditado.foto2}}">
+                                                        <img width="185px;" height="150px;" src="{{productoEditado.foto3}}">
+                                                        <img width="185px;" height="150px;" src="{{productoEditado.foto4}}">
 
                                                     </div>
                                                     <form style="text-align: left;">
                                                         <label style="font-size: 15px;">Nombre del Producto</label>
                                                         <input type="text" class="form-control" id="inputEmail4"
-                                                            style="font-size: 15px;" value="{{product.name}}" #name>
+                                                            style="font-size: 15px;" value="{{productoEditado.name}}" #name>
                                                         <label style="font-size: 15px;">Descripción (estado,
                                                             accesorios...)</label>
                                                         <textarea id="descripcion_input" type="text"
                                                             class="form-control" id="exampleFormControlTextarea1"
-                                                            style="font-size: 15px;" value="{{product.descripcion}}"
+                                                            style="font-size: 15px;" value="{{productoEditado.descripcion}}"
                                                             #descripcion></textarea>
                                                         <label style="font-size: 15px;">Precio del alquiler (indica el
                                                             precio por
                                                             día)</label>
                                                         <input id="usuario" type="text" class="form-control"
                                                             id="formGroupExampleInput" style="font-size: 15px;"
-                                                            value="{{product.precio}}" #precio>
+                                                            value="{{productoEditado.precio}}" #precio>
 
                                                         <div class="subirFotos">
                                                             <div>
@@ -191,146 +192,97 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>                
             </div>
-
+            <div class="letter1" *ngIf="misProductosNO">
+                <div class="card-body">
+                  <h1 class="card-title">Aún no tienes productos cargados.</h1>
+                </div>
+          </div> 
             <!--Productos Alquilados-->
-            <div class="tarjetas" *ngIf="productsService.misProductosAlquilados != null">
-                <div *ngFor="let pro of productsService.misProductosAlquilados; let i = index;">
-                    <div class="card card-custom">
-                        <!--(click)="selectProduct(pro)"-->
-                        <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto"
-                            style="max-height: 200px; width:auto">
-                        <div class="card-body">
-                            <div class="tituloanuncio">
-                                <div class="rating">
-                                    <div *ngIf="pro.valorado != 0; else valorar">
-                                        <div class="fa fa-star estrella"
-                                            [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
-                                        </div>
-                                        <div class="fa fa-star estrella"
-                                            [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                        </div>
-                                        <div class="fa fa-star estrella"
-                                            [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                        </div>
-                                        <div class="fa fa-star estrella"
-                                            [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                        </div>
-                                        <div class="fa fa-star estrella"
-                                            [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                        </div>
+            <div *ngIf="misAlquileresNO != true">
+                <div class="tarjetas" >
+                    <div *ngFor="let pro of productsService.misProductosAlquilados; let i = index;">
+                        <div class="card card-custom" > <!--(click)="selectProduct(pro)"-->
+                            <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
+                            <div class="card-body">
+                                <div class="tituloanuncio">
+                                    <div class="rating">
+                                        <div *ngIf="pro.valorado != 0; else valorar">
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                            <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                            </div>
+                                        </div> 
+                                        <ng-template #valorar>
+                                            <div>
+                                                <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(5)" [ngClass]="valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                                </div>
+                                                <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(4)" [ngClass]="valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                                </div>
+                                                <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(3)" [ngClass]="valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                                </div>
+                                                <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(2)" [ngClass]="valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                                </div>
+                                                <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(1)" [ngClass]="valoracionService.numero == 1 || valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'" (click)="valoracionService.mostrar(pro, pro.renting_id)">
+                                                </div>
+                                            </div>  
+                                        </ng-template>
                                     </div>
-                                    <ng-template #valorar>
-                                        <div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(5)"
-                                                [ngClass]="valoracionService.numero == 5 ? 'selected' : 'estrella'"
-                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
-                                            </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(4)"
-                                                [ngClass]="valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
-                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
-                                            </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(3)"
-                                                [ngClass]="valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
-                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
-                                            </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(2)"
-                                                [ngClass]="valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
-                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
-                                            </div>
-                                            <div class="fa fa-star estrella" (mouseover)="valoracionService.prueba(1)"
-                                                [ngClass]="valoracionService.numero == 1 || valoracionService.numero == 2 || valoracionService.numero == 3 || valoracionService.numero == 4 || valoracionService.numero == 5 ? 'selected' : 'estrella'"
-                                                (click)="valoracionService.mostrar(pro, pro.renting_id)">
-                                            </div>
-                                        </div>
-                                    </ng-template>
+                                    <h5 class="card-title">{{pro.name}}</h5>
                                 </div>
-                                <h5 class="card-title">{{pro.name}}</h5>
+                                <p class="card-text overflow-hidden">{{pro.descripcion}}</p>
                             </div>
-                            <p class="card-text overflow-hidden">{{pro.descripcion}}</p>
-                        </div>
-                        <div class="card-footer ">
-                            <small class="text-muted" id="precio">{{pro.precio}} €</small>
-                            <button id="interesa" (click)="detalleAnuncio(pro.product_id)"><b>Me interesa</b></button>
+                            <div class="card-footer ">
+                                <small class="text-muted" id="precio">{{pro.precio}} €</small>
+                                <button  id="interesa" (click)="detalleAnuncio(pro.product_id)"><b>Me interesa</b></button>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
-            <!-- <div class="tarjetas" *ngIf="this.productsService.misProductosAlquilados != null">
-                <div class="row">
-                    <div class="card-columns center-block">
-                        <div *ngFor="let product of misProductosAlquilados">
-                            <div class="card card-custom">
-                                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
-                                <div class="card-body" style="overflow-y: auto">
-                                    <div class="tituloanuncio">
-                                        <form>
-                                            <p class="clasificacion">
-                                                <input id="radio1" type="radio" name="estrellas" value="5">
-
-                                                <label for="radio1">★</label>
-
-                                                <input id="radio2" type="radio" name="estrellas" value="4">
-
-                                                <label for="radio2">★</label>
-
-                                                <input id="radio3" type="radio" name="estrellas" value="3">
-
-                                                <label for="radio3">★</label>
-
-                                                <input id="radio4" type="radio" name="estrellas" value="2">
-
-                                                <label for="radio4">★</label>
-
-                                                <input id="radio5" type="radio" name="estrellas" value="1">
-
-                                                <label for="radio5">★</label>
-                                            </p>
-                                        </form>
-                                        <h5 class="card-title">{{product.name}}</h5>
-                                    </div>
-                                    <p class="card-text">{{product.descripcion}}</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted" id="precio">{{product.precio}}</small>
-                                    <button routerLink="/anuncio" id="interesa"><b>Lo(alki)lo</b></button>
-                                </div>
-                                <h5 class="card-title">{{pro.name}}</h5>
-                            </div>
-                            <p class="card-text overflow-hidden">{{pro.descripcion}}</p>
-                        </div>
-                        <div class="card-footer ">
-                            <small class="text-muted" id="precio">{{pro.precio}} €</small>
-                            <button routerLink="/anuncio" id="interesa" click="selectProduct(pro.product_id)"><b>lo(alki)lo</b></button>
-                    </div>
+            <div class="letter" *ngIf="misAlquileresNO">
+                <div class="card-body">
+                  <h1 class="card-title">Aún no has alquilado ningún producto... ¿Qué esperas?.</h1>
                 </div>
-            </div> -->
+          </div> 
+           
             <!--Peticiones-->
-            <div class="tarjetas" *ngIf="misPeticiones != null">
-                <div *ngFor="let product of misPeticiones; index as i">
-                    <div class="card" style="width: 18rem; margin-top: 10%;">
-                        <img src="{{product.foto1}}" class="card-img-top" alt="...">
+            <div *ngIf="misPeticionesNO != true">
+                    <div *ngFor="let product of misPeticiones; index as i">
+                        <div class="card" style="width: 18rem; margin-top: 10%;">
+                            <img src="{{product.foto1}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto solicitado: {{product.name}}</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Solicitud enviada por: <a
+                                        routerLink="/perfilvendedor">{{product.nickname}}</a></li>
+                                <li class="list-group-item">Precio: {{product.precio}}</li>
+                                <li class="list-group-item">Fecha de inicio: {{product.date}}</li>
+                                <li class="list-group-item">Duración: {{product.duration}}</li>
+                            </ul>
+                            <div class="card-body">
+                                <a (click)="aceptarSolicitud(product.renting_id)" style="margin-left: 20%;" href="#" class="card-link"><img
+                                        style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
+                                <a (click)="rechazarSolicitud(product.renting_id)" href="#" class="card-link"><img
+                                        style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
+                            </div>
+                        </div>                   
+                </div>  
+            </div>          
+                <div class="letter3" *ngIf="misPeticionesNO">
                         <div class="card-body">
-                            <h5 class="card-title">Producto solicitado: {{product.name}}</h5>
+                          <h1 class="card-title">Aún no tienes petición de Alquiler.</h1>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Solicitud enviada por: <a
-                                    routerLink="/perfilvendedor">{{product.nickname}}</a></li>
-                            <li class="list-group-item">Precio: {{product.precio}}</li>
-                            <li class="list-group-item">Fecha de inicio: {{product.date}}</li>
-                            <li class="list-group-item">Duración: {{product.duration}}</li>
-                        </ul>
-                        <div class="card-body">
-                            <a (click)="aceptarSolicitud(product.renting_id)" style="margin-left: 20%;" href="#"
-                                class="card-link"><img style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
-                            <a (click)="rechazarSolicitud(product.renting_id)" href="#" class="card-link"><img
-                                    style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  </div>      
+                 </div>       
         </article>
     </main>
     <div class="separador"></div>

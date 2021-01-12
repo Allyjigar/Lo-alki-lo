@@ -23,9 +23,13 @@ export class MyProductsComponent implements OnInit {
   public products: Products[];
   public misProductos: Products[];
   public misProductosAlquilados: Products[];
-  public misPeticiones: [];
+  public misPeticiones: any;
   public product: Products;
   public productoValorado: Products;
+  public misPeticionesNO : boolean = false;
+  public misProductosNO : boolean = false;
+  public misAlquileresNO : boolean = false;
+  public productoEditado: Products = new Products("", "", 0, "", 0, "", "", "");
 
   constructor(public productsService: ProductsService, public userService: UsersService, public valoracionService: ValoracionService, public router: Router) { }
   mostrarMisProductos() {
@@ -33,6 +37,12 @@ export class MyProductsComponent implements OnInit {
       this.misProductos = data;
       this.productsService.misProductosAlquilados = null;
       this.misPeticiones = null;
+
+      this.misAlquileresNO = false;
+      this.misPeticionesNO = false;
+      if (this.misProductos.length < 1) {
+        this.misProductosNO = true;
+      }
     })
   }
 
@@ -41,16 +51,30 @@ export class MyProductsComponent implements OnInit {
       this.productsService.misProductosAlquilados = data;
       this.misProductos = null;
       this.misPeticiones = null;
+
+      this.misPeticionesNO = false;
+      this.misProductosNO = false;
+      if (this.productsService.misProductosAlquilados.length < 1) {
+        this.misAlquileresNO = true;
+      }
     })
     console.log(this.productsService.misProductosAlquilados);
   }
 
   mostrarMisPeticiones() {
-    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any) => {
+    this.productsService.getProductsRent(this.userService.user.user_id).subscribe((data: any []) => {
       this.misPeticiones = data;
+      
       this.misProductos = null;
       this.productsService.misProductosAlquilados = null;
+
+      this.misAlquileresNO = false;
+      this.misProductosNO = false;
+      if (this.misPeticiones.length <1  ) {
+        this.misPeticionesNO = true;
+      }  console.log(this.misPeticiones);
     })
+  
   }
 
   aceptarSolicitud(i) {
@@ -82,17 +106,36 @@ export class MyProductsComponent implements OnInit {
   }
 
   modificarAnuncio(product_id, name, descripcion, foto1, precio, foto2, foto3, foto4) {
-    
-    if (foto1 == "" || foto2 == "" || foto3 == "" || foto4 == "") {
-      foto1 = this.productsService.product.foto1;
-      foto2 = this.productsService.product.foto2;
-      foto3 = this.productsService.product.foto3;
-      foto4 = this.productsService.product.foto4;
-  
-    } 
+    let ruta = foto1;
+    let ruta2 = foto2;
+    let ruta3 = foto3;
+    let ruta4 = foto4;
+    let foto: string;  
+    let foto2da: string;  
+    let foto3era: string;  
+    let foto4ta: string;  
+      if ( ruta == null) {
+        foto = "/assets/sin_foto.jpg";
+      } else {
+        foto = ruta.replace("C:\\fakepath\\", "/assets/" );
+      }
+      if (ruta2 != null){
+        foto2da = ruta2.replace("C:\\fakepath\\", "/assets/" );
+      } else {
+        foto2da = "/assets/sin_foto.jpg";
+      }
+      if (ruta3 != null) {
+        foto3era = ruta3.replace("C:\\fakepath\\", "/assets/" );
+      } else {
+        foto3era = "/assets/sin_foto.jpg";
+      }
+      if (ruta4 != null) {
+        foto4ta = ruta4.replace("C:\\fakepath\\", "/assets/" );
+      } else {
+        foto4ta = "/assets/sin_foto.jpg";
+      }
       
-    console.log(product_id, name, descripcion, foto1, precio, foto2, foto3, foto4);
-    this.productsService.putEditProduct(product_id, name, descripcion, precio, foto1, foto2, foto3, foto4).subscribe((data: any) => {
+    this.productsService.putEditProduct(product_id, name, descripcion, precio, foto, foto2da, foto3era, foto4ta).subscribe((data: any) => {
       console.log(data);
       swal.fire({
         position: 'top-end',
@@ -102,6 +145,14 @@ export class MyProductsComponent implements OnInit {
         timer: 2000
       })
     })
+  }
+
+  productoEdit(id: number) {
+    this.productsService.getProduct(id).subscribe((data: Products[]) => {
+      this.productoEditado = data[0];
+      console.log(data[0]);
+    })
+
   }
 
   eliminarAnuncio(product_id: number) {
