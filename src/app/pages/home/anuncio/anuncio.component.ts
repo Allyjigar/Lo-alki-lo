@@ -91,6 +91,8 @@ export class AnuncioComponent implements OnInit {
 
   marcarFavorito() {
     if (this.favoritoSelect == false) {
+      if(this.userService.user2.user_id != this.userService.user.user_id)
+      {
       this.favouritesService.postFavProducts(new Favorito(this.userService.user.user_id, this.productsService.product.product_id)).subscribe((data) => {
         this.favoritoSelect = true;
         console.log(data);
@@ -101,8 +103,17 @@ export class AnuncioComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-      })
-
+      })}
+      else
+      {
+        swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '¡El  anuncio es tuyo!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
     } else {
       this.favouritesService.deleteFav(this.userService.user.user_id, this.productsService.product.product_id).subscribe((data) => {
         this.favoritoSelect = false;
