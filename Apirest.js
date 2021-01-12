@@ -288,7 +288,7 @@ app.put("/products/valoraciones", function(request,response) {
     });
 });
 app.post("/chat", function(request, response) {
-    let params = new Array (String(request.body.id1), String(request.body.id2),
+    let params = new Array (String(request.body.emisor_id), String(request.body.receptor_id),
     String(request.body.nickname_emisor), String(request.body.foto_emisor), 
     String(request.body.nickname_receptor), String(request.body.foto_receptor));
     let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) VALUES (?, ?, ?, ?, ?, ?)";
