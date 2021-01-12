@@ -21,9 +21,12 @@ export class RegisterComponent implements OnInit {
 
 
   insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement, foto: HTMLInputElement) {
-    
+    let fotoAssets : string;
+    if (foto.value != null) {
+      fotoAssets = foto.value.replace("C:\\fakepath\\", "/assets/" );
+    }
     if (password.value == confirmPassword.value) {
-      this.userService.postUserR(new Users(nickname.value, password.value, foto.value, "", email.value)).subscribe((data: any) => {
+      this.userService.postUserR(new Users(nickname.value, password.value, fotoAssets, "", email.value)).subscribe((data: any) => {
         console.log(data);
 
         if (data.insertId != 0) {

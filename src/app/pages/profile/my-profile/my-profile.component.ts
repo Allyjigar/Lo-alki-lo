@@ -20,9 +20,11 @@ export class MyProfileComponent implements OnInit {
 
   modificarUsuario(nickname: HTMLInputElement, password: HTMLInputElement, foto: HTMLInputElement, email: HTMLInputElement, name: HTMLInputElement, direccion: HTMLInputElement, ciudad: HTMLInputElement, cp: HTMLInputElement) {
     let fotoDefect;
-    if ( foto.value != null) {
-      fotoDefect = foto.value;
+    if ( foto.value != "") {
+      fotoDefect = foto.value.replace("C:\\fakepath\\", "/assets/" );
     } else {
+      console.log(this.userService.user);
+      console.log(this.userService.user.foto);
       fotoDefect = this.userService.user.foto;
     }
     console.log(fotoDefect);
