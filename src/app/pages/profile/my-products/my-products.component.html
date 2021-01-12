@@ -52,30 +52,20 @@
                 <hr>
             </div>
             <!--Mis Productos-->
-            <div class="tarjetas" *ngIf="misProductos != null">
-                <div class="row">
-                    <div class="card-columns center-block">
-                        <div *ngFor="let product of misProductos;">
-                            <div class="card card-custom">
-                                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
-                                <div class="card-body" style="overflow-y: auto">
-                                    <div class="tituloanuncio">
-                                        <div class="rating">
-                                            <div>
-                                                <div class="fa fa-star estrella"
-                                                    [ngClass]="productsService.product.media == 1 || productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                                </div>
-                                                <div class="fa fa-star estrella"
-                                                    [ngClass]="productsService.product.media == 2 || productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                                </div>
-                                                <div class="fa fa-star estrella"
-                                                    [ngClass]="productsService.product.media == 3 || productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                                </div>
-                                                <div class="fa fa-star estrella"
-                                                    [ngClass]="productsService.product.media == 4 || productsService.product.media == 5 ? 'selected' : 'estrella'">
-                                                </div>
-                                                <div class="fa fa-star estrella"
-                                                    [ngClass]="productsService.product.media == 5 ? 'selected' : 'estrella'">
+            <div *ngIf="misProductosNO != true"> 
+                <div class="tarjetas">              
+                            <div *ngFor="let product of misProductos">
+                                <div class="card card-custom">
+                                    <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
+                                    <div class="card-body" style="overflow-y: auto">
+                                        <div class="tituloanuncio">
+                                            <div class="rating">
+                                                <div>
+                                                <div class="fa fa-star estrella" [ngClass]="product.media == 5 ? 'selected' : 'estrella'"> </div>
+                                                <div class="fa fa-star estrella" [ngClass]="product.media == 4 || product.media == 5 ? 'selected' : 'estrella'"> </div>
+                                                <div class="fa fa-star estrella" [ngClass]="product.media == 3 || product.media == 4 || product.media == 5 ? 'selected' : 'estrella'"> </div>
+                                                <div class="fa fa-star estrella" [ngClass]="product.media == 2 || product.media == 3 || product.media == 4 || product.media == 5 ? 'selected' : 'estrella'"> </div>
+                                                <div class="fa fa-star estrella" [ngClass]="product.media == 1 || product.media == 2 || product.media == 3 || product.media == 4 || product.media == 5 ? 'selected' : 'estrella'"> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,9 +180,8 @@
                                             d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                     </svg>
                                 </div>
-                            </div>
-                        </div>
-                    </div>                
+                            </div> 
+                    </div>               
             </div>
             <div class="letter1" *ngIf="misProductosNO">
                 <div class="card-body">
@@ -201,7 +190,7 @@
           </div> 
             <!--Productos Alquilados-->
             <div *ngIf="misAlquileresNO != true">
-                <div class="tarjetas" >
+                <div class="tarjetas alqui" >
                     <div *ngFor="let pro of productsService.misProductosAlquilados; let i = index;">
                         <div class="card card-custom" > <!--(click)="selectProduct(pro)"-->
                             <img class="card-img-top" src="{{pro.foto1}}" alt="Foto Producto" style="max-height: 200px; width:auto">
@@ -255,6 +244,7 @@
            
             <!--Peticiones-->
             <div *ngIf="misPeticionesNO != true">
+                <div class="tarjetas petit" >
                     <div *ngFor="let product of misPeticiones; index as i">
                         <div class="card" style="width: 18rem; margin-top: 10%;">
                             <img src="{{product.foto1}}" class="card-img-top" alt="...">
@@ -262,9 +252,9 @@
                                 <h5 class="card-title">Producto solicitado: {{product.name}}</h5>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Solicitud enviada por: <a
+                                <li class="list-group-item">Solicitud enviada por: <a (click)="setearUser2(product.nickname)"
                                         routerLink="/perfilvendedor">{{product.nickname}}</a></li>
-                                <li class="list-group-item">Precio: {{product.precio}}</li>
+                                <li class="list-group-item">Precio: {{product.precio}} €</li>
                                 <li class="list-group-item">Fecha de inicio: {{product.date}}</li>
                                 <li class="list-group-item">Duración: {{product.duration}}</li>
                             </ul>
@@ -275,17 +265,18 @@
                                         style="width: 20px; height: 20px;" src="/assets/no-hay-entrada.png"></a>
                             </div>
                         </div>                   
-                </div>  
+                    </div>  
+                </div>
             </div>          
                 <div class="letter3" *ngIf="misPeticionesNO">
                         <div class="card-body">
                           <h1 class="card-title">Aún no tienes petición de Alquiler.</h1>
                         </div>
                   </div>      
-                 </div>       
+                      
         </article>
     </main>
-    <div class="separador"></div>
+  
     <hr>
     <footer>
         <app-footer></app-footer>

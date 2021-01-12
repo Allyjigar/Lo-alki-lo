@@ -76,7 +76,13 @@ export class MyProductsComponent implements OnInit {
     })
   
   }
-
+  setearUser2(nickname: string){
+    this.userService.getUserNick(nickname).subscribe((data : Users []) => {
+      this.userService.user2 = data[0];
+      console.log(data[0]);
+    });
+    console.log(this.userService.user2);
+  }
   aceptarSolicitud(i) {
     this.productsService.putProductsRent(i, 1, 0).subscribe((data: any) => {
       console.log(data);
