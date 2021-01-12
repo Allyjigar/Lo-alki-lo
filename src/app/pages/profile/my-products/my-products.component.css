@@ -137,8 +137,16 @@ article{
 {
     min-height: 150px;
     max-height: 150px;
-    font-size: 12px;
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 5px;
     overflow: hidden;
+}
+.list-group{
+    font-size: 15px;
+}
+.card-title{
+    font-size: 13px;
 }
 
 #interesa
