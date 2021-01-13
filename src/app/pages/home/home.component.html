@@ -20,27 +20,22 @@
             <router-outlet></router-outlet>
         </div>
         <!--Sustituir por enlace-->
-
-
-
     </header>
-
-
 
     <!--Page Content-->
     <!--Carrousel-->
     <!--Carousel Wrapper-->
     <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
             <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-2" data-slide-to="1"></li>
             <li data-target="#carousel-example-2" data-slide-to="2"></li>
         </ol>
-        <!--/.Indicators-->
+    <!--/.Indicators-->
 
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 <div class="view">
                     <img class="d-block w-100 " src="/assets/presentacion1.jpg" alt="First slide">
@@ -52,8 +47,8 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
+    <!--Mask color-->
+    <div class="view">
                     <img class="d-block w-100" src="/assets/presentacion2.jpg" alt="Second slide">
                     <div class="mask rgba-black-strong"></div>
                 </div>
@@ -63,8 +58,8 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <!--Mask color-->
-                <div class="view">
+    <!--Mask color-->
+    <div class="view">
                     <img class="d-block w-100" src="/assets/presentacion3.jpg" alt="Third slide">
                     <div class="mask rgba-black-slight"></div>
                 </div>
@@ -74,20 +69,94 @@
                 </div>
             </div>
         </div>
-        <!--/.Slides-->
+    <!--/.Slides-->
 
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <!--Controls-->
+    <!-- <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
-    </div>
+        </a> -->
+    <!--/.Controls-->
+    <!-- </div> -->
     <!--/.Carousel Wrapper-->
+    <!-- <div class="row " style="background-color: #334257;">
+        <div class="col-md-2 col-4  ">
+            <div class="herramienta" style="margin-left: 30%; padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Motor')" type="button" src="/assets/coche.png" width="40"
+                        height="40" />
+                </a>
+            </div>
+            <div>
+                <h3 (click)="categoriaValue('Motor')" style="color: #fffe91; margin-left: 35%; margin-top: -5%;"
+                    type="button">Motor</h3>
+            </div>
+        </div>
+        <div class="col-md-2 col-4 ">
+            <div class="herramienta" style="padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Inmobiliaria')" type="button" src="/assets/casa.png" width="40"
+                        height="40" />
+                </a>
+                <div>
+                    <h3 (click)="categoriaValue('Inmobiliaria')"
+                        style="color: #fffe91; margin-left: -11%; margin-top: 4%;" type="button">Inmobiliaria</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-4 ">
+            <div class="herramienta" style="padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Informatica y Electronica')" type="button"
+                        src="/assets/computadora.png" width="40" height="40" />
+                </a>
+                <div>
+                    <h3 (click)="categoriaValue('Informatica y Electronica')" style="color: #fffe91; margin-top: 4%; margin-left: -30%;" type="button">
+                        Informática y electrónica</h3>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="herramienta" style="padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Hogar y jardin')" type="button" src="/assets/relajarse.png" width="40"
+                        height="40" />
+                </a>
+                <div>
+                    <h3 (click)="categoriaValue('Hogar y jardin')" style="color: #fffe91; margin-top: 4%; margin-left: -13%" type="button">Hogar y
+                        jardín</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-4 ">
+            <div class="herramienta" style="padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Moda y complementos')" type="button" src="/assets/moda.png" width="40"
+                        height="40" />
+                </a>
+                <div>
+                    <h3 (click)="categoriaValue('Moda y complementos')" style="color: #fffe91; margin-top: 4%; margin-left: -25%" type="button">Moda y complementos</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-4">
+            <div class="herramienta" style="padding: 8%;">
+                <a>
+                    <img (click)="categoriaValue('Deportes/Ocio')" type="button" src="/assets/deporte.png" width="40"
+                        height="40" />
+                </a>
+                <div>
+                    <h3 (click)="categoriaValue('Deportes/Ocio')" style="color: #fffe91; margin-top: 4%; margin-left: -15%;" type="button">Deportes y
+                        ocio</h3>
+                </div>
+            </div>
+        </div>
+    </div> -->
     <div class="container ">
         <a routerLink="/buscador">
             <h2 class="page-header">CATEGORÍAS</h2>
@@ -177,7 +246,7 @@
         <!-- Products Section -->
         <div class="row">
             <div class="col-12">
-                <h2 class="page-header">ÚLTIMOS ANUNCIOS</h2>
+                <h1 id="ultimos"><b>ÚLTIMOS ANUNCIOS</b></h1>
             </div>
 
             <div class="card-columns center-block">
@@ -188,17 +257,22 @@
                             <div class="tituloanuncio">
                                 <div class="rating">
                                     <div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                        <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                                        <div class="fa fa-star estrella"
+                                            [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <h5 class="card-title">{{pro.name}}</h5>
                             </div>

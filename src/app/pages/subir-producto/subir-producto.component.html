@@ -27,11 +27,13 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label>Nombre del Producto</label>
-                                <input type="text" class="form-control" id="inputEmail4" style="font-size: 15px;" #name> 
+                                <input type="text" class="form-control" id="inputEmail4" style="font-size: 15px;" #name>
                                 <label>Descripción (estado, accesorios...)</label>
-                                <textarea id="descripcion_input" type="text" class="form-control" id="exampleFormControlTextarea1" style="font-size: 15px;" #descripcion></textarea>
+                                <textarea id="descripcion_input" type="text" class="form-control"
+                                    id="exampleFormControlTextarea1" style="font-size: 15px;" #descripcion></textarea>
                                 <label>Precio del alquiler (indica el precio por día)</label>
-                                <input id="usuario" type="text" class="form-control" id="formGroupExampleInput" style="font-size: 15px;" #precio>
+                                <input id="usuario" type="text" class="form-control" id="formGroupExampleInput"
+                                    style="font-size: 15px;" #precio>
                             </div>
                             <label>Elige categoría y subcategoría: </label>
                             <div> &nbsp;</div>
@@ -41,126 +43,144 @@
                                         <ul>
                                             <li on-click="categoriaValue('Motor')" type="button"><a>Motor</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Coches')" type="button"><a>Coches</a>
+                                                    <li on-click="subcategoriaValue('Coches')" type="button">
+                                                        <a>Coches</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Motos')"type="button"><a>Motos</a></li>
-                                                    <li on-click="subcategoriaValue('Furgonetas')" type="button"><a>Furgonetas</a>
+                                                    <li on-click="subcategoriaValue('Motos')" type="button"><a>Motos</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Autocaravanas')"type="button"><a
-                                                            >Autocaravanas</a></li>
-                                                    <li on-click="subcategoriaValue('Vehiculos especiales')"type="button"><a
-                                                           >Vehículos especiales</a></li>
-                                                    <li on-click="subcategoriaValue('Quads')" type="button"><a >Quads</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Furgonetas')" type="button">
+                                                        <a>Furgonetas</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Autocaravanas')" type="button">
+                                                        <a>Autocaravanas</a></li>
+                                                    <li on-click="subcategoriaValue('Vehiculos especiales')"
+                                                        type="button"><a>Vehículos especiales</a></li>
+                                                    <li on-click="subcategoriaValue('Quads')" type="button"><a>Quads</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Inmobiliaria')" type="button"><a >Inmobiliaria</a>
+                                            <li on-click="categoriaValue('Inmobiliaria')" type="button">
+                                                <a>Inmobiliaria</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Pisos')" type="button"><a >Pisos</a></li>
-                                                    <li on-click="subcategoriaValue('Casas')" type="button"><a >Casas</a></li>
-                                                    <li on-click="subcategoriaValue('Locales')" type="button"><a >Locales</a>
+                                                    <li on-click="subcategoriaValue('Pisos')" type="button"><a>Pisos</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Oficinas')" type="button"><a >Oficinas</a>
+                                                    <li on-click="subcategoriaValue('Casas')" type="button"><a>Casas</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Parkings')" type="button"><a >Parkings</a>
+                                                    <li on-click="subcategoriaValue('Locales')" type="button">
+                                                        <a>Locales</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Espacios exteriores')"type="button"><a
-                                                            >Espacios exteriores</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Oficinas')" type="button">
+                                                        <a>Oficinas</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Parkings')" type="button">
+                                                        <a>Parkings</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Espacios exteriores')"
+                                                        type="button"><a>Espacios exteriores</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Informatica y Electronica')" type="button"><a
-                                                    >Informática/Electrónica</a>
+                                            <li on-click="categoriaValue('Informatica y Electronica')" type="button">
+                                                <a>Informática/Electrónica</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Ordenadores')" type="button"><a
-                                                            >Ordenadores</a></li>
-                                                    <li on-click="subcategoriaValue('Impresoras')" type="button"><a
-                                                            >Impresoras</a></li>
-                                                    <li on-click="subcategoriaValue('Videoconsolas')" type="button"><a
-                                                            >Videoconsolas</a></li>
-                                                    <li on-click="subcategoriaValue('Camaras')" type="button"><a >Cámaras</a>
+                                                    <li on-click="subcategoriaValue('Ordenadores')" type="button">
+                                                        <a>Ordenadores</a></li>
+                                                    <li on-click="subcategoriaValue('Impresoras')" type="button">
+                                                        <a>Impresoras</a></li>
+                                                    <li on-click="subcategoriaValue('Videoconsolas')" type="button">
+                                                        <a>Videoconsolas</a></li>
+                                                    <li on-click="subcategoriaValue('Camaras')" type="button">
+                                                        <a>Cámaras</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Proyectores')" type="button"><a
-                                                            >Proyectores</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
+                                                    <li on-click="subcategoriaValue('Proyectores')" type="button">
+                                                        <a>Proyectores</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-                                            <li on-click="categoriaValue('Hogar y Jardin')" type="button"><a >Hogar y
+                                            <li on-click="categoriaValue('Hogar y Jardin')" type="button"><a>Hogar y
                                                     jardín</a>
                                                 <ul>
-                                                    <li on-click="subcategoriaValue('Electrodomesticos')" type="button"><a
-                                                            >Electrodomésticos</a></li>
-                                                    <li on-click="subcategoriaValue('Herramientas')" type="button"><a
-                                                            >Herramientas</a></li>
-                                                    <li on-click="subcategoriaValue('Mobiliario')" type="button"><a
-                                                            >Mobiliario</a></li>
-                                                    <li on-click="subcategoriaValue('Piscinas y accesorios')" type="button"><a
-                                                           >Piscinas y accesorios</a></li>
-                                                    <li on-click="subcategoriaValue('Jardineria')" type="button"><a
-                                                            >Jardinería</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
-                                                </ul>
-                                            </li>
-                                            <li on-click="categoriaValue('Moda y Complementos')" type="button"><a
-                                                    >Moda/Complementos</a>
-                                                <ul>
-                                                    <li on-click="subcategoriaValue('Trajes de fiesta')" type="button"><a
-                                                            >Trajes de fiesta</a></li>
-                                                    <li on-click="subcategoriaValue('Bolsos y maletas')" type="button"><a
-                                                            >Bolsos y maletas</a></li>
-                                                    <li on-click="subcategoriaValue('Joyas y relojes')" type="button"><a >Joyas
-                                                            y relojes</a></li>
-                                                    <li on-click="subcategoriaValue('Sombreros')" type="button"><a
-                                                            >Sombreros</a></li>
-                                                    <li on-click="subcategoriaValue('Ropa especializada')" type="button"><a
-                                                            >Ropa especializada</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
-                                                </ul>
-                                            </li>
-                                            <li on-click="categoriaValue('Deportes y Ocio')" type="button"><a >Deportes/Ocio</a>
-                                                <ul>
-                                                    <li on-click="subcategoriaValue('Maquinas')" type="button"><a >Máquinas</a>
+                                                    <li on-click="subcategoriaValue('Electrodomesticos')" type="button">
+                                                        <a>Electrodomésticos</a></li>
+                                                    <li on-click="subcategoriaValue('Herramientas')" type="button">
+                                                        <a>Herramientas</a></li>
+                                                    <li on-click="subcategoriaValue('Mobiliario')" type="button">
+                                                        <a>Mobiliario</a></li>
+                                                    <li on-click="subcategoriaValue('Piscinas y accesorios')"
+                                                        type="button"><a>Piscinas y accesorios</a></li>
+                                                    <li on-click="subcategoriaValue('Jardineria')" type="button">
+                                                        <a>Jardinería</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                    <li on-click="subcategoriaValue('Deportes acuaticos')" type="button"><a
-                                                            >Deportes acuáticos</a></li>
-                                                    <li on-click="subcategoriaValue('Deportes de montaña')" type="button"><a
-                                                            >Deportes de montaña</a></li>
-                                                    <li on-click="subcategoriaValue('Accesorios deportivos')" type="button"><a
-                                                            >Accesorios deportivos</a></li>
-                                                    <li on-click="subcategoriaValue('Estructuras de exterior')"type="button"><a
-                                                            >Estructuras de exterior</a></li>
-                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a >Otros</a></li>
+                                                </ul>
+                                            </li>
+                                            <li on-click="categoriaValue('Moda y Complementos')" type="button">
+                                                <a>Moda/Complementos</a>
+                                                <ul>
+                                                    <li on-click="subcategoriaValue('Trajes de fiesta')" type="button">
+                                                        <a>Trajes de fiesta</a></li>
+                                                    <li on-click="subcategoriaValue('Bolsos y maletas')" type="button">
+                                                        <a>Bolsos y maletas</a></li>
+                                                    <li on-click="subcategoriaValue('Joyas y relojes')" type="button">
+                                                        <a>Joyas
+                                                            y relojes</a></li>
+                                                    <li on-click="subcategoriaValue('Sombreros')" type="button">
+                                                        <a>Sombreros</a></li>
+                                                    <li on-click="subcategoriaValue('Ropa especializada')"
+                                                        type="button"><a>Ropa especializada</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li on-click="categoriaValue('Deportes y Ocio')" type="button">
+                                                <a>Deportes/Ocio</a>
+                                                <ul>
+                                                    <li on-click="subcategoriaValue('Maquinas')" type="button">
+                                                        <a>Máquinas</a>
+                                                    </li>
+                                                    <li on-click="subcategoriaValue('Deportes acuaticos')"
+                                                        type="button"><a>Deportes acuáticos</a></li>
+                                                    <li on-click="subcategoriaValue('Deportes de montaña')"
+                                                        type="button"><a>Deportes de montaña</a></li>
+                                                    <li on-click="subcategoriaValue('Accesorios deportivos')"
+                                                        type="button"><a>Accesorios deportivos</a></li>
+                                                    <li on-click="subcategoriaValue('Estructuras de exterior')"
+                                                        type="button"><a>Estructuras de exterior</a></li>
+                                                    <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
+
                             <div class="subirFotos">
                                 <div>
                                     <label id="foto1" for="formGroupExampleInput2" class="form-label"><b>Foto
-                                            nº1</b></label>
+                                            nº 1</b></label>
                                 </div>
                                 <div>
                                     <input id="foto_1" type="file" style="font-size: 15px;" #foto1>
                                 </div>
                                 <div>
-                                    <label id="foto2" for="formGroupExampleInput2" class="form-label"><b>Foto nº
-                                            2</b></label>
+                                    <label id="foto2" for="formGroupExampleInput2" class="form-label"><b>Foto nº 2</b></label>
                                 </div>
                                 <div>
                                     <input id="foto_2" type="file" style="font-size: 15px;" #foto2>
                                 </div>
                                 <div>
-                                    <label id="foto3" for="formGroupExampleInput2" class="form-label"><b>Foto
-                                            nº3</b></label>
+                                    <label id="foto3" for="formGroupExampleInput2" class="form-label"><b>Foto nº 3</b></label>
                                 </div>
                                 <div>
                                     <input id="foto_3" type="file" style="font-size: 15px;" #foto3>
                                 </div>
                                 <div>
-                                    <label id="foto4" for="formGroupExampleInput2" class="form-label"><b>Foto
-                                            nº4</b></label>
+                                    <label id="foto4" for="formGroupExampleInput2" class="form-label"><b>Foto nº 4</b></label>
                                 </div>
                                 <div>
                                     <input id="foto_4" type="file" style="font-size: 15px;" #foto4>
