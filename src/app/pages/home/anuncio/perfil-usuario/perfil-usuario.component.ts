@@ -34,6 +34,21 @@ export class PerfilUsuarioComponent implements OnInit {
     })
   }
   }
+  detalleAnuncio(index: number) {
+    //this.productsService.product = product;
+
+    let pos;
+    for (let i = 0; i < this.productosVendedor.length; i++) {
+      if (this.productosVendedor[i].product_id == index) {
+        this.productsService.product = this.productosVendedor[i];
+        pos = i;
+
+      }
+    }
+    this.router.navigate(["/anuncio", pos])
+
+  }
+
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();

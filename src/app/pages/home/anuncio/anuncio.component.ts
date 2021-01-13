@@ -96,8 +96,8 @@ export class AnuncioComponent implements OnInit {
         console.log(data);
         swal.fire({
           position: 'top-end',
-          icon: 'error',
-          title: '¡No se puede guardar como favorito un producto propio!',
+          icon: 'success',
+          title: '¡Favorito anadido!',
           showConfirmButton: false,
           timer: 1500
         })
