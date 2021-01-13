@@ -21,9 +21,9 @@ export class RegisterComponent implements OnInit {
 
 
   insertarUsuario(nickname: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, confirmPassword: HTMLInputElement, foto: HTMLInputElement) {
-    let fotoAssets : string;
+    let fotoAssets: string;
     if (foto.value != null) {
-      fotoAssets = foto.value.replace("C:\\fakepath\\", "/assets/" );
+      fotoAssets = foto.value.replace("C:\\fakepath\\", "/assets/");
     }
     if (password.value == confirmPassword.value) {
       this.userService.postUserR(new Users(nickname.value, password.value, fotoAssets, "", email.value)).subscribe((data: any) => {
@@ -37,25 +37,25 @@ export class RegisterComponent implements OnInit {
             showConfirmButton: false,
             timer: 2000
           })
-          this.router.navigateByUrl('/myprofile');
+          this.router.navigateByUrl('/home');
         } else {
           swal.fire({
             icon: 'error',
             title: 'Uuupps...',
             text: 'El usuario ya existe',
           })
-          
+
         }
 
       })
-      
+
     } else {
       swal.fire({
         icon: 'error',
         title: 'Uuupps...',
         text: 'Las contraseñas no coinciden',
       })
-      
+
     }
 
 
