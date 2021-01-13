@@ -173,3 +173,22 @@ ul, ol {
   color: #FFD119;
   text-decoration: none;
  }
+ .padreSelec{
+    margin-top: -10px;
+	background-color:#fffe91;
+    color:#334257;
+    height: 45px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+	text-decoration:none;
+
+	display:block;
+	font-size: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	width: 200px;
+}
+ .seleccion{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: auto;
+}

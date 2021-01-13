@@ -15,6 +15,9 @@ export class BuscadorComponent implements OnInit {
   public subcategoria: string;
   public precio: number;
   public precio2: number;
+  public seleccionCat : string = "";
+  public seleccionSub : string = "";
+  
   
 
   constructor(public userService: UsersService, public productsService: ProductsService, public router: Router) {}
@@ -26,6 +29,7 @@ export class BuscadorComponent implements OnInit {
       this.productsService.product = data[0];
       this.productsService.products = data;
     })
+    this.seleccionCat = cat;
   }
 
   subcategoriaValue(subcat: string) {
@@ -35,6 +39,7 @@ export class BuscadorComponent implements OnInit {
       this.productsService.product = data[0];
       this.productsService.products = data;
     })
+    this.seleccionSub = subcat;
   }
 
   precioValue(precio: number, precio2: number ) {
