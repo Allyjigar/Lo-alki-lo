@@ -200,3 +200,12 @@ header
   color: #FFD119;
   text-decoration: none; }
 
+#ultimos {
+    font-size: 30px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-top: 5%;
+    color: #334257;
+    margin-bottom: 5%;
+
+}
