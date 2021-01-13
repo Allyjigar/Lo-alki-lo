@@ -103,6 +103,9 @@
           <li (click)="precioValue(150, 1000000)" type="button"><a>Más de 150€</a></li>
         </ul>
       </li>
+      <li class="padreSelec" *ngIf="seleccionCat != '' "><div class="seleccion">  <b>{{seleccionCat}} </b> </div>
+        <li class="padreSelec" *ngIf="seleccionSub != '' "><div class="seleccion">  <b>{{seleccionSub}} </b> </div>
+          <li class="padreSelec" *ngIf="precio != null "><div class="seleccion">  <b>{{precio}} - {{precio2}} </b>  </div>
     </ul>
   </div>
   <div class="container ">

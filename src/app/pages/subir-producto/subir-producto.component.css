@@ -386,10 +386,21 @@ ul, ol {
     font-size: larger;
     color: #334257;
 }
-
-
 .precio
 {
     font-size: large;
 }
-
+.padreSelec{
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    width: 37%;
+    height: auto;
+    border: solid 3px #334257;
+    text-align: center;
+}
+.seleccion{
+    font-size: 18px;
+    margin-left: 5%;
+    margin-right: 5%;
+}

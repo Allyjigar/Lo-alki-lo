@@ -38,6 +38,7 @@ export class PerfilUsuarioComponent implements OnInit {
   ngOnInit(): void {
     let user = this.userService.userAllPages();
     let id  = this.userService.user2.user_id;
+    console.log(this.userService.user2);
     this.productsService.getUserProducts(id).subscribe((data: Products[]) => {
       this.productosVendedor = data;
     })

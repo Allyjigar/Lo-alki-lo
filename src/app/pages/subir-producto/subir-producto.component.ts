@@ -17,6 +17,8 @@ export class SubirProductoComponent implements OnInit {
   public categoria: string;
   public subcategoria: string;
   public user: Users = new Users("", "", "", "");
+  public seleccionCat : string = "";
+  public seleccionSub : string = "";
 
 
   constructor(public productService: ProductsService, public router: Router, public userService: UsersService) {
@@ -27,14 +29,14 @@ export class SubirProductoComponent implements OnInit {
 
     this.categoria = cat;
     console.log(this.categoria)
-
+    this.seleccionCat = cat;
 
   }
   subcategoriaValue(sub: string) {
 
     this.subcategoria = sub;
     console.log(this.subcategoria)
-
+    this.seleccionSub = sub;
 
   }
 

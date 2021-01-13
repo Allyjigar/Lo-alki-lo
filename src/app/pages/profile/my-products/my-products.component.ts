@@ -79,7 +79,7 @@ export class MyProductsComponent implements OnInit {
   setearUser2(nickname: string){
     this.userService.getUserNick(nickname).subscribe((data : Users []) => {
       this.userService.user2 = data[0];
-      console.log(data[0]);
+      console.log(data[0].user_id);
     });
     console.log(this.userService.user2);
   }
@@ -113,6 +113,7 @@ export class MyProductsComponent implements OnInit {
 
   modificarAnuncio(product_id, name, descripcion, foto1, precio, foto2, foto3, foto4) {
     let ruta = foto1;
+    console.log(ruta);
     let ruta2 = foto2;
     let ruta3 = foto3;
     let ruta4 = foto4;
@@ -120,27 +121,43 @@ export class MyProductsComponent implements OnInit {
     let foto2da: string;  
     let foto3era: string;  
     let foto4ta: string;  
-      if ( ruta == null) {
-        foto = "/assets/sin_foto.jpg";
+      if ( ruta == "") {
+        if (this.productoEditado.foto1){
+          foto = this.productoEditado.foto1
+        } else {
+          foto = "/assets/sin_foto.jpg";
+        }        
       } else {
         foto = ruta.replace("C:\\fakepath\\", "/assets/" );
       }
-      if (ruta2 != null){
+      if (ruta2 != ""){
         foto2da = ruta2.replace("C:\\fakepath\\", "/assets/" );
       } else {
-        foto2da = "/assets/sin_foto.jpg";
+        if (this.productoEditado.foto2){
+          foto2da = this.productoEditado.foto2
+        } else {
+          foto2da = "/assets/sin_foto.jpg";
+        }
       }
-      if (ruta3 != null) {
+      if (ruta3 != "") {
         foto3era = ruta3.replace("C:\\fakepath\\", "/assets/" );
       } else {
-        foto3era = "/assets/sin_foto.jpg";
+        if (this.productoEditado.foto3){
+          foto3era = this.productoEditado.foto3;
+        } else {
+          foto3era = "/assets/sin_foto.jpg";
+        }
       }
-      if (ruta4 != null) {
+      if (ruta4 != "") {
         foto4ta = ruta4.replace("C:\\fakepath\\", "/assets/" );
       } else {
-        foto4ta = "/assets/sin_foto.jpg";
+        if (this.productoEditado.foto4){
+          foto4ta = this.productoEditado.foto4;
+        } else {
+          foto4ta = "/assets/sin_foto.jpg";
+        }
       }
-      
+      console.log(product_id);
     this.productsService.putEditProduct(product_id, name, descripcion, precio, foto, foto2da, foto3era, foto4ta).subscribe((data: any) => {
       console.log(data);
       swal.fire({
