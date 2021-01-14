@@ -103,9 +103,12 @@
           <li (click)="precioValue(150, 1000000)" type="button"><a>Más de 150€</a></li>
         </ul>
       </li>
-      <li class="padreSelec" *ngIf="seleccionCat != '' "><div class="seleccion">  <b>{{seleccionCat}} </b> </div>
-        <li class="padreSelec" *ngIf="seleccionSub != '' "><div class="seleccion">  <b>{{seleccionSub}} </b> </div>
-          <li class="padreSelec" *ngIf="precio != null "><div class="seleccion">  <b>{{precio}} - {{precio2}} </b>  </div>
+      <li class="padreSelec" *ngIf="seleccionCat != '' ">
+        <div class="seleccion"> <b>{{seleccionCat}} </b> </div>
+      <li class="padreSelec" *ngIf="seleccionSub != '' ">
+        <div class="seleccion"> <b>{{seleccionSub}} </b> </div>
+      <li class="padreSelec" *ngIf="precio != null ">
+        <div class="seleccion"> <b>{{precio}} - {{precio2}} </b> </div>
     </ul>
   </div>
   <div class="container ">
@@ -129,43 +132,46 @@
       <div class="row">
         <div class="col-12">
           <h2 class="page-header"></h2>
-      </div>
+        </div>
 
         <div class="card-columns center-block">
           <div *ngFor="let pro of productsService.products ; index as i ">
-              <div class="card card-custom">
-                  <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
-                  <div class="card-body" style="overflow-y: auto">
-                      <div class="tituloanuncio">
-                          <div class="rating">
-                              <div>
-                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                  </div>
-                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                  </div>
-                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                  </div>
-                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
-                                  </div>
-                                  <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
-                                  </div>
-                              </div> 
-                          </div>
-                          <h5 class="card-title">{{pro.name}}</h5>
+            <div class="card card-custom">
+              <img class="card-img-top" src="{{pro.foto1}}" alt="Card image cap">
+              <div class="card-body" style="overflow-y: auto">
+                <div class="tituloanuncio">
+                  <div class="rating">
+                    <div>
+                      <div class="fa fa-star estrella"
+                        [ngClass]="pro.media == 1 || pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
                       </div>
-                      <p class="card-text">{{pro.descripcion}}</p>
+                      <div class="fa fa-star estrella"
+                        [ngClass]="pro.media == 2 || pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                      </div>
+                      <div class="fa fa-star estrella"
+                        [ngClass]="pro.media == 3 || pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                      </div>
+                      <div class="fa fa-star estrella"
+                        [ngClass]="pro.media == 4 || pro.media == 5 ? 'selected' : 'estrella'">
+                      </div>
+                      <div class="fa fa-star estrella" [ngClass]="pro.media == 5 ? 'selected' : 'estrella'">
+                      </div>
+                    </div>
                   </div>
-                  <div class="card-footer">
-                      <small class="text-muted" id="precio">Precio : {{pro.precio}} &nbsp;€</small>
-                      <button (click)="detalleAnuncio(pro.product_id)" id="interesa"><svg width="5px"
-                              height="30px" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
-                              xmlns="http://www.w3.org/2000/svg">
-                          </svg><b> Me interesa</b></button>
-
-                  </div>
+                  <h5 class="card-title">{{pro.name}}</h5>
+                </div>
+                <p class="card-text">{{pro.descripcion}}</p>
               </div>
+              <div class="card-footer">
+                <small class="text-muted" id="precio">Precio : {{pro.precio}} &nbsp;€</small>
+                <button (click)="detalleAnuncio(pro.product_id)" id="interesa"><svg width="5px" height="30px"
+                    viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  </svg><b> Me interesa</b></button>
+
+              </div>
+            </div>
           </div>
-      </div>
+        </div>
         <!-- <div class="card-columns center-block">
           <div *ngFor="let pro of productsService.products ; index as i ">
             <div class="card card-custom">

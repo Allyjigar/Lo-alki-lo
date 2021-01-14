@@ -306,8 +306,8 @@ app.put("/products/valoraciones", function(request,response) {
 app.post("/chat", function(request, response) {
     let params = new Array (String(request.body.emisor_id), String(request.body.receptor_id),
     String(request.body.nickname_emisor), String(request.body.foto_emisor), 
-    String(request.body.nickname_receptor), String(request.body.foto_receptor));
-    let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) VALUES (?, ?, ?, ?, ?, ?)";
+    String(request.body.nickname_receptor), String(request.body.foto_receptor), String(request.body.emisor_id), String(request.body.receptor_id), String(request.body.emisor_id), String(request.body.receptor_id));
+    let sql = "INSERT INTO chat (emisor_id, receptor_id, nickname_emisor, foto_emisor, nickname_receptor, foto_receptor) SELECT * FROM (SELECT ? AS emisor_id, ? AS receptor_id, ? AS nickname_emisor, ? AS foto_emisor, ? AS nickname_receptor, ? AS foto_receptor) AS tmp WHERE NOT EXISTS (SELECT emisor_id, receptor_id FROM chat WHERE (emisor_id = ? AND receptor_id = ?) OR (receptor_id = ? AND emisor_id = ?)) LIMIT 1";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
@@ -318,6 +318,7 @@ app.post("/chat", function(request, response) {
         };
     });
 });
+
 /*Checkeados y ya en servicio */
 
 
