@@ -159,3 +159,11 @@ text-decoration: none; }
   height: 500px;
   object-fit: cover;
 }
+
+#fechaInicio {
+  font-size: 13px;
+}
+#fechaFin {
+  font-size: 13px;
+
+}

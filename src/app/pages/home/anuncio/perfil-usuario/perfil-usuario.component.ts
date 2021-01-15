@@ -13,26 +13,37 @@ import swal from 'sweetalert2';
   styleUrls: ['./perfil-usuario.component.css']
 })
 export class PerfilUsuarioComponent implements OnInit {
-  public productosVendedor  : Products[];
- 
-  constructor(public productsService: ProductsService,public userService : UsersService, public router : Router, public apiChatService: ChatService) { }
+  public productosVendedor: Products[];
+
+  constructor(public productsService: ProductsService, public userService: UsersService, public router: Router, public apiChatService: ChatService) { }
 
   nuevoChat() {
-    if(this.userService.user.user_id != this.userService.user2.user_id){
-    this.apiChatService.postChat(new Chat(this.userService.user.user_id, this.userService.user2.user_id, this.userService.user.nickname, this.userService.user.foto, this.userService.user2.nickname, this.userService.user2.foto)).subscribe((data) => {
-      console.log(data);
-    })
-    this.router.navigateByUrl('/chat');
-  }
-  else {
-    swal.fire({
-      position: 'top-end',
-      icon: 'error',
-      title: '¡No se pueden contactar con uno mismo!',
-      showConfirmButton: false,
-      timer: 1500
-    })
-  }
+    if (this.userService.user == null) {
+      swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: '¡Debes estar logueado para poder contactar!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.router.navigateByUrl('/login');
+    } else {
+
+      if (this.userService.user.user_id != this.userService.user2.user_id) {
+        this.apiChatService.postChat(new Chat(this.userService.user.user_id, this.userService.user2.user_id, this.userService.user.nickname, this.userService.user.foto, this.userService.user2.nickname, this.userService.user2.foto)).subscribe((data) => {
+          console.log(data);
+        })
+        this.router.navigateByUrl('/chat');
+      } else {
+        swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '¡No se pueden contactar con uno mismo!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
   }
   detalleAnuncio(index: number) {
     //this.productsService.product = product;
@@ -52,12 +63,12 @@ export class PerfilUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     let user = this.userService.userAllPages();
-    let id  = this.userService.user2.user_id;
+    let id = this.userService.user2.user_id;
     console.log(this.userService.user2);
     this.productsService.getUserProducts(id).subscribe((data: Products[]) => {
       this.productosVendedor = data;
     })
-   
+
   }
 
 }

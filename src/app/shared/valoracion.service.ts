@@ -4,6 +4,7 @@ import { Products } from '../models/products';
 import { Renting } from '../models/renting';
 import { ProductsService } from './products.service';
 import { UsersService } from './users.service';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,13 @@ export class ValoracionService {
     this.rent.product_id = this.productsService.product.product_id;
     console.log(this.rent);
     this.productsService.putProductAd(this.rent).subscribe((data) => { console.log(data)});
-    alert("Has valorado con éxito el producto: " + this.productsService.product.name + "." + "\n" + "Tu valoración ha sido de: " + this.puntuacion + " sobre 5 ;)");
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Has valorado con éxito el producto' + ' ' + this.productsService.product.name + '.' + '\n' + 'Tu valoración ha sido de' + ' ' + this.puntuacion + ' ' + 'sobre 5',
+      showConfirmButton: false,
+      timer: 4000
+    })
+    
   }
 }

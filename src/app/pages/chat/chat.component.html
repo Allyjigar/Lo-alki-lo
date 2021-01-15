@@ -87,12 +87,12 @@
                         <div class="chat-panel">
                             <div class="row no-gutters" *ngFor="let mensaje of mensajes">
                                 <div class="col-md-3 offset-md-9" *ngIf="mensaje.user_id == userService.user.user_id;">
-                                    <div class="chat-bubble chat-bubble--right">
+                                    <div class="chat-bubble chat-bubble--right" style="font-size: 13px;">
                                         {{mensaje.mensaje}}
                                     </div>
                                 </div>
                                 <div class="col-md-3" *ngIf="mensaje.user_id != userService.user.user_id"> 
-                                    <div class="chat-bubble chat-bubble--left">
+                                    <div class="chat-bubble chat-bubble--left" style="font-size: 13px;">
                                         {{mensaje.mensaje}}
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div id="escribe" class="chat-box-tray">
-                                <input type="text" placeholder="Type your message here..." #mensaje id="inputMensaje">
+                                <input type="text" placeholder="Type your message here..." #mensaje id="inputMensaje" style="font-size: 13px;">
                                 <button type="button" (click)="nuevoMensaje(mensaje, chatSelected.chat_id)" class="send">Send</button>
                             </div>
                         </div>
