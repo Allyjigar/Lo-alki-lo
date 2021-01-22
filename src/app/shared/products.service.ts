@@ -26,6 +26,7 @@ export class ProductsService {
   private url8 = "http://localhost:9191/products/renting";
   private url9 = "http://localhost:9191/products/rentingid";
   private url10 = "http://localhost:9191/products/search/precio";
+  private url11 = "http://localhost:9191/search/productsub";
 
 
 
@@ -81,7 +82,10 @@ export class ProductsService {
   }
   //Por nombre/categoria/subcategoria (búsqueda)
   getSearchProduct(name: string) {
-    return this.http.post(this.url6,{name:name});
+    return this.http.post(this.url6,{name : name});
+  }
+  getSearchProductSub(name2: string){
+    return this.http.post(this.url11,{name2 : name2});
   }
   //Por precio
   getSearchProductPrice(precio: number, precio2: number) {

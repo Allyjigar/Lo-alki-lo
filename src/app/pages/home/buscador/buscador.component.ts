@@ -30,16 +30,19 @@ export class BuscadorComponent implements OnInit {
       this.productsService.products = data;
     })
     this.seleccionCat = cat;
+    console.log(cat);
   }
 
   subcategoriaValue(subcat: string) {
 
     this.subcategoria = subcat;
-    this.productsService.getSearchProduct(this.subcategoria).subscribe((data: Products[]) => {
+    this.productsService.getSearchProductSub(this.subcategoria).subscribe((data: Products[]) => {
       this.productsService.product = data[0];
       this.productsService.products = data;
+      
     })
     this.seleccionSub = subcat;
+    console.log(subcat);
   }
 
   precioValue(precio: number, precio2: number ) {

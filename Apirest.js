@@ -164,9 +164,23 @@ app.get("/products/search/precio", function (request, response) {
 
 /* Buscador */
 app.post("/search/products", function (request, response) {
-    let name = String( '%' +request.body.name+ '%');
+    let name = String( '%' + request.body.name + '%');
     let params = new Array(name, name, name, name);
     let sql = "SELECT * FROM product WHERE name LIKE ? OR descripcion LIKE ? OR categoria LIKE ? OR subcategoria LIKE ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de producto por el Buscador");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+app.post("/search/productsub", function (request, response) {
+    let name2 = String( '%' + request.body.name2 + '%');
+    let params = new Array(name2);
+    let sql = "SELECT * FROM product WHERE subcategoria LIKE ?";  
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
