@@ -22,8 +22,14 @@ export class UsersService {
   getUserNick(nickname: string) {
     return this.http.get(this.url2 + "?nickname=" + nickname);
   }
-  postUserR(newUser : Users) {
-    return this.http.post(this.urlRegister, newUser);
+  postUserR(nickname, password, foto, email) {
+    let body = {
+      nickname: nickname, 
+      password: password, 
+      foto: foto, 
+      email: email
+    }
+    return this.http.post(this.urlRegister, body);
   }
   postUserL(newUser : Users) {
     return this.http.post(this.urlLogin, newUser);
@@ -39,7 +45,7 @@ export class UsersService {
       this.user = null;
       localStorage.setItem('UserId', "null");
       console.log(this.user);
-    } //Quedó realizado el Cerrar Sesión, pero el nombre a la derecha arriba no está bien del todo. Cuando tenemos sesión cerrada y entramos a un anuncio nos inicia la sesión de ese anuncio...
+    } 
   }
   async userAllPages() {
     if (this.user == null) {
