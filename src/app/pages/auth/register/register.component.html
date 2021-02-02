@@ -1,71 +1,85 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Registro</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='register.component.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src='main.js'></script>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Registro</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='register.component.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src='main.js'></script>
 </head>
+
 <body>
   <div>
     <img id="logo" src="/assets/logo.jpg" routerLink="/home">
   </div>
-  
+
   <form #userForm="ngForm">
-  <div>  
-    <label id="usuario_label"></label>
-    <input id="usuario" type="text" placeholder="Usuario" name="nickname" class="form-control" [(ngModel)]="user.nickname" #nickname="ngModel"
-    [ngClass]="{'is-invalid': userForm.submitted && nickname.invalid }" nickname required>
-    <div *ngIf="userForm.submitted && nickname.invalid" class="invalid-feddback">
-      <div *ngIf="nickname.errors.required" style="margin-left: 26%; font-size: 13px;">El nombre de usuario es obligatorio</div>
+    <div class="form-group">
+      <label id="usuario_label" class="form-label" for="nickname"></label>
+      <input id="usuario" type="text" placeholder="Usuario" name="nickname" class="form-control"
+        [(ngModel)]="user.nickname" #nickname="ngModel"
+        [ngClass]="{ 'is-invalid': userForm.submitted && nickname.invalid }" nickname required>
+      <div class="invalid-feedback" *ngIf="userForm.submitted && nickname.invalid">
+        <div *ngIf="nickname.errors?.required" style="margin-left: 26%; font-size: 13px; color: black">El nombre de
+          usuario es
+          obligatorio</div>
+      </div>
     </div>
-  </div>
-  <div>  
-    <label id="contra_label"></label>
-    <input id="email" type="email"  placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email" #email="ngModel" 
-    [ngClass]="{'is-invalid': userForm.submitted && email.invalid }" email required>
-    <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
-      <div *ngIf="email.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La dirección de email es obligatoria</div>
-      <div *ngIf="email.errors.email" style="margin-left: 26%; font-size: 13px; color: black">La dirección de email es incorrecta</div>
+    <div class="form-group">
+      <label id="contra_label" class="form-label" for="email"></label>
+      <input id="email" type="email" placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email"
+        #email="ngModel" [ngClass]="{'is-invalid': userForm.submitted && email.invalid }" email required>
+      <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors?.required" style="margin-left: 26%; font-size: 13px; color: black">La dirección de
+          email es obligatoria</div>
+        <div *ngIf="email.errors?.email" style="margin-left: 26%; font-size: 13px; color: black">La dirección de email
+          es incorrecta</div>
+      </div>
     </div>
-  </div> 
-  <div>  
-    <label id="usuario_label"></label>
-    <input id="contraseña" type="password" placeholder="Contraseña" name="password" class="form-control" [(ngModel)]="user.password" #password="ngModel"
-    [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" minlength="6" required>
-    <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
-      <div *ngIf="password.errors.required" style="margin-left: 26%; font-size: 13px; color: black">La contraseña es obligatoria</div>
-      <div *ngIf="password.errors.minlength" style="margin-left: 26%; font-size: 13px; color: black">La contraseña debe tener al menos 6 caracteres</div>
-    </div>  
-  </div> 
-  <div>  
-    <label id="contra_label"></label>
-    <input id="conf_contraseña" type="password" placeholder="Confirmar contraseña" name="confirmPassword" [(ngModel)]="user.confirmPassword" #userConfirmPassword="ngModel" class="form-control" 
-    [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" required>
-    <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
-      <div *ngIf="confirmPassword.errors.required" style="margin-left: 26%; font-size: 13px; color: black">Confirme su contraseña, por favor</div> 
-    </div>  
-  </div>
-  <div>
-    <label id="foto_perfil"><b>Foto de perfil</b></label>
-  </div>
-  <div>
-    <input id="foto" type="file" name="foto" [(ngModel)]="user.foto" #foto="ngModel">
-  </div>
+    <div class="form-group">
+      <label id="usuario_label" class="form-label" for="password"></label>
+      <input id="contraseña" type="password" placeholder="Contraseña" name="password" class="form-control"
+        [(ngModel)]="user.password" #password="ngModel"
+        [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" minlength="6" required>
+      <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors?.required" style="margin-left: 26%; font-size: 13px; color: black">La contraseña es
+          obligatoria</div>
+        <div *ngIf="password.errors?.minlength" style="margin-left: 26%; font-size: 13px; color: black">La contraseña
+          debe tener al menos 6 caracteres</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="contra_label" class="form-label"></label>
+      <input id="conf_contraseña" type="password" placeholder="Confirmar contraseña" name="confirmPassword"
+        [(ngModel)]="user.confirmPassword" #userConfirmPassword="ngModel" class="form-control"
+        [ngClass]="{'is-invalid': userForm.submitted && password.invalid }" required>
+      <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="confirmPassword.errors?.required" style="margin-left: 26%; font-size: 13px; color: black">Confirme
+          su contraseña, por favor</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="foto_perfil" class="form-label"><b>Foto de perfil</b></label>
+    </div>
     <div>
-      <button id="enviar" type="submit" on-click="insertarUsuario(nickname, email, password, userConfirmPassword, foto)"><b>Enviar</b></button>
+      <input id="foto" type="file" name="foto" [(ngModel)]="user.foto" #foto="ngModel">
+    </div>
+    <div class="form-group">
+      <button id="enviar" type="submit" 
+        (click)="insertarUsuario(nickname, email, password, userConfirmPassword, foto)"><b>Enviar</b></button>
     </div>
   </form>
-    <div>
-      <p id="registro" routerLink="/login"><b>¿Ya estás registrado?</b></p>
-    </div>
-    <div>
-      <p id="margen">&nbsp;</p>
-    </div>
-  
-</body>
-</html>
+  <div>
+    <p id="registro" routerLink="/login"><b>¿Ya estás registrado?</b></p>
+  </div>
+  <div>
+    <p id="margen">&nbsp;</p>
+  </div>
 
+</body>
+
+</html>

@@ -97,11 +97,26 @@ app.get("/user", function (request, response) {
     });
 });
 //  nuevo post/register para comprobar nickname antes
+// app.post("/users/register", function (request, response) {
+//     console.log(request);
+//     let params = new Array(String(request.body.name), String(request.body.password), String(request.body.email),
+//         String(request.body.direccion), String(request.body.ciudad), String(request.body.cp), String(request.body.foto), String(request.body.nickname), String(request.body.nickname));
+//     let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) SELECT * FROM (SELECT ? AS name, ? AS password, ? AS email, ? AS direccion, ? AS ciudad, ? AS cp, ? AS foto, ? AS nickname ) AS tmp WHERE NOT EXISTS (SELECT nickname FROM user WHERE nickname=?) LIMIT 1";
+//     connection.query(sql, params, function (err, result) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("Nuevo Usuario");
+//             console.log(result);
+//             response.send(result);
+//         };
+//     });
+// });
 app.post("/users/register", function (request, response) {
     console.log(request);
-    let params = new Array(String(request.body.name), String(request.body.password), String(request.body.email),
-        String(request.body.direccion), String(request.body.ciudad), String(request.body.cp), String(request.body.foto), String(request.body.nickname), String(request.body.nickname));
-    let sql = "INSERT INTO user (name, password, email, direccion, ciudad , cp, foto, nickname) SELECT * FROM (SELECT ? AS name, ? AS password, ? AS email, ? AS direccion, ? AS ciudad, ? AS cp, ? AS foto, ? AS nickname ) AS tmp WHERE NOT EXISTS (SELECT nickname FROM user WHERE nickname=?) LIMIT 1";
+    let params = new Array(String(request.body.nickname), String(request.body.password), String(request.body.foto),String(request.body.email),
+         String(request.body.nickname));
+let sql = "INSERT INTO user (nickname, password, foto, email) SELECT * FROM (SELECT ? AS nickname, ? AS password, ? AS foto, ? AS email) AS tmp WHERE NOT EXISTS (SELECT nickname FROM user WHERE nickname=?) LIMIT 1";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);
