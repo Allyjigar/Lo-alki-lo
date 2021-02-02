@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidateEqualModule } from 'ng-validate-equal';
 import { ProductsService } from './shared/products.service';
+import { FechaPipe } from './pipes/fecha.pipe';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ProductsService } from './shared/products.service';
     PerfilUsuarioComponent,
     BuscadorComponent,
     MyProfileComponent,
-    ValoracionesComponent
+    ValoracionesComponent,
+    FechaPipe
   ],
   imports: [
     BrowserModule,

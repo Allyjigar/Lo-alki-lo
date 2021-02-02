@@ -84,9 +84,7 @@ export class ProductsService {
   getSearchProduct(name: string) {
     return this.http.post(this.url6,{name : name});
   }
-  getSearchProductSub(name2: string){
-    return this.http.post(this.url11,{name2 : name2});
-  }
+
   //Por sub y cat
   getSearchProductSub(name2: string){
     return this.http.post(this.url11,{name2 : name2});
