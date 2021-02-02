@@ -25,61 +25,36 @@
       <app-sidebar></app-sidebar>
     </aside>
     <article>
-      <div class="tarjetas">
-        <div class="row">
-          <div class="card-columns center-block">
-            <div *ngFor="let product of favoritos">
-              <div class="card card-custom">
-                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
-                <div class="card-body" style="overflow-y: auto">
-                  <div class="tituloanuncio">
-
-                    <h5 class="card-title">{{product.name}}</h5>
-                    <div *ngIf="userService.user != null" class="heart">
-                      <i class="col-md-2" style="margin-top: 10px;"
-                        [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'"
-                        (click)="eliminarFav(product.product_id)"></i>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
-                    <div>                            
-                        <button (click)="detalleAnuncio(product.product_id)" id="interesa"><b> Ver Anuncio</b></button>
-                    </div>
-                    </div>
-                  </div>
+      <div class="tarjetas alqui">
+        <div *ngFor="let product of favoritos">
+            <div class="card card-custom">
+                <!--(click)="selectProduct(pro)"-->
+                <img class="card-img-top" src="{{product.foto1}}" alt="Foto Producto"
+                    style="max-height: 200px; width:auto">
+                <div class="card-body">
+                    <div class="tituloanuncio">
+                        <h5 class="card-title" style="font-size: 15px;">{{product.name}}</h5>
+                        <div *ngIf="userService.user != null" class="heart">
+                          <i class="col-md-2" style="margin-top: -25px;"
+                            [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'"
+                            (click)="eliminarFav(product.product_id)"></i>
+                        </div>
+                   </div> 
                 </div>
-              </div>
+                <div class="card-footer ">
+                    <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
+                    <button id="interesa" (click)="detalleAnuncio(product.product_id)"><b>Me
+                            interesa</b></button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
       <div class="letter" *ngIf="misFavoritosNO">
         <div class="card-body">
           <h1 class="card-title">Aún no has guardado productos como favoritos.</h1>
         </div>
       </div>   
-      <!-- <div class="row" style="margin-top: 10px; margin-left: 12%">
-        <div class="card-columns center-block">
-        <div *ngFor="let product of favoritos; index as i;">
-          <div class="col 4">
-            <div class="card-body">
-              <div class="card">
-                <img class="card-img-top" src="{{product.foto1}}" alt="Card image cap">
-                <div class="card-body">
-                  <h5 id="nombre">{{product.name}}&nbsp; &nbsp;</h5>
-                </div>
-                <div class="card-footer">
-                  <small id="precio">Precio: {{product.precio}} &nbsp;€</small>
-                  <button (click)="detalleAnuncio(product.product_id)" id="interesa"><b>Me interesa</b></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div> -->
-
-    </article>
+      </article>
   </main>
   <div class="separador"></div>
   <hr>

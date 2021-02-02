@@ -87,6 +87,10 @@ export class ProductsService {
   getSearchProductSub(name2: string){
     return this.http.post(this.url11,{name2 : name2});
   }
+  //Por sub y cat
+  getSearchProductSub(name2: string){
+    return this.http.post(this.url11,{name2 : name2});
+  }
   //Por precio
   getSearchProductPrice(precio: number, precio2: number) {
     return this.http.get(this.url10 + "?precio=" + precio + "&precio2=" + precio2);

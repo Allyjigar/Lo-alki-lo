@@ -192,6 +192,21 @@ app.post("/search/productsub", function (request, response) {
     });
 });
 
+app.post("/search/productsub", function (request, response) {
+    let name2 = String( '%' + request.body.name2 + '%');
+    let params = new Array(name2);
+    let sql = "SELECT * FROM product WHERE subcategoria LIKE ?";
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de producto por el Buscador");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+
 /*Checkeado */
 
 /*Productos del usuario */
