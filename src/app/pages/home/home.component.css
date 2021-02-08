@@ -12,6 +12,9 @@
     max-height: 450px;
     box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
   }
+.card-footer{
+    height: 50px;
+  }
 .card-img-top {
     height: 200px;
     min-height: 200px;

@@ -175,9 +175,40 @@ app.get("/products/search/precio", function (request, response) {
     });
 });
 
+// Buscador por subcategoría
+app.get("/search/productsub", function (request, response) {
+    let name2 = String(request.query.subcategoria);
+    let params = String (name2);
+    let sql = "SELECT * FROM product WHERE subcategoria = ?";  
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de producto por subcategoria");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
+
+// Buscador por categoría
+app.get("/search/productcat", function (request, response) {
+    let name = String(request.query.categoria);
+    let params = String (name);
+    let sql = "SELECT * FROM product WHERE categoria = ?";  
+    connection.query(sql, params, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Solicitud de producto por categoria");
+            console.log(result);
+            response.send(result);
+        };
+    });
+});
 
 
-/* Buscador */
+/* Buscador barra */
 app.post("/search/products", function (request, response) {
     let name = String( '%' + request.body.name + '%');
     let params = new Array(name, name, name, name);
@@ -192,35 +223,7 @@ app.post("/search/products", function (request, response) {
         };
     });
 });
-app.post("/search/productsub", function (request, response) {
-    let name2 = String( '%' + request.body.name2 + '%');
-    let params = new Array(name2);
-    let sql = "SELECT * FROM product WHERE subcategoria LIKE ?";  
-    connection.query(sql, params, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de producto por el Buscador");
-            console.log(result);
-            response.send(result);
-        };
-    });
-});
 
-app.post("/search/productsub", function (request, response) {
-    let name2 = String( '%' + request.body.name2 + '%');
-    let params = new Array(name2);
-    let sql = "SELECT * FROM product WHERE subcategoria LIKE ?";
-    connection.query(sql, params, function (err, result) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Solicitud de producto por el Buscador");
-            console.log(result);
-            response.send(result);
-        };
-    });
-});
 
 /*Checkeado */
 
@@ -434,7 +437,7 @@ app.post("/mensajes", function (request, response) {
 app.get("/favoritos", function (request, response) {
     let id = String(request.query.user_id);
     let params = new Array(id);
-    let sql = "SELECT product.name, product.foto1, product.precio, product.product_id FROM favourites JOIN product ON(product.product_id = favourites.product_id) WHERE favourites.user_id = ?";
+    let sql = "SELECT product.name, product.foto1, product.precio, product. descripcion, product.product_id FROM favourites JOIN product ON(product.product_id = favourites.product_id) WHERE favourites.user_id = ?";
     connection.query(sql, params, function (err, result) {
         if (err) {
             console.log(err);

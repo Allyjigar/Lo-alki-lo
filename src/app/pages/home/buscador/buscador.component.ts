@@ -22,10 +22,11 @@ export class BuscadorComponent implements OnInit {
 
   constructor(public userService: UsersService, public productsService: ProductsService, public router: Router) {}
 
+
   categoriaValue(cat: string) {
 
     this.categoria = cat;
-    this.productsService.getSearchProduct(this.categoria).subscribe((data: Products[]) => {
+    this.productsService.getSearchProductCat(this.categoria).subscribe((data: Products[]) => {
       this.productsService.product = data[0];
       this.productsService.products = data;
     })
@@ -34,16 +35,20 @@ export class BuscadorComponent implements OnInit {
   }
 
   subcategoriaValue(subcat: string) {
+    this.productsService.products = [];
+    console.log(this.productsService.products);
 
     this.subcategoria = subcat;
     this.productsService.getSearchProductSub(this.subcategoria).subscribe((data: Products[]) => {
-      this.productsService.product = data[0];
+      // this.productsService.product = data[0];
       this.productsService.products = data;
       
     })
+    console.log(this.productsService.products);
     this.seleccionSub = subcat;
     console.log(subcat);
   }
+
 
   precioValue(precio: number, precio2: number ) {
 

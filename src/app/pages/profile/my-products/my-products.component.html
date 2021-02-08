@@ -84,7 +84,7 @@
                         </div>
                             <div class="card-footer">
                                 <small class="text-muted" id="precio">Precio {{product.precio}} €</small>
-                                <svg (click)="productoEdit(product.product_id)" xmlns="http://www.w3.org/2000/svg"
+                                <svg (click)="productoEdit(product.product_id)"  xmlns="http://www.w3.org/2000/svg"
                                     width="16" data-toggle="modal" data-target="#exampleModal" height="16"
                                     fill="currentColor" class="bi bi-tools"
                                     style="color: #334257; margin-left: 20%; cursor: pointer;" viewBox="0 0 16 16">
@@ -279,22 +279,24 @@
                     <div *ngFor="let product of misPeticiones; index as i">
                         <div class="card" style="width: 18rem; margin-top: 10%;">
                             <img src="{{product.foto1}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Producto solicitado: {{product.name}}</h5>
-                            </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Solicitud enviada por: {{product.nickname}}</li>
-                                <li class="list-group-item">Precio: {{product.precio}} €</li>
-                                <li class="list-group-item">Fecha y hora de inicio: {{product.date | fecha}}</li>
-                                <li class="list-group-item">Duración: {{product.duration}}</li>
+                                <li class="list-group-item"><b>Producto solicitado:</b> {{product.name}}</li>
+                                <li class="list-group-item"><b>Solicitud enviada por:</b> {{product.nickname}}</li>
+                                <li class="list-group-item"><b>Precio:</b> {{product.precio}} <b>€</b></li>
+                                <li class="list-group-item"><b>Fecha y hora de inicio:</b> {{product.date | fecha}}</li>
+                                <li class="list-group-item"><b>Duración:</b> {{product.duration}} días</li>
                             </ul>
-                            <div class="card-body">
-                                <a (click)="aceptarSolicitud(product.renting_id)"
+                            <div id="botones">
+                                <button id="solicitudOk" (click)="aceptarSolicitud(product.renting_id)"><b>Aceptar solicitud &nbsp;</b><img
+                                        style="width: 15px; height: 15px;" src="/assets/cheque.png"></button>
+                                <button id="solicitudKo" (click)="rechazarSolicitud(product.renting_id)"><b>Rechazar solicitud &nbsp;</b><img style="width: 15px; height: 15px;"
+                                    src="/assets/no-hay-entrada.png"></button>
+                                <!-- <a (click)="aceptarSolicitud(product.renting_id)"
                                     style="margin-left: 20%; cursor: pointer;" class="card-link"><img
                                         style="width: 20px; height: 20px;" src="/assets/cheque.png"></a>
                                 <a (click)="rechazarSolicitud(product.renting_id)" style="cursor:pointer;"
                                     class="card-link"><img style="width: 20px; height: 20px;"
-                                        src="/assets/no-hay-entrada.png"></a>
+                                        src="/assets/no-hay-entrada.png"></a> -->
                             </div>
                         </div>
                     </div>

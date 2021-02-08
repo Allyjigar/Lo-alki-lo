@@ -39,6 +39,14 @@
                             [ngClass]="favoritoSelect == false ? 'fa fa-heart-o fa_custom' : 'fa fa-heart fa_custom'"
                             (click)="eliminarFav(product.product_id)"></i>
                         </div>
+                        <div>
+                          <p style="
+                          overflow:hidden;
+                          display: -webkit-box;
+                          -webkit-line-clamp: 4;
+                          -webkit-box-orient: vertical;
+                          text-align: justify; font-size: 14px;">{{product.descripcion}}</p>
+                        </div>
                    </div> 
                 </div>
                 <div class="card-footer ">

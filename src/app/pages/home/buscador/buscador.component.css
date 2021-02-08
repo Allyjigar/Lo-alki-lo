@@ -6,10 +6,12 @@
 
 #laterali
 {
-    width: 200em;
+    width: 128em;
 	background-color: #334257 !important;
 }
-
+.container {
+    min-height: 500px;
+}
 ul, ol {
 	list-style:none;
 }
@@ -24,11 +26,12 @@ ul, ol {
 	background-color:#334257;
 	color:#fffe91;
 	text-decoration:none;
-	padding:10px 12px;
+	padding:20px 10px 10px 10px;
 	display:block;
 	font-size: 15px;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	width: 180%;
+    width: 180%;
+    height: 60px;
 }
 
 .nav li a:hover {
@@ -99,6 +102,10 @@ ul, ol {
     float:right;
     font-size: large;
     border-color: #fffe91;
+}
+.card-footer
+{
+    height: 50px;
 }
 .card-text
 {
@@ -177,15 +184,15 @@ ul, ol {
     margin-top: -10px;
 	background-color:#fffe91;
     color:#334257;
-    height: 45px;
+    height: 60px;
     padding-bottom: 5px;
-    padding-top: 10px;
+    padding-top: 20px;
 	text-decoration:none;
 
 	display:block;
 	font-size: 15px;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	width: 200px;
+	width: 250px;
 }
  .seleccion{
     margin-left: 5%;

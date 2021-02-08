@@ -16,6 +16,10 @@ body{
   box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
 
 }
+#carouselExampleControls
+{
+  max-height: 510px;
+}
 .card-text
 {
   font-size: 12px;
@@ -156,7 +160,7 @@ text-decoration: none; }
 /*Carrusel Fotos*/
 .carousel-inner img{
   align-items: center;
-  height: 500px;
+  max-height: 500px;
   object-fit: cover;
 }
 

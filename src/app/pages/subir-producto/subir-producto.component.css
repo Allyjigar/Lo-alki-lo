@@ -97,7 +97,7 @@
     border-radius: 15px;
 }
 main{
-    height: 775px;
+    min-height: 775px;
     width: 100%;
     margin: auto;
     margin-bottom: 1px;

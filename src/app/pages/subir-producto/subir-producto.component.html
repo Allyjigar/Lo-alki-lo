@@ -35,14 +35,14 @@
                                 <input id="usuario" type="text" class="form-control" id="formGroupExampleInput"
                                     style="font-size: 15px;" #precio>
                             </div>
-                            <label>Elige categoría y subcategoría: </label>
+                            <label>Elige categoría: </label>
                             <div> &nbsp;</div>
                             <div id="header">
                                 <ul class="nav">
                                     <li><a><b>CATEGORÍA</b></a>
                                         <ul>
                                             <li on-click="categoriaValue('Motor')" type="button"><a>Motor</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Coches')" type="button">
                                                         <a>Coches</a>
                                                     </li>
@@ -59,11 +59,11 @@
                                                     </li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                             <li on-click="categoriaValue('Inmobiliaria')" type="button">
                                                 <a>Inmobiliaria</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Pisos')" type="button"><a>Pisos</a>
                                                     </li>
                                                     <li on-click="subcategoriaValue('Casas')" type="button"><a>Casas</a>
@@ -81,11 +81,11 @@
                                                         type="button"><a>Espacios exteriores</a></li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                             <li on-click="categoriaValue('Informatica y Electronica')" type="button">
                                                 <a>Informática/Electrónica</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Ordenadores')" type="button">
                                                         <a>Ordenadores</a></li>
                                                     <li on-click="subcategoriaValue('Impresoras')" type="button">
@@ -99,11 +99,11 @@
                                                         <a>Proyectores</a></li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                             <li on-click="categoriaValue('Hogar y Jardin')" type="button"><a>Hogar y
                                                     jardín</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Electrodomesticos')" type="button">
                                                         <a>Electrodomésticos</a></li>
                                                     <li on-click="subcategoriaValue('Herramientas')" type="button">
@@ -116,11 +116,11 @@
                                                         <a>Jardinería</a></li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                             <li on-click="categoriaValue('Moda y Complementos')" type="button">
                                                 <a>Moda/Complementos</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Trajes de fiesta')" type="button">
                                                         <a>Trajes de fiesta</a></li>
                                                     <li on-click="subcategoriaValue('Bolsos y maletas')" type="button">
@@ -134,11 +134,11 @@
                                                         type="button"><a>Ropa especializada</a></li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                             <li on-click="categoriaValue('Deportes y Ocio')" type="button">
                                                 <a>Deportes/Ocio</a>
-                                                <ul>
+                                                <!-- <ul>
                                                     <li on-click="subcategoriaValue('Maquinas')" type="button">
                                                         <a>Máquinas</a>
                                                     </li>
@@ -152,13 +152,13 @@
                                                         type="button"><a>Estructuras de exterior</a></li>
                                                     <li on-click="subcategoriaValue('Otros')" type="button"><a>Otros</a>
                                                     </li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
-                           <div class="padreSelec" *ngIf="seleccionCat != '' "> <div class="seleccion"> {{seleccionCat}} </div> <div class="seleccion"> {{seleccionSub}}</div></div>
+                           <div class="padreSelec" *ngIf="seleccionCat != '' "> <div class="seleccion"> {{seleccionCat}} </div></div>
                             <div class="subirFotos">
                                 <div>
                                     <label id="foto1" for="formGroupExampleInput2" class="form-label"><b>Foto
