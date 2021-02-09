@@ -47,6 +47,7 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.sidebarNumber = 0;
     let user = this.userService.userAllPages();
     
   }
