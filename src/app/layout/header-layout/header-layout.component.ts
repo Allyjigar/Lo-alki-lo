@@ -27,6 +27,7 @@ export class HeaderLayoutComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    console.log(this.userService.user);
   }
 
 }

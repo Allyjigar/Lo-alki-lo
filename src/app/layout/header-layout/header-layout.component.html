@@ -11,6 +11,7 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <header>
+  <div>
   <a routerLink="/home"> <img src="/assets/logo.jpg" id="logo"> </a>
   <input id="buscador_principal" placeholder="Buscar un producto en todas las categorías" #producto>
   <button id="buscar" routerLink="/buscador" (click)="buscarProducto(producto)"><svg width="1em" height="1em"
@@ -41,6 +42,7 @@
       </svg> &nbsp;<b> <a routerLink="/login" style="color: #334257; font-size: 15px;">Inicia sesión</a> &nbsp; <b>|</b>
         &nbsp;<a routerLink="/register" style="color: #334257; font-size: 15px;">Regístrate</a></b></p>
   </ng-template>
+  </div>
 </header>
 
 </html>
